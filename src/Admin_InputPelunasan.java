@@ -31,12 +31,62 @@ public class Admin_InputPelunasan extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        A_txTglBayar = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        A_txJumPinjam = new javax.swing.JTextField();
+        A_btnOK = new javax.swing.JButton();
+        A_btnCancel = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        A_txNama = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        A_txKet = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        A_cbTglPinjam = new javax.swing.JComboBox<>();
+        A_txKodeAnggota = new javax.swing.JTextField();
+        A_btnCari = new javax.swing.JButton();
+        A_btnReset = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        A_txTagihan = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        A_txJumBayar = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Input Pelunasan");
+        setResizable(false);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INPUT PELUNASAN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+
+        A_txTglBayar.setEditable(false);
+        A_txTglBayar.setText("dd/mm/yyyy");
+
+        jLabel2.setText("Tanggal Pembayaran");
+
+        jLabel5.setText("Jumlah Pinjam");
+
+        A_txJumPinjam.setEditable(false);
+        A_txJumPinjam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 A_txJumPinjamActionPerformed(evt);
             }
         });
+
+        A_btnOK.setText("OK");
+        A_btnOK.setEnabled(false);
+        A_btnOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A_btnOKActionPerformed(evt);
             }
         });
 
+        A_btnCancel.setText("Cancel");
+        A_btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A_btnCancelActionPerformed(evt);
             }
         });
 
@@ -88,6 +138,10 @@ public class Admin_InputPelunasan extends javax.swing.JFrame {
 
         jLabel8.setText("Jumlah Pembayaran");
 
+        A_txJumBayar.setEditable(false);
+        A_txJumBayar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A_txJumBayarActionPerformed(evt);
             }
         });
 
@@ -183,7 +237,7 @@ public class Admin_InputPelunasan extends javax.swing.JFrame {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/iNPUTpELUNASAN.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/iNPUTpELUNASAN.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -201,7 +255,7 @@ public class Admin_InputPelunasan extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );

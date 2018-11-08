@@ -1,6 +1,7 @@
 
 
 
+import Model.Pinjam;
 import static java.lang.Math.ceil;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -200,7 +201,7 @@ public class User_ReqPinjam extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/KoseruPinjam.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/KoseruPinjam.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
@@ -225,7 +226,7 @@ public class User_ReqPinjam extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(34, 34, 34)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
