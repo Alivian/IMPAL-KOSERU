@@ -1,4 +1,6 @@
 
+import Controller.ControllerLogin;
+import View.Login;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -19,7 +21,7 @@ public class RunProgram {
             UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
         } catch(ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e){
             System.out.println(e.getMessage());
-        }
-        new Login().setVisible(true);
+        }         
+            ControllerLogin controllerLogin = new Controller.ControllerLogin();   
         }   
 }
