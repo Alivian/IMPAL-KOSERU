@@ -21,6 +21,7 @@ import org.hsqldb.error.ErrorCode;
  * @author Malik
  */
 public class Admin_InputSimpanan extends javax.swing.JFrame {
+    SimpleDateFormat format = new SimpleDateFormat("dd MMMMM yyyy");
     /**
      * Creates new form Admin_InputSimpanan
      */
@@ -59,6 +60,11 @@ public class Admin_InputSimpanan extends javax.swing.JFrame {
 
         A_tglSimpan.setEditable(false);
         A_tglSimpan.setText("dd/mm/yyyy");
+        A_tglSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A_tglSimpanActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Tanggal Simpan");
 
@@ -230,6 +236,10 @@ public class Admin_InputSimpanan extends javax.swing.JFrame {
     private void A_btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnResetActionPerformed
 
     }//GEN-LAST:event_A_btnResetActionPerformed
+
+    private void A_tglSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_tglSimpanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A_tglSimpanActionPerformed
 
     /**
      * @param args the command line arguments

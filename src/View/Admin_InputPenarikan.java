@@ -96,6 +96,11 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
                 A_btnCancelMouseClicked(evt);
             }
         });
+        A_btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A_btnCancelActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Kode Anggota");
 
@@ -195,7 +200,7 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
                     .addComponent(A_btnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(A_btnReset)
                     .addComponent(A_btnCancel))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Input Penarikan.png"))); // NOI18N
@@ -206,21 +211,19 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabel4)
-                .addGap(73, 73, 73)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         pack();
@@ -246,6 +249,7 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
     }//GEN-LAST:event_A_txNamaActionPerformed
 
     private void A_btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnCariActionPerformed
+        
     }//GEN-LAST:event_A_btnCariActionPerformed
 
     private void A_btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnResetActionPerformed
@@ -255,6 +259,17 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
     private void A_txSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_txSaldoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_A_txSaldoActionPerformed
+
+    private void A_btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnCancelActionPerformed
+        // TODO add your handling code here:
+        A_btnOK.setEnabled(false);
+        A_txkdAnggota.setEditable(true);
+        A_txkdAnggota.setText("");
+        A_txNama.setText("");
+        A_txJumTarik.setText("");
+        A_txSaldo.setText("");
+        this.dispose();
+    }//GEN-LAST:event_A_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments
