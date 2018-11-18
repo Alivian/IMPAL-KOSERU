@@ -1,3 +1,5 @@
+package View;
+
 
 
 
@@ -272,83 +274,23 @@ public class Admin_InputPelunasan extends javax.swing.JFrame {
     }//GEN-LAST:event_A_txNamaActionPerformed
 
     private void A_btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnCariActionPerformed
-        if(dcm!=null)
-            dcm.removeAllElements();
-        String a = dp.cariKode_nama(A_txKodeAnggota.getText());
-        if(a!=""){
-            A_txKodeAnggota.setEditable(false);
-            A_txNama.setText(a);
-            dp.cariKode_cb(A_txKodeAnggota.getText(), dcm);
-            if (dcm.getElementAt(0) != null){
-                A_txKet.setText(dp.cariKode_ket(A_txKodeAnggota.getText()));
-                int row = A_cbTglPinjam.getSelectedIndex();
-                String tgl = dcm.getElementAt(row).toString();
-                A_txJumPinjam.setText(dp.cariKode_jum(A_txKodeAnggota.getText(), tgl)+"");
-                A_btnOK.setEnabled(true);
-            }else{
-                dcm.addElement("Tidak ada pinjaman");
-            }
-        }else{
-            JOptionPane.showMessageDialog(rootPane, "Kode anggota tidak ditemukan","GAGAL",JOptionPane.ERROR_MESSAGE);
-        }
+
     }//GEN-LAST:event_A_btnCariActionPerformed
 
     private void A_btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnCancelActionPerformed
-        if(A_cbTglPinjam!=null)
-            A_cbTglPinjam.removeAllItems();
-        A_txKodeAnggota.setText("");
-        A_txNama.setText("");
-        A_txKet.setText("");
-        A_txJumPinjam.setText("");
-        A_txKodeAnggota.setEditable(true);
-        A_btnOK.setEnabled(false);
-        this.dispose();
+
     }//GEN-LAST:event_A_btnCancelActionPerformed
 
     private void A_btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnOKActionPerformed
-        String a = A_txKodeAnggota.getText();
-        String b = dcm.getElementAt(A_cbTglPinjam.getSelectedIndex());
-        String c = A_txTglBayar.getText();
-        if(dp.updatePelunasan(a,b,c)!=0){
-            A_txKodeAnggota.setEditable(true);
-            A_btnOK.setEnabled(false);
-            dcm.removeElement(b);
-            if(A_cbTglPinjam!=null)
-                A_cbTglPinjam.removeAllItems();
-            A_txKodeAnggota.setText("");
-            A_txNama.setText("");
-            A_txKet.setText("");
-            A_txJumPinjam.setText("");
-            A_txKodeAnggota.setEditable(true);
-            A_btnOK.setEnabled(false);
-            JOptionPane.showMessageDialog(rootPane, "Pelunasan berhasil diinput","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
-        }else{
-            JOptionPane.showMessageDialog(rootPane, "Pelunasan gagal diinput","GAGAL",JOptionPane.ERROR_MESSAGE);
-        }
+
     }//GEN-LAST:event_A_btnOKActionPerformed
 
     private void A_cbTglPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_cbTglPinjamActionPerformed
-        try{
-            if(!A_cbTglPinjam.equals("Tidak ada pinjaman")){
-                int row = A_cbTglPinjam.getSelectedIndex();
-                String tgl = dcm.getElementAt(row).toString();
-                A_txJumPinjam.setText(dp.cariKode_jum(A_txKodeAnggota.getText(), tgl)+"");
-            }
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+
     }//GEN-LAST:event_A_cbTglPinjamActionPerformed
 
     private void A_btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnResetActionPerformed
-        if(A_cbTglPinjam!=null)
-            A_cbTglPinjam.removeAllItems();
-        A_txKodeAnggota.setEditable(true);
-        A_txKodeAnggota.setText("");
-        A_txNama.setText("");
-        A_txKet.setText("");
-        A_txJumPinjam.setText("");
-        A_txKodeAnggota.setEditable(true);
-        A_btnOK.setEnabled(false);
+
     }//GEN-LAST:event_A_btnResetActionPerformed
 
     private void A_txTagihanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_txTagihanActionPerformed

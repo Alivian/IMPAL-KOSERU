@@ -32,17 +32,16 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
                 if(user.equals(rs.getString("username"))&&
                    pass.equals(rs.getString("password"))&&
                         rs.getString("status").equals("ang")){
-                    rs.close(); break;
+                    value=1;
+                    rs.close(); 
+                    break;
+                }else if(user.equals(rs.getString("username"))&&
+                   pass.equals(rs.getString("password"))&&
+                        rs.getString("status").equals("peg")){
+                    value=2;
+                    rs.close(); 
+                    break;
                 }
-            }
-            if(rs.isClosed()){
-               value=1;
-//            } else if(user.equals(adm.getUsername()) && pass.equals(adm.getPassword())){
-//                value= 2;
-//            }else if(user.equals(pml.getUsername()) &&pass.equals(pml.getPassword())){
-//                value= 3;
-            }else{
-                value=0;
             }
         } catch(Exception e){
             System.out.println(e.getMessage());

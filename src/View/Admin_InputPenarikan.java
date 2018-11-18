@@ -1,3 +1,5 @@
+package View;
+
 
 
 
@@ -18,12 +20,12 @@ import org.hsqldb.error.ErrorCode;
  * @author Malik
  */
 public class Admin_InputPenarikan extends javax.swing.JFrame {
-    private DatabasePenarikan dp = new DatabasePenarikan();
     SimpleDateFormat format = new SimpleDateFormat("dd MMMMM yyyy");
     /**
      * Creates new form Admin_InputPenarikan
      */
     public Admin_InputPenarikan() {
+        initComponents();
     }
 
     /**
@@ -236,13 +238,7 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
     }//GEN-LAST:event_A_btnOKActionPerformed
 
     private void A_btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A_btnCancelMouseClicked
-        A_btnOK.setEnabled(false);
-        A_txkdAnggota.setEditable(true);
-        A_txkdAnggota.setText("");
-        A_txNama.setText("");
-        A_txJumTarik.setText("");
-        A_txSaldo.setText("");
-        this.dispose();
+    
     }//GEN-LAST:event_A_btnCancelMouseClicked
 
     private void A_txNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_txNamaActionPerformed
@@ -253,12 +249,7 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
     }//GEN-LAST:event_A_btnCariActionPerformed
 
     private void A_btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnResetActionPerformed
-        A_txkdAnggota.setEditable(true);
-        A_btnOK.setEnabled(false);
-        A_txkdAnggota.setText("");
-        A_txNama.setText("");
-        A_txJumTarik.setText("");
-        A_txSaldo.setText("");
+
     }//GEN-LAST:event_A_btnResetActionPerformed
 
     private void A_txSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_txSaldoActionPerformed

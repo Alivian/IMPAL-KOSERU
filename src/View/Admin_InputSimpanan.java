@@ -1,3 +1,5 @@
+package View;
+
 
 
 
@@ -211,37 +213,10 @@ public class Admin_InputSimpanan extends javax.swing.JFrame {
     }//GEN-LAST:event_A_txkdAnggotaActionPerformed
 
     private void A_btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnOKActionPerformed
-        try{
-            String a = A_tglSimpan.getText();
-            String b = A_txkdAnggota.getText();
-            int c = Integer.valueOf(A_txJumSimpan.getText());
 
-            if(b!=""&&c!=0){
-                if(ds.simpanUang(b, new Simpan(a, c))!=0){
-                    JOptionPane.showMessageDialog(rootPane, "Simpanan berhasil diinput","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
-                    A_txkdAnggota.setEditable(true);
-                    A_btnOK.setEnabled(false);
-                    A_txkdAnggota.setText("");
-                    A_txNama.setText("");
-                    A_txJumSimpan.setText("0");
-                } else {
-                    JOptionPane.showMessageDialog(rootPane, "Simpanan gagal diinput","GAGAL",JOptionPane.ERROR_MESSAGE);
-            }
-        }else{
-            JOptionPane.showMessageDialog(rootPane, "Data tidak boleh kosong","GAGAL",JOptionPane.ERROR_MESSAGE);
-        }
-        }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(rootPane, "Jumlah tidak bisa kosong!","GAGAL",JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_A_btnOKActionPerformed
 
     private void A_btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A_btnCancelMouseClicked
-        A_btnOK.setEnabled(false);
-        A_txkdAnggota.setEditable(true);
-        A_txkdAnggota.setText("");
-        A_txNama.setText("");
-        A_txJumSimpan.setText("0");
-        this.dispose();
     }//GEN-LAST:event_A_btnCancelMouseClicked
 
     private void A_txNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_txNamaActionPerformed
@@ -249,22 +224,11 @@ public class Admin_InputSimpanan extends javax.swing.JFrame {
     }//GEN-LAST:event_A_txNamaActionPerformed
 
     private void A_btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnCariActionPerformed
-        String a = ds.cekAnggota(A_txkdAnggota.getText());
-        if(a!=""){
-            A_txkdAnggota.setEditable(false);
-            A_txNama.setText(a);
-            A_btnOK.setEnabled(true);
-        }else{
-            JOptionPane.showMessageDialog(rootPane, "Kode anggota tidak ditemukan","GAGAL",JOptionPane.ERROR_MESSAGE);
-        }
+
     }//GEN-LAST:event_A_btnCariActionPerformed
 
     private void A_btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnResetActionPerformed
-        A_txkdAnggota.setEditable(true);
-        A_btnOK.setEnabled(false);
-        A_txkdAnggota.setText("");
-        A_txNama.setText("");
-        A_txJumSimpan.setText("0");
+
     }//GEN-LAST:event_A_btnResetActionPerformed
 
     /**
