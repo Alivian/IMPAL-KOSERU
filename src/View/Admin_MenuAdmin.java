@@ -1,3 +1,5 @@
+package View;
+
 
 import javax.swing.table.DefaultTableModel;
 
@@ -12,28 +14,10 @@ import javax.swing.table.DefaultTableModel;
  * @author Malik
  */
 public class Admin_MenuAdmin extends javax.swing.JFrame {
-    DatabasePinjaman dp = new DatabasePinjaman();
-    private Admin_LihatPinjaman alp;
-    private Admin_LihatSimpanan als;
-    private Admin_LihatPenarikan alt;
-    private Admin_InputSimpanan ais;
-    public Admin_InputPelunasan aip;
-    private Admin_InputPenarikan ait;
-    private DefaultTableModel mdl;
     /**
      * Creates new form MenuAdmin
      */
     public Admin_MenuAdmin() {
-        initComponents();
-        this.setLocationRelativeTo(null);
-        alp = new Admin_LihatPinjaman();
-        als = new Admin_LihatSimpanan();
-        alt = new Admin_LihatPenarikan();
-        ais = new Admin_InputSimpanan();
-        aip = new Admin_InputPelunasan();
-        ait = new Admin_InputPenarikan();
-        mdl = (DefaultTableModel) A_tblReqPinjaman.getModel();
-        dp.getreqpinjaman(mdl);
     }
 
     /**
@@ -275,57 +259,26 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void A_btnTerimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnTerimaActionPerformed
-        try{
-            int row = A_tblReqPinjaman.convertRowIndexToModel(A_tblReqPinjaman.getSelectedRow());
-            String kode_ang = mdl.getValueAt(row, 1).toString();
-            String tgl_pinjam = mdl.getValueAt(row, 3).toString();
-            if(dp.updatePinjamanDiterima(kode_ang, tgl_pinjam)!=0){
-                mdl.removeRow(row);
-            }
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
     }//GEN-LAST:event_A_btnTerimaActionPerformed
 
     private void A_btnTerimaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A_btnTerimaMouseClicked
-        try{
-            int row = A_tblReqPinjaman.convertRowIndexToModel(A_tblReqPinjaman.getSelectedRow());
-            String kode_ang = mdl.getValueAt(row, 0).toString();
-            String tgl_pinjam = mdl.getValueAt(row, 2).toString();
-            if(dp.updatePinjamanDiterima(kode_ang, tgl_pinjam)!=0){
-                mdl.removeRow(row);
-            }else{
-                System.out.println("gagal");
-            }
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+
     }//GEN-LAST:event_A_btnTerimaMouseClicked
 
     private void A_btnLihatPinjamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A_btnLihatPinjamMouseClicked
-        if(alp.isVisible()!=true){
-            alp.mdl.setRowCount(0);
-            alp.dp.getallpinjaman(alp.mdl);
-            alp.setVisible(true);
-        }
+
     }//GEN-LAST:event_A_btnLihatPinjamMouseClicked
 
     private void A_btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A_btnLogoutMouseClicked
-       new Login().setVisible(true);
-       this.dispose();
+
     }//GEN-LAST:event_A_btnLogoutMouseClicked
 
     private void A_btnLihatSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnLihatSimpanActionPerformed
-        if(als.isVisible()!=true){
-            als.mdl.setRowCount(0);
-            als.ds.getAllSimpanan(als.mdl);
-            als.setVisible(true);
-        }
+    
     }//GEN-LAST:event_A_btnLihatSimpanActionPerformed
 
     private void A_btnInputSimpanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A_btnInputSimpanMouseClicked
-        if(ais.isVisible()!=true)
-            ais.setVisible(true);
+    
     }//GEN-LAST:event_A_btnInputSimpanMouseClicked
 
     private void A_btnLihatPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnLihatPinjamActionPerformed
@@ -333,23 +286,11 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_A_btnLihatPinjamActionPerformed
 
     private void A_btnTolakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A_btnTolakMouseClicked
-        try{
-            int row = A_tblReqPinjaman.convertRowIndexToModel(A_tblReqPinjaman.getSelectedRow());
-            String kode_ang = mdl.getValueAt(row, 0).toString();
-            String tgl_pinjam = mdl.getValueAt(row, 2).toString();
-            if(dp.updatePinjamanDitolak(kode_ang, tgl_pinjam)!=0){
-                mdl.removeRow(row);
-            }else{
-                System.out.println("gagal");
-            }
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+    
     }//GEN-LAST:event_A_btnTolakMouseClicked
 
     private void A_btnInputBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnInputBayarActionPerformed
-        if(aip.isVisible()!=true)
-            aip.setVisible(true);
+    
     }//GEN-LAST:event_A_btnInputBayarActionPerformed
 
     private void A_btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnLogoutActionPerformed
@@ -357,8 +298,7 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_A_btnLogoutActionPerformed
 
     private void A_btnInputPenarikanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnInputPenarikanActionPerformed
-        if(ait.isVisible()!=true)
-            ait.setVisible(true);
+    
     }//GEN-LAST:event_A_btnInputPenarikanActionPerformed
 
     private void A_btnLihatPenarikanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A_btnLihatPenarikanMouseClicked
@@ -366,11 +306,7 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_A_btnLihatPenarikanMouseClicked
 
     private void A_btnLihatPenarikanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnLihatPenarikanActionPerformed
-        if(alt.isVisible()!=true){
-            alt.mdl.setRowCount(0);
-            alt.dp.getAllPenarikan(alt.mdl);
-            alt.setVisible(true);
-        }
+    
     }//GEN-LAST:event_A_btnLihatPenarikanActionPerformed
 
     /**
