@@ -1,3 +1,5 @@
+package View;
+
 
 
 
@@ -23,21 +25,13 @@ import javax.swing.table.DefaultTableModel;
  * @author Malik
  */
 public class User_ReqPinjam extends javax.swing.JFrame {
-    private String kode;
-    private DatabasePinjaman ppd = new DatabasePinjaman();
-    SimpleDateFormat format = new SimpleDateFormat("dd MMMMM yyyy");
-    DefaultTableModel mdl;
-    private DefaultComboBoxModel<String> dcm;
+
     /**
      * Creates new form ReqPinjam
      */
-    public User_ReqPinjam(String kode, DefaultTableModel mdl) {
+    public User_ReqPinjam() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        U_txDatePinjam.setText(format.format(new Date())+"");
-        dcm = (DefaultComboBoxModel<String>) BanyakCicilan.getModel();
-        this.kode = kode;
-        this.mdl = mdl;
+
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -245,31 +239,15 @@ public class User_ReqPinjam extends javax.swing.JFrame {
     }//GEN-LAST:event_U_txDatePinjamActionPerformed
 
     private void U_ReqbtnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_U_ReqbtnOKActionPerformed
-       String a = U_txDatePinjam.getText();
-       String b = U_txKetPinjam.getText();
-       int c = Integer.valueOf(U_txJumPinjam.getText());
-       if(c>=100000 && c<=10000000){
-        if(ppd.pinjamUang(kode, new Pinjam(a, b, c, "Belum diproses","-",null))!=0){
-            JOptionPane.showMessageDialog(rootPane, "Peminjaman sedang diproses","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
-            dispose();
-        } else {
-             JOptionPane.showMessageDialog(rootPane, "Peminjaman gagal diinput","GAGAL",JOptionPane.ERROR_MESSAGE);
-        }
-       }else{
-           JOptionPane.showMessageDialog(rootPane, "Jumlah pinjaman harus kurang dari 10.000.000 dan lebih dari 100.000","GAGAL",JOptionPane.ERROR_MESSAGE);
-       }
-        mdl.addRow(new Object[]{a,b,c,"Belum diproses","-"});
-        U_txJumPinjam.setText("");
-        U_txKetPinjam.setText("");
+
     }//GEN-LAST:event_U_ReqbtnOKActionPerformed
 
     private void U_ReqbtnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_U_ReqbtnResetActionPerformed
-        U_txJumPinjam.setText("");
-        U_txKetPinjam.setText("");
+
     }//GEN-LAST:event_U_ReqbtnResetActionPerformed
 
     private void U_ReqbtnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_U_ReqbtnCancelActionPerformed
-        this.dispose();
+
     }//GEN-LAST:event_U_ReqbtnCancelActionPerformed
 
     private void U_txTagihanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_U_txTagihanActionPerformed
@@ -277,16 +255,7 @@ public class User_ReqPinjam extends javax.swing.JFrame {
     }//GEN-LAST:event_U_txTagihanActionPerformed
 
     private void BanyakCicilanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BanyakCicilanActionPerformed
-        try{
-            if(!BanyakCicilan.equals("-- Pilih Banyaknya Cicilan --")){
-                int row = BanyakCicilan.getSelectedIndex();
-                int count_cicil = Integer.valueOf(dcm.getElementAt(row).toString());
-                double jum_tagihan = ceil((Double.valueOf(U_txJumPinjam.getText()))/count_cicil);
-                U_txTagihan.setText(String.valueOf(jum_tagihan));
-            }
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+
     }//GEN-LAST:event_BanyakCicilanActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

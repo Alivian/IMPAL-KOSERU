@@ -21,14 +21,11 @@ public class Mysql_DatabaseConnection {
      String url = "jdbc:mysql://us-cdbr-gcp-east-01.cleardb.net/gcp_eae35478d266dd67ae8b";
      String user = "b517774f39b450"; String pass = "ff8c88ca";
          try {
-             //Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-             //Class.forName("net.mysql.jdbc.Driver");
              connect = DriverManager.getConnection(url, user, pass);
              System.out.println("Database terhubung");
          } catch (Exception ex){
              System.out.println(ex.getMessage());
              System.out.println("gagal");
          }
-         System.out.println("haha");
     }
 }

@@ -24,17 +24,12 @@ import javax.swing.JOptionPane;
  * @author ASUS
  */
 public class Login extends javax.swing.JFrame {
-    int go;
-//    User_Register regis= new User_Register();
-    Admin adm;
-    DatabaseUser akun= new DatabaseUser();
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
-        adm = new Admin();
-        
+         
     }
     
 
