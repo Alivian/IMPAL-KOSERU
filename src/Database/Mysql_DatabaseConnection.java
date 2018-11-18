@@ -3,6 +3,10 @@ package Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,17 +19,35 @@ import java.sql.DriverManager;
  * @author ASUS
  */
 public class Mysql_DatabaseConnection {
-    public static Connection connect = null;
-    public Mysql_DatabaseConnection(){
-     //String url = "jdbc:ucanaccess://D://Materi Kuliah Tel-U//Smt 5//IMPAL//Koperasi/Database.accdb";
-     String url = "jdbc:mysql://us-cdbr-gcp-east-01.cleardb.net/gcp_eae35478d266dd67ae8b";
-     String user = "b517774f39b450"; String pass = "ff8c88ca";
-         try {
-             connect = DriverManager.getConnection(url, user, pass);
+    protected static Connection con = null;
+    protected static Statement stmt = null;
+    private String url;
+    private String user;
+    private String pass;
+
+    public Mysql_DatabaseConnection() {
+        this.url = "jdbc:mysql://us-cdbr-gcp-east-01.cleardb.net/gcp_eae35478d266dd67ae8b";
+        this.user = "b517774f39b450";
+        this.pass = "ff8c88ca";
+    }
+    
+    public void connect(){
+        try {
+             con = DriverManager.getConnection(url, user, pass);
+             stmt = con.createStatement();
              System.out.println("Database terhubung");
          } catch (Exception ex){
              System.out.println(ex.getMessage());
-             System.out.println("gagal");
+             System.out.println("Database gagal");
          }
+    }
+    
+    public void disconnect(){
+        try {
+            con.close();
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Mysql_DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

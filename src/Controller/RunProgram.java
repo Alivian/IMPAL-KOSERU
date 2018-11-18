@@ -24,6 +24,7 @@ public class RunProgram {
         } catch(ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e){
             System.out.println(e.getMessage());
         }         
-            ControllerLogin controllerLogin = new Controller.ControllerLogin();   
+            new Controller.ControllerLogin();  
+            new ControllerPenarikan();
         }   
 }

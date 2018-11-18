@@ -1,6 +1,6 @@
 package Database;
 
-import static Database.Mysql_DatabaseConnection.connect;
+import static Database.Mysql_DatabaseConnection.*;
 import Model.Admin;
 import Model.Person;
 import Model.Pinjam;
@@ -20,14 +20,16 @@ import java.util.ArrayList;
  * @author ASUS
  */
 public class DatabaseUser extends Mysql_DatabaseConnection{
+    ResultSet rs;
+
 //    ArrayList<Pinjam> ar = new ArrayList();
 //    ArrayList<Simpan> sp = new ArrayList();
     
     public int login(String user, String pass){
         int value=0;
         try {
-            PreparedStatement st =  connect.prepareStatement("select * from anggota");
-            ResultSet rs = st.executeQuery();
+            String query = "select * from anggota";
+            rs = stmt.executeQuery(query);
             while(rs.next()){
                 if(user.equals(rs.getString("username"))&&
                    pass.equals(rs.getString("password"))&&
