@@ -1,10 +1,7 @@
 package Database;
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,6 +30,9 @@ public class Mysql_DatabaseConnection {
     
     public void connect(){
         try {
+             this.url = "jdbc:mysql://us-cdbr-gcp-east-01.cleardb.net/gcp_eae35478d266dd67ae8b";
+        this.user = "b517774f39b450";
+        this.pass = "ff8c88ca";
              con = DriverManager.getConnection(url, user, pass);
              stmt = con.createStatement();
              System.out.println("Database terhubung");
@@ -49,5 +49,16 @@ public class Mysql_DatabaseConnection {
         } catch (SQLException ex) {
             Logger.getLogger(Mysql_DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public boolean manipulate(String query){
+        boolean cek = false;
+        try {
+            int rows = stmt.executeUpdate(query);
+            if (rows > 0) cek = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Mysql_DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cek;
     }
 }

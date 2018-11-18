@@ -29,7 +29,6 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-         
     }
     
 
@@ -173,9 +172,12 @@ public class Login extends javax.swing.JFrame {
     public JLabel getlabelDaftar() {
         return L_labelDaftar;
     }
-    public void addListener(ActionListener e){
+    
+    public void addEListenerMLogin(MouseListener e){
+        L_labelDaftar.addMouseListener((MouseListener) e);
+    }
+    public void addListenerMLogin(ActionListener e){
         L_btnLogin.addActionListener(e);
         L_btnExit.addActionListener(e);
-        L_labelDaftar.addMouseListener((MouseListener) e);
     }
 }

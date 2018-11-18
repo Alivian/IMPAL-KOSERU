@@ -3,10 +3,15 @@ package View;
 
 
 
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,7 +24,7 @@ import javax.swing.JOptionPane;
  * @author ASUS
  */
 public class User_Register extends javax.swing.JFrame {
-     SimpleDateFormat format = new SimpleDateFormat("dd MMMMM yyyy");
+     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     /**
      * Creates new form NewJFrame
      */
@@ -28,11 +33,18 @@ public class User_Register extends javax.swing.JFrame {
         R_Kalen.setDateFormat(format);
     }
     
-    public String getID(){
+    public String getUser(){
         return R_txUser_id.getText();
     }
     public String getPass(){
         return R_txPass1.getText();
+    }
+    
+    public JPasswordField getPass1(){
+        return R_txPass2;
+    }
+    public JPasswordField getPass2(){
+        return R_txPass1;
     }
     public String getId(){
         return R_txKode_ang.getText();
@@ -51,6 +63,24 @@ public class User_Register extends javax.swing.JFrame {
     }
     public String getKalender(){
         return R_Kalen.getText();
+    }
+    public void setKodeAng(String kd){
+       R_txKode_ang.setText(kd);
+    }
+    public String getTlp() {
+        return R_txTlp.getText();
+    }
+
+    public JTextField getR_txKode_ang() {
+        return R_txKode_ang;
+    }
+
+    public JButton getBtnRegis(){
+        return R_btnRegis;
+    }
+    
+    public void addListener(ActionListener e){
+        R_btnRegis.addActionListener(e);
     }
     
     /**
@@ -74,7 +104,9 @@ public class User_Register extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         R_txEmail = new javax.swing.JTextField();
         R_Kalen = new datechooser.beans.DateChooserCombo();
-        R_btnRegis = new javax.swing.JToggleButton();
+        R_btnRegis = new javax.swing.JButton();
+        R_txTlp = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         R_txUser_id = new javax.swing.JTextField();
@@ -99,15 +131,11 @@ public class User_Register extends javax.swing.JFrame {
 
         jLabel5.setText("Profesi");
 
-        jLabel6.setText("Email");
+        jLabel6.setText("No Telephone/Hp");
 
-        R_btnRegis.setText("KIRIM");
-        R_btnRegis.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        R_btnRegis.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                R_btnRegisActionPerformed(evt);
-            }
-        });
+        R_btnRegis.setText("REGISTRASI");
+
+        jLabel9.setText("Email");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -118,29 +146,41 @@ public class User_Register extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1))
-                        .addGap(74, 74, 74)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(R_txKode_ang)
-                            .addComponent(R_txNama)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
+                                        .addComponent(R_Kalen, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(23, 23, 23)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(R_txTlp)
+                                            .addComponent(R_txProf, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel1))
+                                .addGap(74, 74, 74)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(R_txTempat, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(R_txNama, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                                        .addComponent(R_txKode_ang)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(14, 14, 14))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(124, 124, 124)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(R_txProf)
-                            .addComponent(R_txEmail)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(R_btnRegis, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(R_btnRegis)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(R_txTempat, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(R_Kalen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                            .addComponent(R_txEmail))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,17 +204,21 @@ public class User_Register extends javax.swing.JFrame {
                     .addComponent(R_txProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(R_txEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(R_txTlp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(R_txEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(R_btnRegis, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                .addGap(4, 4, 4))
+                .addComponent(R_btnRegis)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel2.setText("User ID");
+        jLabel2.setText("Username");
 
         jLabel7.setText("Password");
 
@@ -231,7 +275,7 @@ public class User_Register extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(85, 85, 85)
@@ -246,17 +290,13 @@ public class User_Register extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void R_btnRegisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R_btnRegisActionPerformed
-
-    }//GEN-LAST:event_R_btnRegisActionPerformed
 
     private void R_txPass1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R_txPass1ActionPerformed
         // TODO add your handling code here:
@@ -300,7 +340,7 @@ public class User_Register extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private datechooser.beans.DateChooserCombo R_Kalen;
-    private javax.swing.JToggleButton R_btnRegis;
+    private javax.swing.JButton R_btnRegis;
     private javax.swing.JTextField R_txEmail;
     private javax.swing.JTextField R_txKode_ang;
     private javax.swing.JTextField R_txNama;
@@ -308,6 +348,7 @@ public class User_Register extends javax.swing.JFrame {
     private javax.swing.JPasswordField R_txPass2;
     private javax.swing.JTextField R_txProf;
     private javax.swing.JTextField R_txTempat;
+    private javax.swing.JTextField R_txTlp;
     private javax.swing.JTextField R_txUser_id;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -318,6 +359,7 @@ public class User_Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
