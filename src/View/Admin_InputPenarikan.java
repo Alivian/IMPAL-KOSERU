@@ -3,9 +3,12 @@ package View;
 
 
 
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import org.hsqldb.error.ErrorCode;
 
@@ -38,19 +41,19 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        A_tglTarik = new javax.swing.JTextField();
+        txtglTarik = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        A_txJumTarik = new javax.swing.JTextField();
-        A_btnOK = new javax.swing.JButton();
-        A_btnReset = new javax.swing.JButton();
-        A_btnCancel = new javax.swing.JButton();
+        txJumTarik = new javax.swing.JTextField();
+        btnOK = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        A_txkdAnggota = new javax.swing.JTextField();
+        txkdAnggota = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        A_txNama = new javax.swing.JTextField();
-        A_btnCari = new javax.swing.JButton();
-        A_txSaldo = new javax.swing.JTextField();
+        txNama = new javax.swing.JTextField();
+        btnCari = new javax.swing.JButton();
+        txSaldo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -61,75 +64,76 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INPUT PENARIKAN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
         jPanel1.setFocusable(false);
 
-        A_tglTarik.setEditable(false);
-        A_tglTarik.setText("dd/mm/yyyy");
+        txtglTarik.setEditable(false);
+        txtglTarik.setText("dd/mm/yyyy");
 
         jLabel2.setText("Tanggal Simpan");
 
         jLabel5.setText("Jumlah Penarikan");
 
-        A_txJumTarik.setText("0");
-        A_txJumTarik.addActionListener(new java.awt.event.ActionListener() {
+        txJumTarik.setText("0");
+        txJumTarik.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_txJumTarikActionPerformed(evt);
+                txJumTarikActionPerformed(evt);
             }
         });
 
-        A_btnOK.setText("OK");
-        A_btnOK.setEnabled(false);
-        A_btnOK.addActionListener(new java.awt.event.ActionListener() {
+        btnOK.setText("OK");
+        btnOK.setEnabled(false);
+        btnOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnOKActionPerformed(evt);
+                btnOKActionPerformed(evt);
             }
         });
 
-        A_btnReset.setText("Reset");
-        A_btnReset.addActionListener(new java.awt.event.ActionListener() {
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnResetActionPerformed(evt);
+                btnResetActionPerformed(evt);
             }
         });
 
-        A_btnCancel.setText("Cancel");
-        A_btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCancel.setText("Cancel");
+        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                A_btnCancelMouseClicked(evt);
+                btnCancelMouseClicked(evt);
             }
         });
-        A_btnCancel.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnCancelActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Kode Anggota");
 
-        A_txkdAnggota.addActionListener(new java.awt.event.ActionListener() {
+        txkdAnggota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_txkdAnggotaActionPerformed(evt);
+                txkdAnggotaActionPerformed(evt);
             }
         });
 
         jLabel1.setText("Nama");
 
-        A_txNama.setEditable(false);
-        A_txNama.addActionListener(new java.awt.event.ActionListener() {
+        txNama.setEditable(false);
+        txNama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_txNamaActionPerformed(evt);
+                txNamaActionPerformed(evt);
             }
         });
 
-        A_btnCari.setText("Cari");
-        A_btnCari.addActionListener(new java.awt.event.ActionListener() {
+        btnCari.setText("Cari");
+        btnCari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnCariActionPerformed(evt);
+                btnCariActionPerformed(evt);
             }
         });
 
-        A_txSaldo.setEditable(false);
-        A_txSaldo.addActionListener(new java.awt.event.ActionListener() {
+        txSaldo.setEditable(false);
+        txSaldo.setText("0");
+        txSaldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_txSaldoActionPerformed(evt);
+                txSaldoActionPerformed(evt);
             }
         });
 
@@ -144,11 +148,11 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(A_btnOK)
+                        .addComponent(btnOK)
                         .addGap(18, 18, 18)
-                        .addComponent(A_btnReset)
+                        .addComponent(btnReset)
                         .addGap(18, 18, 18)
-                        .addComponent(A_btnCancel))
+                        .addComponent(btnCancel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -157,18 +161,18 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(A_txSaldo)
-                            .addComponent(A_txNama)
+                            .addComponent(txSaldo)
+                            .addComponent(txNama)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(A_txkdAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                .addComponent(txkdAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                                 .addGap(15, 15, 15)
-                                .addComponent(A_btnCari))
-                            .addComponent(A_tglTarik))
+                                .addComponent(btnCari))
+                            .addComponent(txtglTarik))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(32, 32, 32)
-                        .addComponent(A_txJumTarik)))
+                        .addComponent(txJumTarik)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -177,29 +181,29 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(A_tglTarik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtglTarik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(A_txkdAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(A_btnCari))
+                    .addComponent(txkdAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCari))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(A_txNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(A_txSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(A_txJumTarik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txJumTarik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(A_btnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(A_btnReset)
-                    .addComponent(A_btnCancel))
+                    .addComponent(btnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReset)
+                    .addComponent(btnCancel))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
 
@@ -229,61 +233,56 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void A_txJumTarikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_txJumTarikActionPerformed
+    private void txJumTarikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txJumTarikActionPerformed
         
-    }//GEN-LAST:event_A_txJumTarikActionPerformed
+    }//GEN-LAST:event_txJumTarikActionPerformed
 
-    private void A_txkdAnggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_txkdAnggotaActionPerformed
+    private void txkdAnggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txkdAnggotaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_A_txkdAnggotaActionPerformed
+    }//GEN-LAST:event_txkdAnggotaActionPerformed
 
-    private void A_btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnOKActionPerformed
-    }//GEN-LAST:event_A_btnOKActionPerformed
+    private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
+    }//GEN-LAST:event_btnOKActionPerformed
 
-    private void A_btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A_btnCancelMouseClicked
+    private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
     
-    }//GEN-LAST:event_A_btnCancelMouseClicked
+    }//GEN-LAST:event_btnCancelMouseClicked
 
-    private void A_txNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_txNamaActionPerformed
+    private void txNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txNamaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_A_txNamaActionPerformed
+    }//GEN-LAST:event_txNamaActionPerformed
 
-    private void A_btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnCariActionPerformed
+    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
         
-    }//GEN-LAST:event_A_btnCariActionPerformed
+    }//GEN-LAST:event_btnCariActionPerformed
 
-    private void A_btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnResetActionPerformed
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
 
-    }//GEN-LAST:event_A_btnResetActionPerformed
+    }//GEN-LAST:event_btnResetActionPerformed
 
-    private void A_txSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_txSaldoActionPerformed
+    private void txSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txSaldoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_A_txSaldoActionPerformed
+    }//GEN-LAST:event_txSaldoActionPerformed
 
-    private void A_btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnCancelActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-        A_btnOK.setEnabled(false);
-        A_txkdAnggota.setEditable(true);
-        A_txkdAnggota.setText("");
-        A_txNama.setText("");
-        A_txJumTarik.setText("");
-        A_txSaldo.setText("");
+        btnOK.setEnabled(false);
+        txkdAnggota.setEditable(true);
+        txkdAnggota.setText("");
+        txNama.setText("");
+        txJumTarik.setText("");
+        txSaldo.setText("");
         this.dispose();
-    }//GEN-LAST:event_A_btnCancelActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton A_btnCancel;
-    private javax.swing.JButton A_btnCari;
-    private javax.swing.JButton A_btnOK;
-    private javax.swing.JButton A_btnReset;
-    private javax.swing.JTextField A_tglTarik;
-    private javax.swing.JTextField A_txJumTarik;
-    private javax.swing.JTextField A_txNama;
-    private javax.swing.JTextField A_txSaldo;
-    private javax.swing.JTextField A_txkdAnggota;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnCari;
+    private javax.swing.JButton btnOK;
+    private javax.swing.JButton btnReset;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -291,5 +290,89 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txJumTarik;
+    private javax.swing.JTextField txNama;
+    private javax.swing.JTextField txSaldo;
+    private javax.swing.JTextField txkdAnggota;
+    private javax.swing.JTextField txtglTarik;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnCancel() {
+        return btnCancel;
+    }
+
+    public JButton getBtnCari() {
+        return btnCari;
+    }
+
+    public JButton getBtnOK() {
+        return btnOK;
+    }
+
+    public JButton getBtnReset() {
+        return btnReset;
+    }
+
+    public String getTxtglTarik() {
+        return txtglTarik.getText();
+    }
+
+    public String getTxJumTarik() {
+        return txJumTarik.getText();
+    }
+
+    public String getTxNama() {
+        return txNama.getText();
+    }
+
+    public String getTxSaldo() {
+        return txSaldo.getText();
+    }
+
+    public String getTxkdAnggota() {
+        return txkdAnggota.getText();
+    }
+
+    public void setFormat(SimpleDateFormat format) {
+        txtglTarik.setText(format.format(new Date())+"");
+    }
+
+    public void setBtnCari(JButton A_btnCari) {
+        this.btnCari = A_btnCari;
+    }
+
+    public void setBtnOK(boolean cek) {
+        btnOK.setEnabled(cek);
+    }
+
+    public void setBtnReset(JButton A_btnReset) {
+        this.btnReset = A_btnReset;
+    }
+
+    public void setTxTglTarik(String tglTarik) {
+        txtglTarik.setText(tglTarik);
+    }
+
+    public void setTxJumTarik(int jumTarik) {
+        txJumTarik.setText(jumTarik+"");
+    }
+
+    public void setTxNama(String nama) {
+        txNama.setText(nama);
+    }
+
+    public void setTxSaldo(int saldo) {
+        txSaldo.setText(saldo+"");
+    }
+
+    public void setTxkdAnggota(String kode_ang) {
+        txkdAnggota.setText(kode_ang);
+    }
+    
+    public void addActionListener(ActionListener x){
+        btnCari.addActionListener(x);
+        btnCancel.addActionListener(x);
+        btnOK.addActionListener(x);
+        btnReset.addActionListener(x);
+    }
 }

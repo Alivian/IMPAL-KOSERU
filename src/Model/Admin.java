@@ -18,7 +18,8 @@ import java.util.*;
  */
 public class Admin extends User {
 
-    public Admin() {
+    public Admin(String username, String pass) {
+        super(username, pass);
     }
     
     public void applySimpan(Person app, int uang){
@@ -28,6 +29,16 @@ public class Admin extends User {
     }
 
     public void setApplysimpan(Simpan applysimpan) {
+    }
+
+    @Override
+    String getUsername() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    String getPassword() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

@@ -35,9 +35,6 @@ public class ControllerLogin {
     }
 
     class LoginEListener implements MouseListener {
-
-
-
         @Override
         public void mouseClicked(MouseEvent e) {
             Object x = e.getSource();

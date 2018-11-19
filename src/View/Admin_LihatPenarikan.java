@@ -3,6 +3,7 @@ package View;
 
 
 
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -37,7 +38,7 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        A_tbLihatPenarikan = new javax.swing.JTable();
+        tbPenarikan = new javax.swing.JTable();
         A_btnSelesai = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -47,23 +48,23 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "DAFTAR RIWAYAT PENARIKAN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        A_tbLihatPenarikan.setModel(new javax.swing.table.DefaultTableModel(
+        tbPenarikan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID Anggota", "Nama", "Tanggal Simpan", "Jumlah Simpan"
+                "ID Anggota", "Nama", "Tanggal Penarikan", "Jumlah Penarikan"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(A_tbLihatPenarikan);
+        jScrollPane1.setViewportView(tbPenarikan);
 
         A_btnSelesai.setText("Selesai");
         A_btnSelesai.addActionListener(new java.awt.event.ActionListener() {
@@ -127,17 +128,17 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
     private void A_btnSelesaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnSelesaiActionPerformed
         this.dispose();
     }//GEN-LAST:event_A_btnSelesaiActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton A_btnSelesai;
-    private javax.swing.JTable A_tbLihatPenarikan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tbPenarikan;
     // End of variables declaration//GEN-END:variables
+
+    public void setTbPenarikan(DefaultTableModel table) {
+        tbPenarikan.setModel(table);
+    }
+
+    
 }

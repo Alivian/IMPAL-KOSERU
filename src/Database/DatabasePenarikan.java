@@ -20,15 +20,16 @@ public class DatabasePenarikan extends Mysql_DatabaseConnection{
     private ResultSet rs = null;
     private ArrayList<Penarikan> penarikan = new ArrayList();
     
-    public String cekAnggota(String kode){
+    public String cekAnggota(String kode_ang){
         connect();
-        String value="";
+        String nama_ang="";
         try {
-            String query = "select * from DataUser";
+            String query = "select * from anggota";
             rs = stmt.executeQuery(query);
             while(rs.next()){
-                if(kode.equals(rs.getString("kode_ang").replaceAll("<div>","").replaceAll("</div>",""))){
-                    value = rs.getString("kode_ang");
+                if(kode_ang.equals(rs.getString("kode_ang"))){
+                    nama_ang = rs.getString("nama_ang");
+                    rs.close();
                     break;
                 }
             }
@@ -36,88 +37,81 @@ public class DatabasePenarikan extends Mysql_DatabaseConnection{
             System.out.println(e.getMessage());
         }
         disconnect();
-        return value;
-    }
-        
-    public int PenarikanUang(String kode, Penarikan pnr){
-        int value =0;
-        try{
-            PreparedStatement pst = connect.prepareStatement("insert into PenarikanUser (kode_ang,tgl_penarikan,jum_penarikan) values (?,?,?)");
-            pst.setString(1, kode);
-            pst.setString(2, pnr.getTgl());
-            pst.setInt(3, pnr.getUang());
-            value = pst.executeUpdate();
-            return value;
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        return value;
+        return nama_ang;
     }
     
-    public void getAllPenarikan(DefaultTableModel mdl){
-        try{
-            PreparedStatement pst;
-            pst = connect.prepareStatement("select DataUser.nama, PenarikanUser.kode_ang, PenarikanUser.tgl_penarikan, PenarikanUser.jum_penarikan from DataUser join PenarikanUser on DataUser.kode_ang=PenarikanUser.kode_ang");
-            ResultSet rs = pst.executeQuery();
-            while(rs.next()){
-                mdl.addRow(new Object[]{rs.getString(2),rs.getString(1),rs.getString(3),rs.getString(4)});
-            }
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
-    public void getPenarikanUser(DefaultTableModel mdl, String kode_ang){
-        try{
-            PreparedStatement pst;
-            pst = connect.prepareStatement("select tgl_penarikan, jum_penarikan from PenarikanUser where kode_ang=?");
-            pst.setString(1, kode_ang);
-            ResultSet rs = pst.executeQuery();
-            while(rs.next()){
-                mdl.addRow(new Object[]{rs.getString(1),rs.getString(2)});
-            }
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
-    
-    public int cekSaldo(String kode){
+    public int cekSaldo(String kode_ang){
+        connect();
         int saldo = 0;
-        int tarik = 0;
         try{
-            PreparedStatement pst = connect.prepareStatement("select SUM(jum_simpan) AS total from SimpananUser where kode_ang=?");
-            pst.setString(1, kode);
-            ResultSet rs = pst.executeQuery();
+            String query_simpan = "select SUM(jum_simpan) AS total from simpanan where kode_ang=";
+            query_simpan += "'" + kode_ang + "'";
+            rs = stmt.executeQuery(query_simpan);
             while (rs.next()){
                 saldo += rs.getInt(1);
             }
-            pst = connect.prepareStatement("select SUM(jum_penarikan) AS total from PenarikanUser where kode_ang=?");
-            pst.setString(1, kode);
-            rs = pst.executeQuery();
+            rs.close();
+            String query_tarik = "select SUM(jum_penarikan) AS total from penarikan where kode_ang=";
+            query_tarik += "'" + kode_ang + "'";
+            rs = stmt.executeQuery(query_tarik);
             while (rs.next()){
                 saldo -= rs.getInt(1);
             }
-            return saldo;
+            rs.close();
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
         return saldo;
     }
     
-    public List<Penarikan> getAllPenarikan(String thn){
-        List<Penarikan> ls = new ArrayList();
+    public int getSum(String kode_ang){
+        int sum=0;
+        connect();
         try{
-            PreparedStatement pst;
-            
-            pst = connect.prepareStatement("select kode_ang, tgl_penarikan, jum_penarikan from PenarikanUser where tgl_penarikan like ?");
-            pst.setString(1,"%"+thn);
-            ResultSet rs = pst.executeQuery();
-            while(rs.next()){ 
-                ls.add(new Penarikan(rs.getString(1),rs.getString(2),Integer.parseInt(rs.getString(3))));
-            }
-            return ls;
+            String query = "select count(kode_penarikan) from penarikan where kode_ang=";
+            query  += "'" + kode_ang + "'";
+            ResultSet rs = stmt.executeQuery(query);
+            rs.next();
+            sum = rs.getInt(1) + 1;
+            return sum;
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-            return ls;
+        return sum;
+    }
+        
+    public void PenarikanUang(Penarikan p){
+        connect();
+        try{
+            String query = "insert into penarikan values(";
+            query += "'" + p.getKode_penarikan() + "',";
+            query += "'" + p.getKode_ang() + "',";
+            query += "'" + p.getJum_penarikan() + "',";
+            query +="STR_TO_DATE('" + p.getTgl_penarikan() + "', '%Y-%m-%d'))";
+            if(manipulate(query))
+                penarikan.add(p);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void getPenarikanUser(String kode_ang){
+        connect();
+        try{
+            String query = "select tgl_penarikan, jum_penarikan from PenarikanUser where kode_ang=";
+            query += "'"+kode_ang+"'";
+            rs = stmt.executeQuery(query);
+            while(rs.next()){
+                penarikan.add(new Penarikan(
+                        rs.getDouble("jum_penarikan"),
+                        rs.getString("kode_ang"),
+                        rs.getString("kode_penarikan"),
+                        rs.getString("tgl_penarikan")
+                ));
+            }
+            rs.close();
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }

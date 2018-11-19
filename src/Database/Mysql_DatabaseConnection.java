@@ -31,8 +31,8 @@ public class Mysql_DatabaseConnection {
     public void connect(){
         try {
              this.url = "jdbc:mysql://us-cdbr-gcp-east-01.cleardb.net/gcp_eae35478d266dd67ae8b";
-        this.user = "b517774f39b450";
-        this.pass = "ff8c88ca";
+            this.user = "b517774f39b450";
+            this.pass = "ff8c88ca";
              con = DriverManager.getConnection(url, user, pass);
              stmt = con.createStatement();
              System.out.println("Database terhubung");
