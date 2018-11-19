@@ -6,8 +6,8 @@
 package Database;
 
 import Model.Penarikan;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -33,7 +33,7 @@ public class DatabasePenarikan extends Mysql_DatabaseConnection{
                     break;
                 }
             }
-        }catch(Exception e){
+        }catch(SQLException e){
             System.out.println(e.getMessage());
         }
         disconnect();
@@ -58,7 +58,7 @@ public class DatabasePenarikan extends Mysql_DatabaseConnection{
                 saldo -= rs.getInt(1);
             }
             rs.close();
-        }catch(Exception e){
+        }catch(SQLException e){
             System.out.println(e.getMessage());
         }
         return saldo;
@@ -70,11 +70,11 @@ public class DatabasePenarikan extends Mysql_DatabaseConnection{
         try{
             String query = "select count(kode_penarikan) from penarikan where kode_ang=";
             query  += "'" + kode_ang + "'";
-            ResultSet rs = stmt.executeQuery(query);
+            rs = stmt.executeQuery(query);
             rs.next();
             sum = rs.getInt(1) + 1;
             return sum;
-        }catch(Exception e){
+        }catch(SQLException e){
             System.out.println(e.getMessage());
         }
         return sum;
@@ -98,7 +98,7 @@ public class DatabasePenarikan extends Mysql_DatabaseConnection{
     public void getPenarikanUser(String kode_ang){
         connect();
         try{
-            String query = "select tgl_penarikan, jum_penarikan from PenarikanUser where kode_ang=";
+            String query = "select tgl_penarikan, jum_penarikan from penarikan where kode_ang=";
             query += "'"+kode_ang+"'";
             rs = stmt.executeQuery(query);
             while(rs.next()){
@@ -110,8 +110,38 @@ public class DatabasePenarikan extends Mysql_DatabaseConnection{
                 ));
             }
             rs.close();
-        }catch(Exception e){
+        }catch(SQLException e){
             System.out.println(e.getMessage());
         }
     }
+    
+    public void getAllPenarikan(){
+        connect();
+        try{
+            String query = "select * from penarikan";
+            rs = stmt.executeQuery(query);
+            while(rs.next()){
+                penarikan.add(new Penarikan(
+                        rs.getDouble("jum_penarikan"),
+                        rs.getString("kode_ang"),
+                        rs.getString("kode_penarikan"),
+                        rs.getString("tgl_penarikan")
+                ));
+            }
+            rs.close();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public ArrayList<Penarikan> getPenarikan() {
+        return penarikan;
+    }
+
+    public void setPenarikan(ArrayList<Penarikan> penarikan) {
+        this.penarikan = penarikan;
+    }
+    
+    
+    
 }

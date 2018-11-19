@@ -21,14 +21,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Kilam
  */
-public class ControllerPenarikan implements ActionListener {
+public class ControllerInputPenarikan implements ActionListener {
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     ArrayList<Penarikan> penarikan = new ArrayList();
     private Admin_InputPenarikan viewInputPenarikan;
-    private Admin_LihatPenarikan viewLihatPenarikan;
     private DatabasePenarikan dbPenarikan;
     
-    public ControllerPenarikan() {
+    public ControllerInputPenarikan() {
         viewInputPenarikan = new Admin_InputPenarikan();
         dbPenarikan = new DatabasePenarikan();
         viewInputPenarikan.addActionListener(this);

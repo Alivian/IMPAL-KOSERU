@@ -23,8 +23,6 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
      */
     public Admin_LihatPenarikan() {
         initComponents();
-        this.setLocationRelativeTo(null);
-    
     }
 
     /**
@@ -39,7 +37,7 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbPenarikan = new javax.swing.JTable();
-        A_btnSelesai = new javax.swing.JButton();
+        btnSelesai = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -53,11 +51,11 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID Anggota", "Nama", "Tanggal Penarikan", "Jumlah Penarikan"
+                "ID Anggota", "Nama", "Kode Penarikan", "Tanggal Penarikan", "Jumlah Penarikan"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -66,10 +64,10 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbPenarikan);
 
-        A_btnSelesai.setText("Selesai");
-        A_btnSelesai.addActionListener(new java.awt.event.ActionListener() {
+        btnSelesai.setText("Selesai");
+        btnSelesai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnSelesaiActionPerformed(evt);
+                btnSelesaiActionPerformed(evt);
             }
         });
 
@@ -83,7 +81,7 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(A_btnSelesai)))
+                        .addComponent(btnSelesai)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -92,7 +90,7 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(A_btnSelesai)
+                .addComponent(btnSelesai)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -125,11 +123,11 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void A_btnSelesaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnSelesaiActionPerformed
+    private void btnSelesaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelesaiActionPerformed
         this.dispose();
-    }//GEN-LAST:event_A_btnSelesaiActionPerformed
+    }//GEN-LAST:event_btnSelesaiActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton A_btnSelesai;
+    private javax.swing.JButton btnSelesai;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -139,6 +137,4 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
     public void setTbPenarikan(DefaultTableModel table) {
         tbPenarikan.setModel(table);
     }
-
-    
 }

@@ -266,13 +266,6 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-        btnOK.setEnabled(false);
-        txkdAnggota.setEditable(true);
-        txkdAnggota.setText("");
-        txNama.setText("");
-        txJumTarik.setText("");
-        txSaldo.setText("");
-        this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
     /**

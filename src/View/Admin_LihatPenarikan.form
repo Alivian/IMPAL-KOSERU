@@ -76,7 +76,7 @@
                       <Component id="jScrollPane1" pref="669" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="A_btnSelesai" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSelesai" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -89,7 +89,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="304" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="A_btnSelesai" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSelesai" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="12" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -106,15 +106,21 @@
             <Component class="javax.swing.JTable" name="tbPenarikan">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="0">
+                  <Table columnCount="5" rowCount="0">
                     <Column editable="false" title="ID Anggota" type="java.lang.Object"/>
                     <Column editable="false" title="Nama" type="java.lang.Object"/>
+                    <Column editable="false" title="Kode Penarikan" type="java.lang.Object"/>
                     <Column editable="false" title="Tanggal Penarikan" type="java.lang.Object"/>
-                    <Column editable="true" title="Jumlah Penarikan" type="java.lang.Object"/>
+                    <Column editable="false" title="Jumlah Penarikan" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -144,12 +150,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="A_btnSelesai">
+        <Component class="javax.swing.JButton" name="btnSelesai">
           <Properties>
             <Property name="text" type="java.lang.String" value="Selesai"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="A_btnSelesaiActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelesaiActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

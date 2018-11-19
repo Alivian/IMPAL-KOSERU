@@ -25,6 +25,7 @@ public class RunProgram {
             System.out.println(e.getMessage());
         }         
 //            new Controller.ControllerLogin();  
-            new ControllerPenarikan();
+//            new ControllerInputPenarikan();
+            new ControllerLihatPenarikan();
         }   
 }
