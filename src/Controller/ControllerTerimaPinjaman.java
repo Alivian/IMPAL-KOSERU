@@ -11,16 +11,18 @@ import View.Admin_MenuAdmin;
 import com.mysql.jdbc.PingTarget;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.plaf.ViewportUI;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Kilam
  */
-public class ControllerTerimaPinjaman implements ActionListener {
+public class ControllerTerimaPinjaman extends MouseAdapter implements ActionListener {
     private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     private Admin_MenuAdmin viewMenuAdmin;
     private DatabasePinjaman dbPinjaman;
@@ -28,6 +30,7 @@ public class ControllerTerimaPinjaman implements ActionListener {
     public ControllerTerimaPinjaman() {
         viewMenuAdmin = new Admin_MenuAdmin();
         viewMenuAdmin.setLocationRelativeTo(null);
+        viewMenuAdmin.addActionListener(this);
         viewMenuAdmin.setVisible(true);
         viewMenuAdmin.setBtnTerima(false);
         viewMenuAdmin.setBtnTolak(false);
@@ -87,6 +90,7 @@ public class ControllerTerimaPinjaman implements ActionListener {
         viewMenuAdmin.setBtnTolak(false);
     }
     
+    @Override
     public void mousePressed(MouseEvent me){
         Object source = me.getSource();
         if (source.equals(viewMenuAdmin.getTblReqPinjaman())){
