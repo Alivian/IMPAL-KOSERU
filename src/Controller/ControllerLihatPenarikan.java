@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Kilam
  */
 public class ControllerLihatPenarikan {
-    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     private Admin_LihatPenarikan viewLihatPenarikan;
     private DatabasePenarikan dbPenarikan;
 
@@ -32,7 +32,7 @@ public class ControllerLihatPenarikan {
     
     public void loadTable(){
         DefaultTableModel model = new DefaultTableModel(new String[]{
-            "ID Anggota", "Nama", "Kode Penarikan", "Tanggal Penarikan", "Jumlah Penarikan"}, 0);
+            "Kode Anggota", "Nama", "Kode Penarikan", "Tanggal Penarikan", "Jumlah Penarikan"}, 0);
         ArrayList<Penarikan> penarikan = dbPenarikan.getPenarikan();
         for (Penarikan p : penarikan) {
             model.addRow(new Object[]{p.getKode_ang(), dbPenarikan.cekAnggota(p.getKode_ang()), p.getKode_penarikan(), p.getTgl_penarikan(), p.getJum_penarikan()});

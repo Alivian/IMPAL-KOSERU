@@ -26,6 +26,7 @@ public class RunProgram {
         }         
 //            new Controller.ControllerLogin();  
 //            new ControllerInputPenarikan();
-            new ControllerLihatPenarikan();
+//            new ControllerLihatPenarikan();
+            new ControllerTerimaPinjaman();
         }   
 }

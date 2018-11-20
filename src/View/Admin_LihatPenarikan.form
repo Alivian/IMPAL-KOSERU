@@ -107,7 +107,7 @@
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="5" rowCount="0">
-                    <Column editable="false" title="ID Anggota" type="java.lang.Object"/>
+                    <Column editable="false" title="Kode Anggota" type="java.lang.Object"/>
                     <Column editable="false" title="Nama" type="java.lang.Object"/>
                     <Column editable="false" title="Kode Penarikan" type="java.lang.Object"/>
                     <Column editable="false" title="Tanggal Penarikan" type="java.lang.Object"/>

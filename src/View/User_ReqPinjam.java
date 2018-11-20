@@ -3,7 +3,7 @@ package View;
 
 
 
-import Model.Pinjam;
+import Model.Pinjaman;
 import static java.lang.Math.ceil;
 import java.text.SimpleDateFormat;
 import java.util.Date;

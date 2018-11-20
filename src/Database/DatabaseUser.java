@@ -3,7 +3,7 @@ package Database;
 import static Database.Mysql_DatabaseConnection.*;
 import Model.Admin;
 import Model.Person;
-import Model.Pinjam;
+import Model.Pinjaman;
 import Model.Simpan;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

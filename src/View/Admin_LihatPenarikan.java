@@ -51,7 +51,7 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID Anggota", "Nama", "Kode Penarikan", "Tanggal Penarikan", "Jumlah Penarikan"
+                "Kode Anggota", "Nama", "Kode Penarikan", "Tanggal Penarikan", "Jumlah Penarikan"
             }
         ) {
             boolean[] canEdit = new boolean [] {

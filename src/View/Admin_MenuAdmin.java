@@ -1,6 +1,10 @@
 package View;
 
 
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -31,17 +35,17 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        A_tblReqPinjaman = new javax.swing.JTable();
-        A_btnTerima = new javax.swing.JButton();
-        A_btnTolak = new javax.swing.JButton();
+        tblReqPinjaman = new javax.swing.JTable();
+        btnTerima = new javax.swing.JButton();
+        btnTolak = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        A_btnInputSimpan = new javax.swing.JButton();
-        A_btnInputBayar = new javax.swing.JButton();
-        A_btnLihatSimpan = new javax.swing.JButton();
-        A_btnLihatPinjam = new javax.swing.JButton();
-        A_btnInputPenarikan = new javax.swing.JButton();
-        A_btnLihatPenarikan = new javax.swing.JButton();
-        A_btnLogout = new javax.swing.JButton();
+        btnInputSimpan = new javax.swing.JButton();
+        btnInputBayar = new javax.swing.JButton();
+        btnLihatSimpan = new javax.swing.JButton();
+        btnLihatPinjam = new javax.swing.JButton();
+        btnInputPenarikan = new javax.swing.JButton();
+        btnLihatPenarikan = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,40 +54,42 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "REQUEST PINJAMAN USER", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        A_tblReqPinjaman.setModel(new javax.swing.table.DefaultTableModel(
+        tblReqPinjaman.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Kode Anggota", "Nama", "Tanggal Pinjam", "Keterangan", "Jumlah Pinjam"
+                "Kode Anggota", "Nama", "Kode Pinjam", "Tanggal Pinjam", "Keterangan", "Jumlah Pinjam"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(A_tblReqPinjaman);
+        jScrollPane1.setViewportView(tblReqPinjaman);
 
-        A_btnTerima.setText("Terima");
-        A_btnTerima.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnTerima.setText("Terima");
+        btnTerima.setEnabled(false);
+        btnTerima.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                A_btnTerimaMouseClicked(evt);
+                btnTerimaMouseClicked(evt);
             }
         });
-        A_btnTerima.addActionListener(new java.awt.event.ActionListener() {
+        btnTerima.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnTerimaActionPerformed(evt);
+                btnTerimaActionPerformed(evt);
             }
         });
 
-        A_btnTolak.setText("Tolak");
-        A_btnTolak.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnTolak.setText("Tolak");
+        btnTolak.setEnabled(false);
+        btnTolak.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                A_btnTolakMouseClicked(evt);
+                btnTolakMouseClicked(evt);
             }
         });
 
@@ -96,9 +102,9 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(A_btnTerima)
+                        .addComponent(btnTerima)
                         .addGap(18, 18, 18)
-                        .addComponent(A_btnTolak)
+                        .addComponent(btnTolak)
                         .addGap(0, 457, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -109,62 +115,62 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(A_btnTolak)
-                    .addComponent(A_btnTerima))
+                    .addComponent(btnTolak)
+                    .addComponent(btnTerima))
                 .addGap(0, 10, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "MENU ADMIN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        A_btnInputSimpan.setText("Input Simpanan");
-        A_btnInputSimpan.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnInputSimpan.setText("Input Simpanan");
+        btnInputSimpan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                A_btnInputSimpanMouseClicked(evt);
+                btnInputSimpanMouseClicked(evt);
             }
         });
 
-        A_btnInputBayar.setText("Input Pelunasan");
-        A_btnInputBayar.addActionListener(new java.awt.event.ActionListener() {
+        btnInputBayar.setText("Input Pelunasan");
+        btnInputBayar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnInputBayarActionPerformed(evt);
+                btnInputBayarActionPerformed(evt);
             }
         });
 
-        A_btnLihatSimpan.setText("Lihat Simpanan");
-        A_btnLihatSimpan.addActionListener(new java.awt.event.ActionListener() {
+        btnLihatSimpan.setText("Lihat Simpanan");
+        btnLihatSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnLihatSimpanActionPerformed(evt);
+                btnLihatSimpanActionPerformed(evt);
             }
         });
 
-        A_btnLihatPinjam.setText("Lihat Pinjaman");
-        A_btnLihatPinjam.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnLihatPinjam.setText("Lihat Pinjaman");
+        btnLihatPinjam.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                A_btnLihatPinjamMouseClicked(evt);
+                btnLihatPinjamMouseClicked(evt);
             }
         });
-        A_btnLihatPinjam.addActionListener(new java.awt.event.ActionListener() {
+        btnLihatPinjam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnLihatPinjamActionPerformed(evt);
+                btnLihatPinjamActionPerformed(evt);
             }
         });
 
-        A_btnInputPenarikan.setText("Input Penarikan");
-        A_btnInputPenarikan.addActionListener(new java.awt.event.ActionListener() {
+        btnInputPenarikan.setText("Input Penarikan");
+        btnInputPenarikan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnInputPenarikanActionPerformed(evt);
+                btnInputPenarikanActionPerformed(evt);
             }
         });
 
-        A_btnLihatPenarikan.setText("Lihat Penarikan");
-        A_btnLihatPenarikan.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnLihatPenarikan.setText("Lihat Penarikan");
+        btnLihatPenarikan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                A_btnLihatPenarikanMouseClicked(evt);
+                btnLihatPenarikanMouseClicked(evt);
             }
         });
-        A_btnLihatPenarikan.addActionListener(new java.awt.event.ActionListener() {
+        btnLihatPenarikan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnLihatPenarikanActionPerformed(evt);
+                btnLihatPenarikanActionPerformed(evt);
             }
         });
 
@@ -175,16 +181,16 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(A_btnInputSimpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(A_btnLihatSimpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnInputSimpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLihatSimpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(A_btnLihatPinjam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(A_btnInputBayar, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
+                    .addComponent(btnLihatPinjam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnInputBayar, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
                 .addGap(55, 55, 55)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(A_btnLihatPenarikan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(A_btnInputPenarikan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLihatPenarikan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnInputPenarikan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(93, 93, 93))
         );
         jPanel2Layout.setVerticalGroup(
@@ -192,30 +198,30 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(A_btnInputSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(A_btnInputBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(A_btnInputPenarikan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnInputSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInputBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInputPenarikan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(A_btnLihatSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(A_btnLihatPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnLihatSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnLihatPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(A_btnLihatPenarikan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnLihatPenarikan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 18, Short.MAX_VALUE))
         );
 
-        A_btnLogout.setText("LOGOUT");
-        A_btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnLogout.setText("LOGOUT");
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                A_btnLogoutMouseClicked(evt);
+                btnLogoutMouseClicked(evt);
             }
         });
-        A_btnLogout.addActionListener(new java.awt.event.ActionListener() {
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnLogoutActionPerformed(evt);
+                btnLogoutActionPerformed(evt);
             }
         });
 
@@ -234,7 +240,7 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGap(95, 95, 95)
-                        .addComponent(A_btnLogout)))
+                        .addComponent(btnLogout)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -243,7 +249,7 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(A_btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(28, Short.MAX_VALUE)
@@ -258,75 +264,112 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void A_btnTerimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnTerimaActionPerformed
-    }//GEN-LAST:event_A_btnTerimaActionPerformed
+    private void btnTerimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerimaActionPerformed
+    }//GEN-LAST:event_btnTerimaActionPerformed
 
-    private void A_btnTerimaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A_btnTerimaMouseClicked
+    private void btnTerimaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTerimaMouseClicked
 
-    }//GEN-LAST:event_A_btnTerimaMouseClicked
+    }//GEN-LAST:event_btnTerimaMouseClicked
 
-    private void A_btnLihatPinjamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A_btnLihatPinjamMouseClicked
+    private void btnLihatPinjamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLihatPinjamMouseClicked
 
-    }//GEN-LAST:event_A_btnLihatPinjamMouseClicked
+    }//GEN-LAST:event_btnLihatPinjamMouseClicked
 
-    private void A_btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A_btnLogoutMouseClicked
+    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
 
-    }//GEN-LAST:event_A_btnLogoutMouseClicked
+    }//GEN-LAST:event_btnLogoutMouseClicked
 
-    private void A_btnLihatSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnLihatSimpanActionPerformed
+    private void btnLihatSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLihatSimpanActionPerformed
     
-    }//GEN-LAST:event_A_btnLihatSimpanActionPerformed
+    }//GEN-LAST:event_btnLihatSimpanActionPerformed
 
-    private void A_btnInputSimpanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A_btnInputSimpanMouseClicked
+    private void btnInputSimpanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInputSimpanMouseClicked
     
-    }//GEN-LAST:event_A_btnInputSimpanMouseClicked
+    }//GEN-LAST:event_btnInputSimpanMouseClicked
 
-    private void A_btnLihatPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnLihatPinjamActionPerformed
+    private void btnLihatPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLihatPinjamActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_A_btnLihatPinjamActionPerformed
+    }//GEN-LAST:event_btnLihatPinjamActionPerformed
 
-    private void A_btnTolakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A_btnTolakMouseClicked
+    private void btnTolakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTolakMouseClicked
     
-    }//GEN-LAST:event_A_btnTolakMouseClicked
+    }//GEN-LAST:event_btnTolakMouseClicked
 
-    private void A_btnInputBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnInputBayarActionPerformed
+    private void btnInputBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInputBayarActionPerformed
     
-    }//GEN-LAST:event_A_btnInputBayarActionPerformed
+    }//GEN-LAST:event_btnInputBayarActionPerformed
 
-    private void A_btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnLogoutActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_A_btnLogoutActionPerformed
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
-    private void A_btnInputPenarikanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnInputPenarikanActionPerformed
+    private void btnInputPenarikanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInputPenarikanActionPerformed
     
-    }//GEN-LAST:event_A_btnInputPenarikanActionPerformed
+    }//GEN-LAST:event_btnInputPenarikanActionPerformed
 
-    private void A_btnLihatPenarikanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A_btnLihatPenarikanMouseClicked
+    private void btnLihatPenarikanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLihatPenarikanMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_A_btnLihatPenarikanMouseClicked
+    }//GEN-LAST:event_btnLihatPenarikanMouseClicked
 
-    private void A_btnLihatPenarikanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnLihatPenarikanActionPerformed
+    private void btnLihatPenarikanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLihatPenarikanActionPerformed
     
-    }//GEN-LAST:event_A_btnLihatPenarikanActionPerformed
+    }//GEN-LAST:event_btnLihatPenarikanActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton A_btnInputBayar;
-    private javax.swing.JButton A_btnInputPenarikan;
-    private javax.swing.JButton A_btnInputSimpan;
-    private javax.swing.JButton A_btnLihatPenarikan;
-    private javax.swing.JButton A_btnLihatPinjam;
-    private javax.swing.JButton A_btnLihatSimpan;
-    private javax.swing.JButton A_btnLogout;
-    private javax.swing.JButton A_btnTerima;
-    private javax.swing.JButton A_btnTolak;
-    private javax.swing.JTable A_tblReqPinjaman;
+    private javax.swing.JButton btnInputBayar;
+    private javax.swing.JButton btnInputPenarikan;
+    private javax.swing.JButton btnInputSimpan;
+    private javax.swing.JButton btnLihatPenarikan;
+    private javax.swing.JButton btnLihatPinjam;
+    private javax.swing.JButton btnLihatSimpan;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnTerima;
+    private javax.swing.JButton btnTolak;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblReqPinjaman;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnTerima() {
+        return btnTerima;
+    }
+
+    public void setBtnTerima(boolean cek) {
+        btnTerima.setEnabled(cek);
+    }
+
+    public JButton getBtnTolak() {
+        return btnTolak;
+    }
+
+    public void setBtnTolak(boolean cek) {
+        btnTolak.setEnabled(cek);
+    }
+    
+    public int getSelectedPinjaman(){
+        return tblReqPinjaman.convertRowIndexToModel(tblReqPinjaman.getSelectedRow());
+    }
+
+    public DefaultTableModel getTblReqPinjaman() {
+        return (DefaultTableModel) tblReqPinjaman.getModel();
+    }
+
+    public void setTblReqPinjaman(DefaultTableModel model) {
+        tblReqPinjaman.setModel(model);
+    }
+
+    public void addActionListener(ActionListener x){
+        btnTerima.addActionListener(x);
+        btnTolak.addActionListener(x);
+    }
+    
+    public void addMouseAdapter(MouseAdapter x){
+        tblReqPinjaman.addMouseListener(x);
+    }
 }

@@ -88,8 +88,7 @@ public class DatabasePenarikan extends Mysql_DatabaseConnection{
             query += "'" + p.getKode_ang() + "',";
             query += "'" + p.getJum_penarikan() + "',";
             query +="STR_TO_DATE('" + p.getTgl_penarikan() + "', '%Y-%m-%d'))";
-            if(manipulate(query))
-                penarikan.add(p);
+            if(manipulate(query)) penarikan.add(p);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }

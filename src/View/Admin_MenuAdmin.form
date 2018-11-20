@@ -34,7 +34,7 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                      <Component id="A_btnLogout" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -47,7 +47,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="A_btnLogout" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="btnLogout" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -87,9 +87,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="A_btnTerima" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnTerima" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="A_btnTolak" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnTolak" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="457" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -104,8 +104,8 @@
                   <Component id="jScrollPane1" min="-2" pref="110" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="A_btnTolak" min="-2" max="-2" attributes="0"/>
-                      <Component id="A_btnTerima" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTolak" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTerima" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
               </Group>
@@ -120,12 +120,13 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="A_tblReqPinjaman">
+            <Component class="javax.swing.JTable" name="tblReqPinjaman">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="0">
+                  <Table columnCount="6" rowCount="0">
                     <Column editable="false" title="Kode Anggota" type="java.lang.Object"/>
                     <Column editable="false" title="Nama" type="java.lang.Object"/>
+                    <Column editable="false" title="Kode Pinjam" type="java.lang.Object"/>
                     <Column editable="false" title="Tanggal Pinjam" type="java.lang.Object"/>
                     <Column editable="false" title="Keterangan" type="java.lang.Object"/>
                     <Column editable="false" title="Jumlah Pinjam" type="java.lang.Object"/>
@@ -133,6 +134,11 @@
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -167,21 +173,23 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="A_btnTerima">
+        <Component class="javax.swing.JButton" name="btnTerima">
           <Properties>
             <Property name="text" type="java.lang.String" value="Terima"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="A_btnTerimaMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="A_btnTerimaActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnTerimaMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTerimaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="A_btnTolak">
+        <Component class="javax.swing.JButton" name="btnTolak">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tolak"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="A_btnTolakMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnTolakMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>
@@ -206,18 +214,18 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="A_btnInputSimpan" max="32767" attributes="0"/>
-                      <Component id="A_btnLihatSimpan" max="32767" attributes="0"/>
+                      <Component id="btnInputSimpan" max="32767" attributes="0"/>
+                      <Component id="btnLihatSimpan" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="74" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="A_btnLihatPinjam" max="32767" attributes="0"/>
-                      <Component id="A_btnInputBayar" pref="113" max="32767" attributes="0"/>
+                      <Component id="btnLihatPinjam" max="32767" attributes="0"/>
+                      <Component id="btnInputBayar" pref="113" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="A_btnLihatPenarikan" max="32767" attributes="0"/>
-                      <Component id="A_btnInputPenarikan" max="32767" attributes="0"/>
+                      <Component id="btnLihatPenarikan" max="32767" attributes="0"/>
+                      <Component id="btnInputPenarikan" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
               </Group>
@@ -228,21 +236,21 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="A_btnInputSimpan" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
-                      <Component id="A_btnInputBayar" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
-                      <Component id="A_btnInputPenarikan" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="btnInputSimpan" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="btnInputBayar" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="btnInputPenarikan" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="A_btnLihatSimpan" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
-                              <Component id="A_btnLihatPinjam" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                              <Component id="btnLihatSimpan" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                              <Component id="btnLihatPinjam" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="A_btnLihatPenarikan" min="-2" pref="56" max="-2" attributes="0"/>
+                          <Component id="btnLihatPenarikan" min="-2" pref="56" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="0" pref="18" max="32767" attributes="0"/>
@@ -251,65 +259,65 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="A_btnInputSimpan">
+        <Component class="javax.swing.JButton" name="btnInputSimpan">
           <Properties>
             <Property name="text" type="java.lang.String" value="Input Simpanan"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="A_btnInputSimpanMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnInputSimpanMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="A_btnInputBayar">
+        <Component class="javax.swing.JButton" name="btnInputBayar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Input Pelunasan"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="A_btnInputBayarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInputBayarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="A_btnLihatSimpan">
+        <Component class="javax.swing.JButton" name="btnLihatSimpan">
           <Properties>
             <Property name="text" type="java.lang.String" value="Lihat Simpanan"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="A_btnLihatSimpanActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLihatSimpanActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="A_btnLihatPinjam">
+        <Component class="javax.swing.JButton" name="btnLihatPinjam">
           <Properties>
             <Property name="text" type="java.lang.String" value="Lihat Pinjaman"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="A_btnLihatPinjamMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="A_btnLihatPinjamActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnLihatPinjamMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLihatPinjamActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="A_btnInputPenarikan">
+        <Component class="javax.swing.JButton" name="btnInputPenarikan">
           <Properties>
             <Property name="text" type="java.lang.String" value="Input Penarikan"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="A_btnInputPenarikanActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInputPenarikanActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="A_btnLihatPenarikan">
+        <Component class="javax.swing.JButton" name="btnLihatPenarikan">
           <Properties>
             <Property name="text" type="java.lang.String" value="Lihat Penarikan"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="A_btnLihatPenarikanMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="A_btnLihatPenarikanActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnLihatPenarikanMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLihatPenarikanActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="A_btnLogout">
+    <Component class="javax.swing.JButton" name="btnLogout">
       <Properties>
         <Property name="text" type="java.lang.String" value="LOGOUT"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="A_btnLogoutMouseClicked"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="A_btnLogoutActionPerformed"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnLogoutMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogoutActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
