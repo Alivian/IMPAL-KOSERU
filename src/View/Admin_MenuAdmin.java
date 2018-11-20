@@ -34,11 +34,6 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblReqPinjaman = new javax.swing.JTable();
-        btnTerima = new javax.swing.JButton();
-        btnTolak = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnInputSimpan = new javax.swing.JButton();
         btnInputBayar = new javax.swing.JButton();
@@ -46,80 +41,13 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
         btnLihatPinjam = new javax.swing.JButton();
         btnInputPenarikan = new javax.swing.JButton();
         btnLihatPenarikan = new javax.swing.JButton();
+        btnTerimaPinjaman = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Admin");
         setResizable(false);
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "REQUEST PINJAMAN USER", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
-
-        tblReqPinjaman.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Kode Anggota", "Nama", "Kode Pinjam", "Tanggal Pinjam", "Keterangan", "Jumlah Pinjam"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tblReqPinjaman);
-
-        btnTerima.setText("Terima");
-        btnTerima.setEnabled(false);
-        btnTerima.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnTerimaMouseClicked(evt);
-            }
-        });
-        btnTerima.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTerimaActionPerformed(evt);
-            }
-        });
-
-        btnTolak.setText("Tolak");
-        btnTolak.setEnabled(false);
-        btnTolak.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnTolakMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnTerima)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnTolak)
-                        .addGap(0, 457, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnTolak)
-                    .addComponent(btnTerima))
-                .addGap(0, 10, Short.MAX_VALUE))
-        );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "MENU ADMIN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
@@ -175,43 +103,54 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
             }
         });
 
+        btnTerimaPinjaman.setText("Terima Pinjaman");
+        btnTerimaPinjaman.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTerimaPinjamanActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnInputSimpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLihatSimpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnLihatPinjam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnInputBayar, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
-                .addGap(55, 55, 55)
+                    .addComponent(btnLihatSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(64, 64, 64)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnLihatPenarikan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnInputPenarikan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(93, 93, 93))
+                    .addComponent(btnInputPenarikan))
+                .addGap(53, 53, 53)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnLihatPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTerimaPinjaman))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(btnInputBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInputSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInputBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInputPenarikan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnInputSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnLihatSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnLihatPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnLihatSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnInputPenarikan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnTerimaPinjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInputBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnLihatPenarikan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 18, Short.MAX_VALUE))
+                        .addComponent(btnLihatPenarikan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(btnLihatPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         btnLogout.setText("LOGOUT");
@@ -233,44 +172,29 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(95, 95, 95)
-                        .addComponent(btnLogout)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(95, 95, 95)
+                .addComponent(btnLogout)
                 .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(28, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)))
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(23, 23, 23))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnTerimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerimaActionPerformed
-    }//GEN-LAST:event_btnTerimaActionPerformed
-
-    private void btnTerimaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTerimaMouseClicked
-
-    }//GEN-LAST:event_btnTerimaMouseClicked
 
     private void btnLihatPinjamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLihatPinjamMouseClicked
 
@@ -292,10 +216,6 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLihatPinjamActionPerformed
 
-    private void btnTolakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTolakMouseClicked
-    
-    }//GEN-LAST:event_btnTolakMouseClicked
-
     private void btnInputBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInputBayarActionPerformed
     
     }//GEN-LAST:event_btnInputBayarActionPerformed
@@ -316,6 +236,10 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
     
     }//GEN-LAST:event_btnLihatPenarikanActionPerformed
 
+    private void btnTerimaPinjamanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerimaPinjamanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTerimaPinjamanActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -328,49 +252,51 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btnLihatPinjam;
     private javax.swing.JButton btnLihatSimpan;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnTerima;
-    private javax.swing.JButton btnTolak;
+    private javax.swing.JButton btnTerimaPinjaman;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblReqPinjaman;
     // End of variables declaration//GEN-END:variables
 
-    public JButton getBtnTerima() {
-        return btnTerima;
+    public JButton getBtnInputBayar() {
+        return btnInputBayar;
     }
 
-    public void setBtnTerima(boolean cek) {
-        btnTerima.setEnabled(cek);
+    public JButton getBtnInputPenarikan() {
+        return btnInputPenarikan;
     }
 
-    public JButton getBtnTolak() {
-        return btnTolak;
+    public JButton getBtnInputSimpan() {
+        return btnInputSimpan;
     }
 
-    public void setBtnTolak(boolean cek) {
-        btnTolak.setEnabled(cek);
+    public JButton getBtnLihatPenarikan() {
+        return btnLihatPenarikan;
+    }
+
+    public JButton getBtnLihatPinjam() {
+        return btnLihatPinjam;
+    }
+
+    public JButton getBtnLihatSimpan() {
+        return btnLihatSimpan;
+    }
+
+    public JButton getBtnTerimaPinjaman() {
+        return btnTerimaPinjaman;
+    }
+
+    public JButton getBtnLogout() {
+        return btnLogout;
     }
     
-    public int getSelectedPinjaman(){
-        return tblReqPinjaman.convertRowIndexToModel(tblReqPinjaman.getSelectedRow());
-    }
-
-    public DefaultTableModel getTblReqPinjaman() {
-        return (DefaultTableModel) tblReqPinjaman.getModel();
-    }
-
-    public void setTblReqPinjaman(DefaultTableModel model) {
-        tblReqPinjaman.setModel(model);
-    }
-
     public void addActionListener(ActionListener x){
-        btnTerima.addActionListener(x);
-        btnTolak.addActionListener(x);
-    }
-    
-    public void addMouseAdapter(MouseAdapter x){
-        tblReqPinjaman.addMouseListener(x);
+        btnTerimaPinjaman.addActionListener(x);
+        btnInputSimpan.addActionListener(x);
+        btnInputPenarikan.addActionListener(x);
+        btnInputBayar.addActionListener(x);
+        btnLihatSimpan.addActionListener(x);
+        btnLihatPenarikan.addActionListener(x);
+        btnLihatPinjam.addActionListener(x);
+        btnLogout.addActionListener(x);
     }
 }

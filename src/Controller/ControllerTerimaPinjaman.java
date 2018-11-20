@@ -7,7 +7,7 @@ package Controller;
 
 import Database.DatabasePinjaman;
 import Model.Pinjaman;
-import View.Admin_MenuAdmin;
+import View.Admin_TerimaPinjaman;
 import com.mysql.jdbc.PingTarget;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,18 +24,19 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControllerTerimaPinjaman extends MouseAdapter implements ActionListener {
     private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-    private Admin_MenuAdmin viewMenuAdmin;
+    private Admin_TerimaPinjaman viewTerimaPinjaman;
     private DatabasePinjaman dbPinjaman;
 
     public ControllerTerimaPinjaman() {
-        viewMenuAdmin = new Admin_MenuAdmin();
-        viewMenuAdmin.setLocationRelativeTo(null);
-        viewMenuAdmin.addActionListener(this);
-        viewMenuAdmin.setVisible(true);
-        viewMenuAdmin.setBtnTerima(false);
-        viewMenuAdmin.setBtnTolak(false);
+        viewTerimaPinjaman = new Admin_TerimaPinjaman();
+        viewTerimaPinjaman.addActionListener(this);
+        viewTerimaPinjaman.addMouseAdapter(this);
+        viewTerimaPinjaman.setVisible(true);
+        viewTerimaPinjaman.setLocationRelativeTo(null);
+        viewTerimaPinjaman.setBtnTerima(false);
+        viewTerimaPinjaman.setBtnTolak(false);
         dbPinjaman = new DatabasePinjaman();
-        dbPinjaman.getAllPinjaman();
+        dbPinjaman.getAllPinjaman(true);
         loadTable();
     }
     
@@ -53,54 +54,56 @@ public class ControllerTerimaPinjaman extends MouseAdapter implements ActionList
                 p.getJum_pinjam()
             });
         }
-        viewMenuAdmin.setTblReqPinjaman(model);
+        viewTerimaPinjaman.setTblReqPinjaman(model);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        if (source.equals(viewMenuAdmin.getBtnTerima())){
+        if (source.equals(viewTerimaPinjaman.getBtnTerima())){
             btnTerimaActionPerformed();
-        }else if (source.equals(viewMenuAdmin.getBtnTolak())){
+        }else if (source.equals(viewTerimaPinjaman.getBtnTolak())){
             btnTolakAnctionPerformed();
+        }else if (source.equals(viewTerimaPinjaman.getBtnSelesai())){
+            viewTerimaPinjaman.dispose();
         }
     }
     
     public void btnTerimaActionPerformed(){
         try{
-            int row = viewMenuAdmin.getSelectedPinjaman();
-            String kode_ang = viewMenuAdmin.getTblReqPinjaman().getValueAt(row, 3).toString();
-            dbPinjaman.ubahStatusPinjaman(kode_ang, "diterima");
-            viewMenuAdmin.getTblReqPinjaman().removeRow(row);
+            int row = viewTerimaPinjaman.getSelectedPinjaman();
+            String kode_pinjam = viewTerimaPinjaman.getTblReqPinjaman().getValueAt(row, 2).toString();
+            dbPinjaman.ubahStatusPinjaman(kode_pinjam, "diterima");
+            viewTerimaPinjaman.getModel().removeRow(row);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-        viewMenuAdmin.setBtnTerima(false);
+        viewTerimaPinjaman.setBtnTerima(false);
     }
     
     public void btnTolakAnctionPerformed(){
         try{
-            int row = viewMenuAdmin.getSelectedPinjaman();
-            String kode_ang = viewMenuAdmin.getTblReqPinjaman().getValueAt(row, 3).toString();
-            dbPinjaman.ubahStatusPinjaman(kode_ang, "ditolak");
-            viewMenuAdmin.getTblReqPinjaman().removeRow(row);
+            int row = viewTerimaPinjaman.getSelectedPinjaman();
+            String kode_pinjam = viewTerimaPinjaman.getTblReqPinjaman().getValueAt(row, 2).toString();
+            dbPinjaman.ubahStatusPinjaman(kode_pinjam, "ditolak");
+            viewTerimaPinjaman.getModel().removeRow(row);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-        viewMenuAdmin.setBtnTolak(false);
+        viewTerimaPinjaman.setBtnTolak(false);
     }
     
     @Override
     public void mousePressed(MouseEvent me){
         Object source = me.getSource();
-        if (source.equals(viewMenuAdmin.getTblReqPinjaman())){
-            int i = viewMenuAdmin.getSelectedPinjaman();
+        if (source.equals(viewTerimaPinjaman.getTblReqPinjaman())){
+            int i = viewTerimaPinjaman.getSelectedPinjaman();
             if(i >= 0){
-                viewMenuAdmin.setBtnTerima(true);
-                viewMenuAdmin.setBtnTolak(true);
+                viewTerimaPinjaman.setBtnTerima(true);
+                viewTerimaPinjaman.setBtnTolak(true);
             }else{
-                viewMenuAdmin.setBtnTerima(false);
-                viewMenuAdmin.setBtnTolak(false);
+                viewTerimaPinjaman.setBtnTerima(false);
+                viewTerimaPinjaman.setBtnTolak(false);
             }
         }
     }

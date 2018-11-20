@@ -40,10 +40,12 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
         return nama_ang;
     }
     
-    public void getAllPinjaman(){
+    public void getAllPinjaman(boolean cek){
         connect();
         try{
-            String query = "select * from pinjaman";
+            String query = "select * from pinjaman where status_acc";
+            if(!cek) query += "!";
+            query += "='menunggu'";
             rs = stmt.executeQuery(query);
             while(rs.next()){
                 pinjaman.add(new Pinjaman(
@@ -63,14 +65,15 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
         }
     }
     
-    public void ubahStatusPinjaman(String kode_ang, String status){
+    public void ubahStatusPinjaman(String kode_pinjam, String status){
         connect();
         try{
             String query = "update pinjaman set status_acc=";
             query += "'" + status + "'";
-            query += "where kode_ang=";
-            query += "'" + kode_ang + "'";
-            if(manipulate(query)) removePinjaman(kode_ang);
+            if(status.equals("diterima")) query += ",ket_lunas = 'belum lunas'";
+            query += "where kode_pinjam=";
+            query += "'" + kode_pinjam + "'";
+            if(manipulate(query)) removePinjaman(kode_pinjam);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }

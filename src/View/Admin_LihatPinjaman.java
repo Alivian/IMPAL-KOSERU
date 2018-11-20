@@ -3,6 +3,7 @@ package View;
 
 
 
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -16,13 +17,11 @@ import javax.swing.table.DefaultTableModel;
  * @author Malik
  */
 public class Admin_LihatPinjaman extends javax.swing.JFrame {
-    public DefaultTableModel mdl;
     /**
      * Creates new form Admin_LihatPinjaman
      */
     public Admin_LihatPinjaman() {
         initComponents();
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -36,8 +35,8 @@ public class Admin_LihatPinjaman extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        A_tbLihatPinjaman = new javax.swing.JTable();
-        A_RiwPinjam_btnSelesai = new javax.swing.JButton();
+        tbLihatPinjaman = new javax.swing.JTable();
+        btnSelesai = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -46,12 +45,12 @@ public class Admin_LihatPinjaman extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "DAFTAR RIWAYAT PINJAMAN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12)), "DAFTAR RIWAYAT PINJAMAN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        A_tbLihatPinjaman.setModel(new javax.swing.table.DefaultTableModel(
+        tbLihatPinjaman.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID Anggota", "Nama", "Tanggal Pinjam", "Keterangan", "Jumlah Pinjam", "Status", "Pelunasan"
+                "Kode Anggota", "Nama", "Tanggal Pinjam", "Keterangan", "Jumlah Pinjam", "Status", "Pelunasan"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -62,12 +61,12 @@ public class Admin_LihatPinjaman extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(A_tbLihatPinjaman);
+        jScrollPane1.setViewportView(tbLihatPinjaman);
 
-        A_RiwPinjam_btnSelesai.setText("Selesai");
-        A_RiwPinjam_btnSelesai.addActionListener(new java.awt.event.ActionListener() {
+        btnSelesai.setText("Selesai");
+        btnSelesai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_RiwPinjam_btnSelesaiActionPerformed(evt);
+                btnSelesaiActionPerformed(evt);
             }
         });
 
@@ -75,21 +74,22 @@ public class Admin_LihatPinjaman extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(A_RiwPinjam_btnSelesai)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 593, Short.MAX_VALUE)
+                        .addComponent(btnSelesai)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(A_RiwPinjam_btnSelesai)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSelesai)
                 .addContainerGap())
         );
 
@@ -114,26 +114,31 @@ public class Admin_LihatPinjaman extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void A_RiwPinjam_btnSelesaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_RiwPinjam_btnSelesaiActionPerformed
+    private void btnSelesaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelesaiActionPerformed
         this.dispose();
-    }//GEN-LAST:event_A_RiwPinjam_btnSelesaiActionPerformed
+    }//GEN-LAST:event_btnSelesaiActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton A_RiwPinjam_btnSelesai;
-    public javax.swing.JTable A_tbLihatPinjaman;
+    private javax.swing.JButton btnSelesai;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTable tbLihatPinjaman;
     // End of variables declaration//GEN-END:variables
+
+    public void setTbLihatPinjaman(DefaultTableModel model) {
+        tbLihatPinjaman.setModel(model);
+    }
+    
 }
