@@ -22,6 +22,7 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
      * Creates new form MenuAdmin
      */
     public Admin_MenuAdmin() {
+        initComponents();
     }
 
     /**
