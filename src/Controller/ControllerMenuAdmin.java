@@ -37,7 +37,10 @@ public class ControllerMenuAdmin implements ActionListener{
             new ControllerLihatPinjaman();
         }else if (source.equals(viewMenuAdmin.getBtnTerimaPinjaman())){
             new ControllerTerimaPinjaman();
-        }else if (source.equals(viewMenuAdmin.getBtnLogout())){}
+        }else if (source.equals(viewMenuAdmin.getBtnLogout())){
+            new ControllerLogin();
+            viewMenuAdmin.dispose();
+        }
     }
     
 }
