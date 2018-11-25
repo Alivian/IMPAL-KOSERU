@@ -85,7 +85,8 @@ public class Admin_InputPelunasan extends javax.swing.JFrame {
             }
         });
 
-        A_btnCancel.setText("Cancel");
+        A_btnCancel.setBackground(new java.awt.Color(192, 57, 43));
+        A_btnCancel.setText("CANCEL");
         A_btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 A_btnCancelActionPerformed(evt);
@@ -115,14 +116,16 @@ public class Admin_InputPelunasan extends javax.swing.JFrame {
             }
         });
 
-        A_btnCari.setText("Cari");
+        A_btnCari.setBackground(new java.awt.Color(26, 188, 156));
+        A_btnCari.setText("CARI");
         A_btnCari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 A_btnCariActionPerformed(evt);
             }
         });
 
-        A_btnReset.setText("Reset");
+        A_btnReset.setBackground(new java.awt.Color(244, 208, 63));
+        A_btnReset.setText("RESET");
         A_btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 A_btnResetActionPerformed(evt);
@@ -250,7 +253,7 @@ public class Admin_InputPelunasan extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
