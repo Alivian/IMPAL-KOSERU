@@ -85,14 +85,16 @@ public class Admin_InputSimpanan extends javax.swing.JFrame {
             }
         });
 
-        A_btnReset.setText("Reset");
+        A_btnReset.setBackground(new java.awt.Color(244, 208, 63));
+        A_btnReset.setText("RESET");
         A_btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 A_btnResetActionPerformed(evt);
             }
         });
 
-        A_btnCancel.setText("Cancel");
+        A_btnCancel.setBackground(new java.awt.Color(192, 57, 43));
+        A_btnCancel.setText("CANCEL");
         A_btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 A_btnCancelMouseClicked(evt);
@@ -116,7 +118,8 @@ public class Admin_InputSimpanan extends javax.swing.JFrame {
             }
         });
 
-        A_btnCari.setText("Cari");
+        A_btnCari.setBackground(new java.awt.Color(26, 188, 156));
+        A_btnCari.setText("CARI");
         A_btnCari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 A_btnCariActionPerformed(evt);
@@ -167,7 +170,7 @@ public class Admin_InputSimpanan extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(A_txkdAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(A_btnCari))
+                    .addComponent(A_btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -178,9 +181,9 @@ public class Admin_InputSimpanan extends javax.swing.JFrame {
                     .addComponent(A_txJumSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(A_btnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(A_btnReset)
-                    .addComponent(A_btnCancel))
+                    .addComponent(A_btnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(A_btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(A_btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
@@ -204,7 +207,7 @@ public class Admin_InputSimpanan extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(64, 64, 64)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

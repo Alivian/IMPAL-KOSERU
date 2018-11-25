@@ -42,7 +42,7 @@
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -112,7 +112,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="A_txkdAnggota" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="A_btnCari" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="A_btnCari" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -126,9 +126,9 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="A_btnOK" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="A_btnReset" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="A_btnCancel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="A_btnOK" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="A_btnReset" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="A_btnCancel" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="71" max="32767" attributes="0"/>
               </Group>
@@ -174,7 +174,10 @@
         </Component>
         <Component class="javax.swing.JButton" name="A_btnReset">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Reset"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="3f" green="d0" red="f4" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="RESET"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="A_btnResetActionPerformed"/>
@@ -182,7 +185,10 @@
         </Component>
         <Component class="javax.swing.JButton" name="A_btnCancel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cancel"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="2b" green="39" red="c0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="CANCEL"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="A_btnCancelMouseClicked"/>
@@ -213,7 +219,10 @@
         </Component>
         <Component class="javax.swing.JButton" name="A_btnCari">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cari"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="9c" green="bc" red="1a" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="CARI"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="A_btnCariActionPerformed"/>
