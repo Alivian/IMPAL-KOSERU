@@ -3,11 +3,15 @@ package View;
 
 
 
+import Controller.ControllerReqPinjaman;
 import Model.Pinjaman;
+import java.awt.event.ActionListener;
 import static java.lang.Math.ceil;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -25,13 +29,46 @@ import javax.swing.table.DefaultTableModel;
  * @author Malik
  */
 public class User_ReqPinjam extends javax.swing.JFrame {
-
-    /**
-     * Creates new form ReqPinjam
-     */
+    SimpleDateFormat format = new SimpleDateFormat("dd MMMMM yyyy");
+    private DefaultComboBoxModel<String> dcm;
+    
     public User_ReqPinjam() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        U_txDatePinjam.setText(format.format(new Date())+"");
+        dcm = (DefaultComboBoxModel<String>) BanyakCicilan.getModel();
+    }
 
+    public JComboBox<String> getBanyakCicilan() {
+        return BanyakCicilan;
+    }
+
+    public JButton getU_ReqbtnCancel() {
+        return U_ReqbtnCancel;
+    }
+
+    public JButton getU_ReqbtnOK() {
+        return U_ReqbtnOK;
+    }
+
+    public JButton getU_ReqbtnReset() {
+        return U_ReqbtnReset;
+    }
+
+    public JTextField getU_txTagihan() {
+        return U_txTagihan;
+    }
+
+    public JTextField getU_txJumPinjam() {
+        return U_txJumPinjam;
+    }
+    
+    public void addListener(ActionListener e){
+        U_ReqbtnCancel.addActionListener(e);
+        U_ReqbtnOK.addActionListener(e);
+        U_ReqbtnReset.addActionListener(e);
+        U_txTagihan.addActionListener(e);
+        BanyakCicilan.addActionListener(e);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,7 +131,7 @@ public class User_ReqPinjam extends javax.swing.JFrame {
         });
 
         U_ReqbtnOK.setText("OK");
-        U_ReqbtnOK.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), null));
+        U_ReqbtnOK.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         U_ReqbtnOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 U_ReqbtnOKActionPerformed(evt);
@@ -102,7 +139,7 @@ public class User_ReqPinjam extends javax.swing.JFrame {
         });
 
         U_ReqbtnReset.setText("RESET");
-        U_ReqbtnReset.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), null));
+        U_ReqbtnReset.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         U_ReqbtnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 U_ReqbtnResetActionPerformed(evt);
@@ -110,7 +147,7 @@ public class User_ReqPinjam extends javax.swing.JFrame {
         });
 
         U_ReqbtnCancel.setText("CANCEL");
-        U_ReqbtnCancel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), null));
+        U_ReqbtnCancel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         U_ReqbtnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 U_ReqbtnCancelActionPerformed(evt);

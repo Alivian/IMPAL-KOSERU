@@ -179,9 +179,7 @@
             <Property name="text" type="java.lang.String" value="OK"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                <BevelBorder>
-                  <Color PropertyName="highlightOuter" blue="cc" green="cc" red="cc" type="rgb"/>
-                </BevelBorder>
+                <BevelBorder/>
               </Border>
             </Property>
           </Properties>
@@ -194,9 +192,7 @@
             <Property name="text" type="java.lang.String" value="RESET"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                <BevelBorder>
-                  <Color PropertyName="highlightOuter" blue="cc" green="cc" red="cc" type="rgb"/>
-                </BevelBorder>
+                <BevelBorder/>
               </Border>
             </Property>
           </Properties>
@@ -209,9 +205,7 @@
             <Property name="text" type="java.lang.String" value="CANCEL"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                <BevelBorder>
-                  <Color PropertyName="highlightOuter" blue="cc" green="cc" red="cc" type="rgb"/>
-                </BevelBorder>
+                <BevelBorder/>
               </Border>
             </Property>
           </Properties>

@@ -32,7 +32,10 @@ public class ControllerUserMenu {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            
+            Object x=e.getSource();
+            if(x.equals(vUser.getU_btnReqPinjam())){
+                new ControllerReqPinjaman();
+            }
         }
     }
     

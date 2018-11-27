@@ -5,6 +5,7 @@ package View;
 
 import Controller.ControllerUserMenu;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -34,6 +35,22 @@ public class User_MenuUser extends javax.swing.JFrame {
         U_btnEdit.addActionListener(e);
         U_btnLogout.addActionListener(e);
         U_btnReqPinjam.addActionListener(e);
+    }
+
+    public JButton getU_btnCekSaldo() {
+        return U_btnCekSaldo;
+    }
+
+    public JButton getU_btnEdit() {
+        return U_btnEdit;
+    }
+
+    public JButton getU_btnLogout() {
+        return U_btnLogout;
+    }
+
+    public JButton getU_btnReqPinjam() {
+        return U_btnReqPinjam;
     }
 
     public JTextField getU_txEmail() {
