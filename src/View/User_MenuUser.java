@@ -7,6 +7,7 @@ import Controller.ControllerUserMenu;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -76,7 +77,22 @@ public class User_MenuUser extends javax.swing.JFrame {
     public JTextField getU_txTTL() {
         return U_txTTL;
     }
-    
+
+    public JTable getU_tbPelunasan() {
+        return U_tbPelunasan;
+    }
+
+    public JTable getU_tbPenarikan() {
+        return U_tbPenarikan;
+    }
+
+    public JTable getU_tbSimpan() {
+        return U_tbSimpan;
+    }
+
+    public JTable getU_tblPinjam() {
+        return U_tblPinjam;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.

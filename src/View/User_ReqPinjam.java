@@ -6,6 +6,7 @@ package View;
 import Controller.ControllerReqPinjaman;
 import Model.Pinjaman;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusListener;
 import static java.lang.Math.ceil;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -29,14 +30,20 @@ import javax.swing.table.DefaultTableModel;
  * @author Malik
  */
 public class User_ReqPinjam extends javax.swing.JFrame {
-    SimpleDateFormat format = new SimpleDateFormat("dd MMMMM yyyy");
-    private DefaultComboBoxModel<String> dcm;
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     
     public User_ReqPinjam() {
         initComponents();
         this.setLocationRelativeTo(null);
         U_txDatePinjam.setText(format.format(new Date())+"");
-        dcm = (DefaultComboBoxModel<String>) BanyakCicilan.getModel();
+    }
+
+    public JTextField getU_txDatePinjam() {
+        return U_txDatePinjam;
+    }
+
+    public JTextField getU_txKetPinjam() {
+        return U_txKetPinjam;
     }
 
     public JComboBox<String> getBanyakCicilan() {
@@ -69,6 +76,11 @@ public class User_ReqPinjam extends javax.swing.JFrame {
         U_ReqbtnReset.addActionListener(e);
         U_txTagihan.addActionListener(e);
         BanyakCicilan.addActionListener(e);
+    }
+    
+    @Override
+    public void addFocusListener(FocusListener e){
+        U_txJumPinjam.addFocusListener(e);
     }
     /**
      * This method is called from within the constructor to initialize the form.

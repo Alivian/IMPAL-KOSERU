@@ -21,7 +21,7 @@ import java.util.ArrayList;
  */
 public class DatabaseUser extends Mysql_DatabaseConnection{
     ResultSet rs;
-
+    private final DatabasePinjaman dbPinjam= new DatabasePinjaman();
 //    ArrayList<Pinjam> ar = new ArrayList();
 //    ArrayList<Simpan> sp = new ArrayList();
     
@@ -107,6 +107,7 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
 //    
     public Person getData(String user){
         Person prsn=null;
+        
         connect();
         try{
             String query = "select * from anggota WHERE username = '"+user+"'";
@@ -114,9 +115,10 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
             
             if(rs.next()){
                 System.out.println(rs.getString("kode_ang"));
+                dbPinjam.getAllPinjaman(rs.getString("kode_ang"));
                 prsn = new Person(rs.getString("kode_ang"),rs.getString("nama_ang"),rs.getString("pekerjaan"),rs.getString("tempat_lahir"),
                         rs.getString("tanggal_lahir"),rs.getString("email"),rs.getString("status"),rs.getString("no_telp"),
-                        rs.getString("username"),rs.getString("password"),null,null);
+                        rs.getString("username"),rs.getString("password"),dbPinjam.getPinjaman(),null);
             }
             
         } catch(Exception z){

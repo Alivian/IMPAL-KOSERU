@@ -20,6 +20,44 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
     private ResultSet rs = null;
     private ArrayList<Pinjaman> pinjaman = new ArrayList();
 
+    public boolean reqPinjam(Pinjaman pjm){
+        boolean value=false;
+        connect();
+        try{
+            System.out.println("masuk db");
+            String query = "insert into pinjaman values (";
+            query +="'" + pjm.getKode_pinjam()+ "',";
+            query +="'" + pjm.getKode_ang()+ "',";
+            query +="'" + pjm.getJum_pinjam()+ "',";
+            query +="STR_TO_DATE('"+pjm.getTgl_pinjam()+"', '%Y-%m-%d ')"+",";
+            query +="'" + pjm.getKet_pinjam()+ "',";
+            query +="'" + pjm.getStatus_acc()+ "',";
+            query +="'" + pjm.getKet_lunas()+ "',";
+            query +="STR_TO_DATE('"+pjm.getTgl_pinjam()+"', '%Y-%m-%d ')"+")";
+            value=manipulate(query);
+            return value;
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        return value;
+    }
+    
+    public int getSumAll(){
+        int sum=0;
+        connect();
+        try{
+            System.out.println("masuk db count");
+            String query = "select count(kode_pinjam) from pinjaman";
+            rs = stmt.executeQuery(query);
+            rs.next();
+            sum = rs.getInt(1) + 1;
+            return sum;
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return sum;
+    }
+    
     public String cekAnggota(String kode_ang){
         connect();
         String nama_ang="";
@@ -46,6 +84,30 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
             String query = "select * from pinjaman where status_acc";
             if(!cek) query += "!";
             query += "='menunggu'";
+            rs = stmt.executeQuery(query);
+            while(rs.next()){
+                pinjaman.add(new Pinjaman(
+                        rs.getString("kode_pinjam"),
+                        rs.getString("kode_ang"),
+                        rs.getInt("jum_pinjam"),
+                        rs.getString("tgl_pinjam"),
+                        rs.getString("ket_pinjam"),
+                        rs.getString("status_acc"),
+                        rs.getString("ket_lunas"),
+                        rs.getString("tgl_lunas")
+                ));
+            }
+            rs.close();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void getAllPinjaman(String kode){
+        connect();
+        try{
+            String query = "select * from pinjaman where kode_ang";
+            query += "='"+ kode +"'";
             rs = stmt.executeQuery(query);
             while(rs.next()){
                 pinjaman.add(new Pinjaman(

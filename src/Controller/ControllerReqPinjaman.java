@@ -5,9 +5,15 @@
  */
 package Controller;
 
+import Database.DatabasePinjaman;
+import Model.Person;
+import Model.Pinjaman;
 import View.User_ReqPinjam;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -16,11 +22,55 @@ import java.awt.event.ActionListener;
  */
 public class ControllerReqPinjaman {
     private User_ReqPinjam vReqPinjam;
-
-    public ControllerReqPinjaman() {
+    private final DatabasePinjaman dbPinjam= new DatabasePinjaman();
+    private Pinjaman pinjam;
+    private Person p;
+    
+    public ControllerReqPinjaman(Person p) {
+        this.p=p;
         this.vReqPinjam=new User_ReqPinjam();
         this.vReqPinjam.addListener(new RegPinjamListener());
+        this.vReqPinjam.addFocusListener(new RegPinjamFListener());
         this.vReqPinjam.setVisible(true);
+    }
+    
+    private void btnOptionDialogActionPerformed(java.awt.event.ActionEvent evt) {
+
+    int jawab = JOptionPane.showConfirmDialog(null, 
+                    "Apakah Semua data sudah sesuai?", 
+                    "Konfirmasi", 
+                    JOptionPane.YES_NO_OPTION, 
+                    JOptionPane.QUESTION_MESSAGE);
+    
+    if(jawab == JOptionPane.YES_OPTION){
+        if(dbPinjam.reqPinjam(new Pinjaman("PJM"+String.valueOf(dbPinjam.getSumAll()), p.getKode_angg(), Integer.parseInt(vReqPinjam.getU_txJumPinjam().getText()), vReqPinjam.getU_txDatePinjam().getText(), vReqPinjam.getU_txKetPinjam().getText()))==true){
+            System.out.println("mantul");
+            JOptionPane.showMessageDialog(vReqPinjam, "Reqeust berhasil dikirim","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
+            vReqPinjam.dispose();
+        }else{
+            JOptionPane.showMessageDialog(vReqPinjam, "Gagal","GAGAL",JOptionPane.ERROR_MESSAGE);
+        } 
+    }  
+}
+
+    class RegPinjamFListener implements FocusListener {
+
+        public RegPinjamFListener() {
+        }
+
+        @Override
+        public void focusGained(FocusEvent e) {
+            
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            Object x = e.getSource();
+            if(x==vReqPinjam.getU_txJumPinjam()){
+                vReqPinjam.getU_txTagihan().setText("");
+                vReqPinjam.getBanyakCicilan().setSelectedIndex(0);
+            }
+        }
     }
 
     class RegPinjamListener implements ActionListener {
@@ -29,8 +79,26 @@ public class ControllerReqPinjaman {
         public void actionPerformed(ActionEvent e) {
             Object x = e.getSource();
             if(x.equals(vReqPinjam.getBanyakCicilan())){
-                String valuee = vReqPinjam.getBanyakCicilan().getSelectedItem().toString();
-                vReqPinjam.getU_txTagihan().setText(Integer.toString(Integer.parseInt(vReqPinjam.getU_txJumPinjam().getText())/Integer.parseInt(valuee)));
+                System.out.println();
+                if(vReqPinjam.getU_txJumPinjam().getText().length()==0){
+                    JOptionPane.showMessageDialog(vReqPinjam, "Isi jumlah uang pinjaman","GAGAL",JOptionPane.ERROR_MESSAGE);
+                }else if(vReqPinjam.getBanyakCicilan().getSelectedIndex()!=0) {
+                    String valuee = vReqPinjam.getBanyakCicilan().getSelectedItem().toString();
+                    vReqPinjam.getU_txTagihan().setText(Integer.toString(Integer.parseInt(vReqPinjam.getU_txJumPinjam().getText())/Integer.parseInt(valuee)));
+                }
+            }else if(x.equals(vReqPinjam.getU_ReqbtnReset())){
+                vReqPinjam.getU_txJumPinjam().setText("");
+                vReqPinjam.getU_txKetPinjam().setText("");
+                vReqPinjam.getU_txTagihan().setText("");
+                vReqPinjam.getBanyakCicilan().setSelectedIndex(0);
+            }else if(x.equals(vReqPinjam.getU_ReqbtnCancel())){
+                vReqPinjam.dispose();
+            }else if(x.equals(vReqPinjam.getU_ReqbtnOK())){
+                if(vReqPinjam.getU_txJumPinjam().getText().length()==0||vReqPinjam.getU_txKetPinjam().getText().length()==0||vReqPinjam.getU_txTagihan().getText().length()==0){
+                    JOptionPane.showMessageDialog(vReqPinjam, "Isi semua data dengan benar","GAGAL",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    btnOptionDialogActionPerformed(e);
+                }
             }
         }
     }

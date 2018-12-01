@@ -6,9 +6,11 @@
 package Controller;
 
 import Model.Person;
+import Model.Pinjaman;
 import View.User_MenuUser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,7 +18,13 @@ import java.awt.event.ActionListener;
  */
 public class ControllerUserMenu {
     private User_MenuUser vUser;
+    private Person newP;
+    DefaultTableModel tabPijam;
+    DefaultTableModel tabPelunasan;
+    DefaultTableModel mdll;
+    DefaultTableModel mdltrk;
     public ControllerUserMenu(Person p) {
+        this.newP=p;
         this.vUser=new User_MenuUser();
         this.vUser.addListenerMUser(new UserMenuListener());
         this.vUser.getU_txEmail().setText(p.getEmail());
@@ -25,6 +33,14 @@ public class ControllerUserMenu {
         this.vUser.getU_txNoTelp().setText(p.getNo_telp());
         this.vUser.getU_txProfesi().setText(p.getProfesi());
         this.vUser.getU_txTTL().setText(p.getTmplahir()+", "+p.getTgllahir());
+        this.tabPijam = (DefaultTableModel) vUser.getU_tblPinjam().getModel();
+        this.tabPelunasan = (DefaultTableModel) vUser.getU_tbPelunasan().getModel();
+        for (Pinjaman pjm: this.newP.getPinjam()){
+            tabPijam.addRow(new Object[]{pjm.getTgl_pinjam(),pjm.getKet_pinjam(),pjm.getJum_pinjam(), pjm.getStatus_acc(),pjm.getKet_lunas()});
+            if(pjm.getTgl_lunas()!=null){
+                tabPelunasan.addRow(new Object[]{pjm.getTgl_lunas(),pjm.getJum_pinjam()});
+            }
+        }
         this.vUser.setVisible(true);
     }
 
@@ -34,7 +50,7 @@ public class ControllerUserMenu {
         public void actionPerformed(ActionEvent e) {
             Object x=e.getSource();
             if(x.equals(vUser.getU_btnReqPinjam())){
-                new ControllerReqPinjaman();
+                new ControllerReqPinjaman(newP);
             }
         }
     }
