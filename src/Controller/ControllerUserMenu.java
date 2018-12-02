@@ -20,10 +20,10 @@ import javax.swing.table.DefaultTableModel;
 public class ControllerUserMenu {
     private User_MenuUser vUser;
     private Person newP;
-    DefaultTableModel tabPijam;
-    DefaultTableModel tabPelunasan;
-    DefaultTableModel tabSimpan;
-    DefaultTableModel mdltrk;
+    private DefaultTableModel tabPinjam;
+    private DefaultTableModel tabPelunasan;
+    private DefaultTableModel tabSimpan;
+    private DefaultTableModel mdltrk;
     public ControllerUserMenu(Person p) {
         this.newP=p;
         this.vUser=new User_MenuUser();
@@ -34,11 +34,11 @@ public class ControllerUserMenu {
         this.vUser.getU_txNoTelp().setText(p.getNo_telp());
         this.vUser.getU_txProfesi().setText(p.getProfesi());
         this.vUser.getU_txTTL().setText(p.getTmplahir()+", "+p.getTgllahir());
-        this.tabPijam = (DefaultTableModel) vUser.getU_tblPinjam().getModel();
+        this.tabPinjam = (DefaultTableModel) vUser.getU_tblPinjam().getModel();
         this.tabPelunasan = (DefaultTableModel) vUser.getU_tbPelunasan().getModel();
         this.tabSimpan = (DefaultTableModel) vUser.getU_tbSimpan().getModel();
         for (Pinjaman pjm: this.newP.getPinjam()){
-            tabPijam.addRow(new Object[]{pjm.getTgl_pinjam(),pjm.getKet_pinjam(),pjm.getJum_pinjam(), pjm.getStatus_acc(),pjm.getKet_lunas()});
+            tabPinjam.addRow(new Object[]{pjm.getTgl_pinjam(),pjm.getKet_pinjam(),pjm.getJum_pinjam(), pjm.getStatus_acc(),pjm.getKet_lunas()});
             if(pjm.getKet_lunas().equals("lunas")){
                 tabPelunasan.addRow(new Object[]{pjm.getTgl_lunas(),pjm.getJum_pinjam()});
             }
@@ -55,7 +55,7 @@ public class ControllerUserMenu {
         public void actionPerformed(ActionEvent e) {
             Object x=e.getSource();
             if(x.equals(vUser.getU_btnReqPinjam())){
-                new ControllerReqPinjaman(newP);
+                new ControllerReqPinjaman(newP,tabPinjam);
             }
         }
     }

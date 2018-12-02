@@ -28,7 +28,7 @@ public class Pinjaman {
         this.ket_pinjam = ket_pinjam;
         this.status_acc = "Menunggu";
         this.ket_lunas = "";
-        this.tgl_lunas = "";
+        this.tgl_lunas = null;
     }
 
     public Pinjaman(String kode_pinjam, String kode_ang, int jum_pinjam, String tgl_pinjam, String ket_pinjam, String status_acc, String ket_lunas, String tgl_lunas) {

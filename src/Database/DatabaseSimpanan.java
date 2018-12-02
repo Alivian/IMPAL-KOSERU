@@ -141,5 +141,24 @@ public class DatabaseSimpanan extends Mysql_DatabaseConnection{
             System.out.println(e.getMessage());
         }
     }
+    public void getAllSimpanan(String kode) {
+        connect();
+        try{
+            String query = "select * from simpanan where kode_ang";
+            query += "='"+ kode +"'";
+            rs = stmt.executeQuery(query);
+            while(rs.next()){
+                simpanan.add(new Simpanan(
+                        rs.getDouble("jum_simpan"),
+                        rs.getString("kode_ang"),
+                        rs.getString("kode_simpan"),
+                        rs.getString("tgl_simpan")
+                ));
+            }
+            rs.close();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
     
 }

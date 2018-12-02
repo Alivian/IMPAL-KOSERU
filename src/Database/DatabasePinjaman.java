@@ -33,12 +33,14 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
             query +="'" + pjm.getKet_pinjam()+ "',";
             query +="'" + pjm.getStatus_acc()+ "',";
             query +="'" + pjm.getKet_lunas()+ "',";
-            query +="STR_TO_DATE('"+pjm.getTgl_lunas()+"', '%Y-%m-%d ')"+")";
+            query +=null+")";
             value=manipulate(query);
+            disconnect();
             return value;
         } catch (Exception e){
             System.out.println(e);
         }
+        disconnect();
         return value;
     }
     
@@ -51,10 +53,12 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
             rs = stmt.executeQuery(query);
             rs.next();
             sum = rs.getInt(1) + 1;
+            disconnect();
             return sum;
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
+        disconnect();
         return sum;
     }
     
@@ -98,6 +102,7 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
                 ));
             }
             rs.close();
+            disconnect();
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
@@ -121,6 +126,7 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
                         rs.getString("tgl_lunas")
                 ));
             }
+            disconnect();
             rs.close();
         }catch(SQLException e){
             System.out.println(e.getMessage());
@@ -139,6 +145,7 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
+        disconnect();
     }
     
     public void removePinjaman(String kode_ang){

@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -25,9 +26,10 @@ public class ControllerReqPinjaman {
     private final DatabasePinjaman dbPinjam= new DatabasePinjaman();
     private Pinjaman pinjam;
     private Person p;
-    
-    public ControllerReqPinjaman(Person p) {
+    DefaultTableModel tabPinjam;
+    public ControllerReqPinjaman(Person p, DefaultTableModel tabPinjam) {
         this.p=p;
+        this.tabPinjam=tabPinjam;
         this.vReqPinjam=new User_ReqPinjam();
         this.vReqPinjam.addListener(new RegPinjamListener());
         this.vReqPinjam.addFocusListener(new RegPinjamFListener());
@@ -43,8 +45,10 @@ public class ControllerReqPinjaman {
                     JOptionPane.QUESTION_MESSAGE);
     
     if(jawab == JOptionPane.YES_OPTION){
-        if(dbPinjam.reqPinjam(new Pinjaman("PJM"+String.valueOf(dbPinjam.getSumAll()), p.getKode_angg(), Integer.parseInt(vReqPinjam.getU_txJumPinjam().getText()), vReqPinjam.getU_txDatePinjam().getText(), vReqPinjam.getU_txKetPinjam().getText()))==true){
+        Pinjaman pd=new Pinjaman("PJM"+String.valueOf(dbPinjam.getSumAll()), p.getKode_angg(), Integer.parseInt(vReqPinjam.getU_txJumPinjam().getText()), vReqPinjam.getU_txDatePinjam().getText(), vReqPinjam.getU_txKetPinjam().getText());
+        if(dbPinjam.reqPinjam(pd)==true){
             JOptionPane.showMessageDialog(vReqPinjam, "Reqeust berhasil dikirim","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
+            tabPinjam.addRow(new Object[]{pd.getTgl_pinjam(),pd.getKet_pinjam(),pd.getJum_pinjam(), pd.getStatus_acc(),pd.getKet_lunas()});
             vReqPinjam.dispose();
         }else{
             JOptionPane.showMessageDialog(vReqPinjam, "Gagal","GAGAL",JOptionPane.ERROR_MESSAGE);
@@ -83,7 +87,7 @@ public class ControllerReqPinjaman {
                     JOptionPane.showMessageDialog(vReqPinjam, "Isi jumlah uang pinjaman","GAGAL",JOptionPane.ERROR_MESSAGE);
                 }else if(vReqPinjam.getBanyakCicilan().getSelectedIndex()!=0) {
                     String valuee = vReqPinjam.getBanyakCicilan().getSelectedItem().toString();
-                    vReqPinjam.getU_txTagihan().setText(Integer.toString(Integer.parseInt(vReqPinjam.getU_txJumPinjam().getText())/Integer.parseInt(valuee)));
+                    vReqPinjam.getU_txTagihan().setText(Double.toString(Math.ceil(Double.parseDouble(vReqPinjam.getU_txJumPinjam().getText())/Double.parseDouble(valuee))));
                 }
             }else if(x.equals(vReqPinjam.getU_ReqbtnReset())){
                 vReqPinjam.getU_txJumPinjam().setText("");

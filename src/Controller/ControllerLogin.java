@@ -50,12 +50,10 @@ public class ControllerLogin {
 
         @Override
         public void mousePressed(MouseEvent e) {
-//            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-//            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
 
         @Override
@@ -68,7 +66,6 @@ public class ControllerLogin {
 
         @Override
         public void mouseExited(MouseEvent e) {
-//            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
     }
 
@@ -112,26 +109,24 @@ public class ControllerLogin {
         public void actionPerformed(ActionEvent e) {
             Object x = e.getSource();
             if (x.equals(vLogin.getbtnLogin())){
-//                ControllerPerusahaan cpr = new ControllerPerusahaan(app);
-                if(akun.login(vLogin.getUsername(),vLogin.getPassword())==1){
+                int log = akun.login(vLogin.getUsername(),vLogin.getPassword());
+                if(log==1){
                     vLogin.dispose();
                     new ControllerUserMenu(akun.getData(vLogin.getUsername()));
-                }else{
-                    System.out.println("GAGAL");
+                }else if(log==2){
+                    vLogin.dispose();
+                    new ControllerMenuAdmin();
+                }
+                else{
+                    JOptionPane.showMessageDialog(vLogin, "Username atau password salah","GAGAL",JOptionPane.ERROR_MESSAGE);
                 }
             } else if (x.equals(vLogin.getbtnExit())){
-//                ControllerPelamar cpl = new ControllerPelamar(app);
                 vLogin.dispose();
             }else if (x.equals(vLogin.getlabelDaftar())){
                 vLogin.dispose();
                 vRegis =new View.User_Register();
-                
                 vRegis.addListener(new RegisListener());
                 vRegis.setVisible(true);
-                System.out.println("DAFTAR");
-            }
-            else{
-                System.out.println("GAGAL");
             }
         }
     }

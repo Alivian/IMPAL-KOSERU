@@ -84,10 +84,12 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
             query +="'" + prsn.getUsername()+ "',";
             query +="'" + prsn.getPassword()+ "')";
             value=manipulate(query);
+            disconnect();
             return value;
         } catch (Exception e){
             System.out.println(e);
         }
+        disconnect();
         return value;
     }
 //    public int update(String kode_ang,String nama, String prof,String email){
@@ -117,14 +119,16 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
             if(rs.next()){
                 System.out.println(rs.getString("kode_ang"));
                 dbPinjam.getAllPinjaman(rs.getString("kode_ang"));
+                dbSimpan.getAllSimpanan(rs.getString("kode_ang"));
                 prsn = new Person(rs.getString("kode_ang"),rs.getString("nama_ang"),rs.getString("pekerjaan"),rs.getString("tempat_lahir"),
                         rs.getString("tanggal_lahir"),rs.getString("email"),rs.getString("status"),rs.getString("no_telp"),
-                        rs.getString("username"),rs.getString("password"),dbPinjam.getPinjaman(),null);
+                        rs.getString("username"),rs.getString("password"),dbPinjam.getPinjaman(),dbSimpan.getSimpanan());
             }
             
         } catch(Exception z){
             System.out.println(z.getMessage());
         }
+        disconnect();
         return prsn;
     }
 }
