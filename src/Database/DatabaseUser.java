@@ -23,9 +23,8 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
     ResultSet rs;
     private final DatabasePinjaman dbPinjam= new DatabasePinjaman();
     private final DatabaseSimpanan dbSimpan= new DatabaseSimpanan();
-//    ArrayList<Pinjam> ar = new ArrayList();
-//    ArrayList<Simpan> sp = new ArrayList();
-    
+    private final DatabasePenarikan dbTarik= new DatabasePenarikan();
+
     public int login(String user, String pass){
         int value=0;
         connect();
@@ -120,9 +119,10 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
                 System.out.println(rs.getString("kode_ang"));
                 dbPinjam.getAllPinjaman(rs.getString("kode_ang"));
                 dbSimpan.getAllSimpanan(rs.getString("kode_ang"));
+                dbTarik.getPenarikanUser(rs.getString("kode_ang"));
                 prsn = new Person(rs.getString("kode_ang"),rs.getString("nama_ang"),rs.getString("pekerjaan"),rs.getString("tempat_lahir"),
                         rs.getString("tanggal_lahir"),rs.getString("email"),rs.getString("status"),rs.getString("no_telp"),
-                        rs.getString("username"),rs.getString("password"),dbPinjam.getPinjaman(),dbSimpan.getSimpanan());
+                        rs.getString("username"),rs.getString("password"),dbPinjam.getPinjaman(),dbSimpan.getSimpanan(),dbTarik.getPenarikan());
             }
             
         } catch(Exception z){

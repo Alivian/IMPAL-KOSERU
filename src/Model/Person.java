@@ -25,12 +25,12 @@ public class Person extends User {
     private String email;
     private List<Pinjaman> pinjam= new ArrayList();
     private List<Simpanan> simpan= new ArrayList();
-
+    private List<Penarikan> tarik= new ArrayList();
     
     public Person(String kode_anggota, 
             String nama, String profesi, String ttl, String tgll, String email, String status, String notlp,
             String username, String pass, 
-            List<Pinjaman> pinjam, List<Simpanan> simpan){
+            List<Pinjaman> pinjam, List<Simpanan> simpan, List<Penarikan> tarik){
         super(username, pass);
         this.nama = nama;
         this.tmplahir = ttl;
@@ -42,6 +42,7 @@ public class Person extends User {
         this.no_telp=notlp;
         this.pinjam = pinjam;
         this.simpan = simpan;
+        this.tarik = tarik;
     }
     
     public void setPinjam(Pinjaman pinjam) {
@@ -60,6 +61,14 @@ public class Person extends User {
         this.simpan.add(simpann);
     }
 
+    public List<Penarikan> getTarik() {
+        return tarik;
+    }
+
+    public void setTarik(List<Penarikan> tarik) {
+        this.tarik = tarik;
+    }
+    
     public void setNo_telp(String no_telp) {
         this.no_telp = no_telp;
     }

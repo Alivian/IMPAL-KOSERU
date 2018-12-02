@@ -92,7 +92,7 @@ public class ControllerLogin {
                 }  else if (pass1.compareTo(pass2)!=0){
                     JOptionPane.showMessageDialog(vRegis, "Password tidak sama");
                 }else {
-                    if(akun.regis(new Person(id,nama,kerja,lhr_tmp,lhr_tgl,email,status,no_telp,username,pass,null,null))!=false){
+                    if(akun.regis(new Person(id,nama,kerja,lhr_tmp,lhr_tgl,email,status,no_telp,username,pass,null,null,null))!=false){
                         JOptionPane.showMessageDialog(vRegis, "Akun baru telah terdaftar","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
                         vRegis.dispose();
                     } else {

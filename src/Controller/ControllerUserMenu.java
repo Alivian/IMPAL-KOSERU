@@ -5,12 +5,14 @@
  */
 package Controller;
 
+import Model.Penarikan;
 import Model.Person;
 import Model.Pinjaman;
 import Model.Simpanan;
 import View.User_MenuUser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,10 +22,11 @@ import javax.swing.table.DefaultTableModel;
 public class ControllerUserMenu {
     private User_MenuUser vUser;
     private Person newP;
+    private int totSaldo=0;
     private DefaultTableModel tabPinjam;
     private DefaultTableModel tabPelunasan;
     private DefaultTableModel tabSimpan;
-    private DefaultTableModel mdltrk;
+    private DefaultTableModel tabPenarikan;
     public ControllerUserMenu(Person p) {
         this.newP=p;
         this.vUser=new User_MenuUser();
@@ -37,6 +40,7 @@ public class ControllerUserMenu {
         this.tabPinjam = (DefaultTableModel) vUser.getU_tblPinjam().getModel();
         this.tabPelunasan = (DefaultTableModel) vUser.getU_tbPelunasan().getModel();
         this.tabSimpan = (DefaultTableModel) vUser.getU_tbSimpan().getModel();
+        this.tabPenarikan = (DefaultTableModel) vUser.getU_tbPenarikan().getModel();
         for (Pinjaman pjm: this.newP.getPinjam()){
             tabPinjam.addRow(new Object[]{pjm.getTgl_pinjam(),pjm.getKet_pinjam(),pjm.getJum_pinjam(), pjm.getStatus_acc(),pjm.getKet_lunas()});
             if(pjm.getKet_lunas().equals("lunas")){
@@ -44,7 +48,12 @@ public class ControllerUserMenu {
             }
         }
         for (Simpanan s : this.newP.getSimpan()){
+            this.totSaldo+=s.getJum_simpanan();
             tabSimpan.addRow(new Object[]{s.getTgl_simpan(),s.getJum_simpanan()});
+        }
+        for (Penarikan pn : this.newP.getTarik()){
+            this.totSaldo-=pn.getJum_penarikan();
+            tabPenarikan.addRow(new Object[]{pn.getTgl_penarikan(),pn.getJum_penarikan()});
         }
         this.vUser.setVisible(true);
     }
@@ -56,6 +65,13 @@ public class ControllerUserMenu {
             Object x=e.getSource();
             if(x.equals(vUser.getU_btnReqPinjam())){
                 new ControllerReqPinjaman(newP,tabPinjam);
+            }
+            else if(x.equals(vUser.getU_btnCekSaldo())){
+                JOptionPane.showMessageDialog(vUser,"Jumlah saldo saat ini : Rp"+totSaldo,"SALDO",JOptionPane.INFORMATION_MESSAGE);
+            }
+            else if(x.equals(vUser.getU_btnLogout())){
+                vUser.dispose();
+                new ControllerLogin();
             }
         }
     }
