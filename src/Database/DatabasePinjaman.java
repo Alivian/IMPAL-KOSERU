@@ -33,7 +33,7 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
             query +="'" + pjm.getKet_pinjam()+ "',";
             query +="'" + pjm.getStatus_acc()+ "',";
             query +="'" + pjm.getKet_lunas()+ "',";
-            query +="STR_TO_DATE('"+pjm.getTgl_pinjam()+"', '%Y-%m-%d ')"+")";
+            query +="STR_TO_DATE('"+pjm.getTgl_lunas()+"', '%Y-%m-%d ')"+")";
             value=manipulate(query);
             return value;
         } catch (Exception e){

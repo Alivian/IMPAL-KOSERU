@@ -24,13 +24,13 @@ public class Person extends User {
     private String profesi;
     private String email;
     private List<Pinjaman> pinjam= new ArrayList();
-    private List<Simpan> simpan= new ArrayList();
+    private List<Simpanan> simpan= new ArrayList();
 
     
     public Person(String kode_anggota, 
             String nama, String profesi, String ttl, String tgll, String email, String status, String notlp,
             String username, String pass, 
-            List<Pinjaman> pinjam, List<Simpan> simpan){
+            List<Pinjaman> pinjam, List<Simpanan> simpan){
         super(username, pass);
         this.nama = nama;
         this.tmplahir = ttl;
@@ -52,11 +52,11 @@ public class Person extends User {
         return pinjam;
     }
     
-    public List<Simpan> getSimpan() {
+    public List<Simpanan> getSimpan() {
         return simpan;
     }
 
-    public void setSimpan(Simpan simpann) {
+    public void setSimpan(Simpanan simpann) {
         this.simpan.add(simpann);
     }
 

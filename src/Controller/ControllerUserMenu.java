@@ -7,6 +7,7 @@ package Controller;
 
 import Model.Person;
 import Model.Pinjaman;
+import Model.Simpanan;
 import View.User_MenuUser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,7 +22,7 @@ public class ControllerUserMenu {
     private Person newP;
     DefaultTableModel tabPijam;
     DefaultTableModel tabPelunasan;
-    DefaultTableModel mdll;
+    DefaultTableModel tabSimpan;
     DefaultTableModel mdltrk;
     public ControllerUserMenu(Person p) {
         this.newP=p;
@@ -35,11 +36,15 @@ public class ControllerUserMenu {
         this.vUser.getU_txTTL().setText(p.getTmplahir()+", "+p.getTgllahir());
         this.tabPijam = (DefaultTableModel) vUser.getU_tblPinjam().getModel();
         this.tabPelunasan = (DefaultTableModel) vUser.getU_tbPelunasan().getModel();
+        this.tabSimpan = (DefaultTableModel) vUser.getU_tbSimpan().getModel();
         for (Pinjaman pjm: this.newP.getPinjam()){
             tabPijam.addRow(new Object[]{pjm.getTgl_pinjam(),pjm.getKet_pinjam(),pjm.getJum_pinjam(), pjm.getStatus_acc(),pjm.getKet_lunas()});
-            if(pjm.getTgl_lunas()!=null){
+            if(pjm.getKet_lunas().equals("lunas")){
                 tabPelunasan.addRow(new Object[]{pjm.getTgl_lunas(),pjm.getJum_pinjam()});
             }
+        }
+        for (Simpanan s : this.newP.getSimpan()){
+            tabSimpan.addRow(new Object[]{s.getTgl_simpan(),s.getJum_simpanan()});
         }
         this.vUser.setVisible(true);
     }

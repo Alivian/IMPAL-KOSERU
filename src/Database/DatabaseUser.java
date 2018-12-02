@@ -4,7 +4,7 @@ import static Database.Mysql_DatabaseConnection.*;
 import Model.Admin;
 import Model.Person;
 import Model.Pinjaman;
-import Model.Simpan;
+import Model.Simpanan;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class DatabaseUser extends Mysql_DatabaseConnection{
     ResultSet rs;
     private final DatabasePinjaman dbPinjam= new DatabasePinjaman();
+    private final DatabaseSimpanan dbSimpan= new DatabaseSimpanan();
 //    ArrayList<Pinjam> ar = new ArrayList();
 //    ArrayList<Simpan> sp = new ArrayList();
     

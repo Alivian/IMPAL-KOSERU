@@ -2,7 +2,7 @@ package Model;
 
 
 import Model.User;
-import Model.Simpan;
+import Model.Simpanan;
 import Model.Person;
 import java.util.*;
 
@@ -28,7 +28,7 @@ public class Admin extends User {
     public void setReqPinjam(List reqPinjam) {
     }
 
-    public void setApplysimpan(Simpan applysimpan) {
+    public void setApplysimpan(Simpanan applysimpan) {
     }
 
     @Override

@@ -3,7 +3,7 @@ package View;
 
 
 
-import Model.Simpan;
+import Model.Simpanan;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;

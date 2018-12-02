@@ -44,7 +44,6 @@ public class ControllerReqPinjaman {
     
     if(jawab == JOptionPane.YES_OPTION){
         if(dbPinjam.reqPinjam(new Pinjaman("PJM"+String.valueOf(dbPinjam.getSumAll()), p.getKode_angg(), Integer.parseInt(vReqPinjam.getU_txJumPinjam().getText()), vReqPinjam.getU_txDatePinjam().getText(), vReqPinjam.getU_txKetPinjam().getText()))==true){
-            System.out.println("mantul");
             JOptionPane.showMessageDialog(vReqPinjam, "Reqeust berhasil dikirim","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
             vReqPinjam.dispose();
         }else{

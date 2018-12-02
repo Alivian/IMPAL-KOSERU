@@ -81,7 +81,7 @@ public class DatabaseSimpanan extends Mysql_DatabaseConnection{
             query += "'"+kode_ang+"'";
             rs = stmt.executeQuery(query);
             while (rs.next()) {
-                Simpanan.add(new Simpanan(
+                simpanan.add(new Simpanan(
                     rs.getDouble("jum_simpan"),
                     rs.getString("kode_ang"),
                     rs.getString("kode_simpan"),
@@ -100,7 +100,7 @@ public class DatabaseSimpanan extends Mysql_DatabaseConnection{
             String query = "select * from penarikan";
             rs = stmt.executeQuery(query);
             while(rs.next()){
-                Simpanan.add(new Simpanan(
+                simpanan.add(new Simpanan(
                         rs.getDouble("jum_simpan"),
                         rs.getString("kode_ang"),
                         rs.getString("kode_simpan"),
@@ -125,19 +125,15 @@ public class DatabaseSimpanan extends Mysql_DatabaseConnection{
         connect();
         try{
             String query = "select * from simpanan where status_acc";
-            if(!cek) query += "!";
+            if(!b) query += "!";
             query += "='menunggu'";
             rs = stmt.executeQuery(query);
             while(rs.next()){
                 simpanan.add(new Simpanan(
-                        rs.getString("kode_pinjam"),
+                        rs.getDouble("jum_simpan"),
                         rs.getString("kode_ang"),
-                        rs.getInt("jum_pinjam"),
-                        rs.getString("tgl_pinjam"),
-                        rs.getString("ket_pinjam"),
-                        rs.getString("status_acc"),
-                        rs.getString("ket_lunas"),
-                        rs.getString("tgl_lunas")
+                        rs.getString("kode_simpan"),
+                        rs.getString("tgl_simpan")
                 ));
             }
             rs.close();
