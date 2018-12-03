@@ -36,9 +36,7 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
             query +="'" + pjm.getStatus_acc()+ "',";
             query +="'" + pjm.getKet_lunas()+ "',";
             query +=null+")";
-            value=manipulate(query);
-            disconnect();
-            return value;
+            value = manipulate(query);
         } catch (Exception e){
             System.out.println(e);
         }
@@ -103,10 +101,10 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
                 ));
             }
             rs.close();
-            disconnect();
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
+        disconnect();
     }
     
     public void getAllPinjaman(String kode){
@@ -127,11 +125,11 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
                         rs.getString("tgl_lunas")
                 ));
             }
-            disconnect();
             rs.close();
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
+        disconnect();
     }
     
     public boolean ubahStatusPinjaman(String kode_pinjam, String status){
@@ -171,11 +169,13 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
                         rs.getString("status_acc"),
                         rs.getString("ket_lunas"),
                         rs.getString("tgl_lunas"));
+                disconnect();
                 return p;
             }
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
+        disconnect();
         return null;
     } 
     

@@ -61,6 +61,7 @@ public class DatabasePenarikan extends Mysql_DatabaseConnection{
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
+        disconnect();
         return saldo;
     }
     
@@ -73,10 +74,12 @@ public class DatabasePenarikan extends Mysql_DatabaseConnection{
             rs = stmt.executeQuery(query);
             rs.next();
             sum = rs.getInt(1) + 1;
+            disconnect();
             return sum;
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
+        disconnect();
         return sum;
     }
         
@@ -92,6 +95,7 @@ public class DatabasePenarikan extends Mysql_DatabaseConnection{
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
+        disconnect();
     }
     
     public void getPenarikanUser(String kode_ang){
@@ -112,6 +116,7 @@ public class DatabasePenarikan extends Mysql_DatabaseConnection{
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
+        disconnect();
     }
     
     public void getAllPenarikan(){
@@ -131,6 +136,7 @@ public class DatabasePenarikan extends Mysql_DatabaseConnection{
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
+        disconnect();
     }
 
     public ArrayList<Penarikan> getPenarikan() {

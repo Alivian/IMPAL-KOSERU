@@ -56,6 +56,7 @@ public class DatabaseSimpanan extends Mysql_DatabaseConnection{
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
+        disconnect();
         return sum;
     
     }
@@ -72,6 +73,7 @@ public class DatabaseSimpanan extends Mysql_DatabaseConnection{
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
+        disconnect();
     }
 
     public void getSimpananUser(String kode_ang) {
@@ -92,6 +94,7 @@ public class DatabaseSimpanan extends Mysql_DatabaseConnection{
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        disconnect();
     }
 
     public void getAllSimpanan() {
@@ -111,6 +114,7 @@ public class DatabaseSimpanan extends Mysql_DatabaseConnection{
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
+        disconnect();
     }
     
     public ArrayList<Simpanan> getSimpanan() {
@@ -139,6 +143,7 @@ public class DatabaseSimpanan extends Mysql_DatabaseConnection{
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
+        disconnect();
     }
     
 }
