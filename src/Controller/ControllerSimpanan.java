@@ -23,7 +23,6 @@ public class ControllerSimpanan implements ActionListener {
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     ArrayList<Simpanan> simpanan = new ArrayList();
     private Admin_InputSimpanan viewInputSimpanan;
-    private Admin_LihatSimpanan viewLihatSimpanan;
     private DatabaseSimpanan dbSimpanan;
 
     public ControllerSimpanan() {
@@ -51,6 +50,8 @@ public class ControllerSimpanan implements ActionListener {
         }
     }
     
+    
+    
     public void btnCariAnggotaActionPerformed(){
         String kode_ang = viewInputSimpanan.getTxkdAnggota().toString();
         if(!kode_ang.equals("")){
@@ -74,7 +75,7 @@ public class ControllerSimpanan implements ActionListener {
         }else{
             String kode_simpanan = kode_ang + "TRK" + dbSimpanan.getSum(kode_ang);
             String tgl_simpanan = viewInputSimpanan.getTglSimpan();
-            int jum_simpanan = Integer.valueOf(viewInputSimpanan.getJumSimpan()) ;
+            int jum_simpanan = Integer.valueOf(viewInputSimpanan.getTxJumSimpan()) ;
             if(jum_simpanan <= 0){
                 JOptionPane.showMessageDialog(viewInputSimpanan, "Jumlah penarikan tidak valid","GAGAL",JOptionPane.ERROR_MESSAGE);
             }else{
@@ -91,7 +92,7 @@ public class ControllerSimpanan implements ActionListener {
     public void reset(){
         viewInputSimpanan.setTxkdAnggota("");
         viewInputSimpanan.setTxNama("");
-        viewInputSimpanan.setTxjumsimpanan(0);
+        viewInputSimpanan.setTxJumSimpan(0);
         viewInputSimpanan.setBtnOK(false);
     }    
     

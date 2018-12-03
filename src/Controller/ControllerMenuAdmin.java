@@ -32,6 +32,7 @@ public class ControllerMenuAdmin implements ActionListener{
             new ControllerInputPenarikan();
         }else if (source.equals(viewMenuAdmin.getBtnInputBayar())){
         }else if (source.equals(viewMenuAdmin.getBtnLihatSimpan())){
+            new ControllerLihatSimpanan();
         }else if (source.equals(viewMenuAdmin.getBtnLihatPenarikan())){
             new ControllerLihatPenarikan();
         }else if (source.equals(viewMenuAdmin.getBtnLihatPinjam())){

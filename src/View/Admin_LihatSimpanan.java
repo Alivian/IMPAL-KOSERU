@@ -3,6 +3,7 @@ package View;
 
 
 
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -16,13 +17,11 @@ import javax.swing.table.DefaultTableModel;
  * @author Malik
  */
 public class Admin_LihatSimpanan extends javax.swing.JFrame {
-    public DefaultTableModel mdl;
     /**
      * Creates new form Admin_LihatSimpanan
      */
     public Admin_LihatSimpanan() {
         initComponents();
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -36,7 +35,7 @@ public class Admin_LihatSimpanan extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        A_tbLihatSimpanan = new javax.swing.JTable();
+        tbLihatSimpanan = new javax.swing.JTable();
         A_RiwSimpan_btnSelesai = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -46,7 +45,7 @@ public class Admin_LihatSimpanan extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "DAFTAR RIWAYAT SIMPANAN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        A_tbLihatSimpanan.setModel(new javax.swing.table.DefaultTableModel(
+        tbLihatSimpanan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -62,7 +61,7 @@ public class Admin_LihatSimpanan extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(A_tbLihatSimpanan);
+        jScrollPane1.setViewportView(tbLihatSimpanan);
 
         A_RiwSimpan_btnSelesai.setText("Selesai");
         A_RiwSimpan_btnSelesai.addActionListener(new java.awt.event.ActionListener() {
@@ -134,9 +133,13 @@ public class Admin_LihatSimpanan extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton A_RiwSimpan_btnSelesai;
-    private javax.swing.JTable A_tbLihatSimpanan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tbLihatSimpanan;
     // End of variables declaration//GEN-END:variables
+
+    public void setA_tbLihatSimpanan(DefaultTableModel table) {
+        tbLihatSimpanan.setModel(table);
+    }
 }

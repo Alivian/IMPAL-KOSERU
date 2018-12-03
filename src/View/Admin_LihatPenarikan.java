@@ -36,7 +36,7 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbPenarikan = new javax.swing.JTable();
+        tbSimpanan = new javax.swing.JTable();
         btnSelesai = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -46,7 +46,7 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "DAFTAR RIWAYAT PENARIKAN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        tbPenarikan.setModel(new javax.swing.table.DefaultTableModel(
+        tbSimpanan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -62,7 +62,7 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tbPenarikan);
+        jScrollPane1.setViewportView(tbSimpanan);
 
         btnSelesai.setText("Selesai");
         btnSelesai.addActionListener(new java.awt.event.ActionListener() {
@@ -131,10 +131,10 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbPenarikan;
+    private javax.swing.JTable tbSimpanan;
     // End of variables declaration//GEN-END:variables
 
     public void setTbPenarikan(DefaultTableModel table) {
-        tbPenarikan.setModel(table);
+        tbSimpanan.setModel(table);
     }
 }

@@ -97,7 +97,7 @@ public class DatabaseSimpanan extends Mysql_DatabaseConnection{
     public void getAllSimpanan() {
         connect();
         try{
-            String query = "select * from penarikan";
+            String query = "select * from simpanan";
             rs = stmt.executeQuery(query);
             while(rs.next()){
                 simpanan.add(new Simpanan(
@@ -124,7 +124,7 @@ public class DatabaseSimpanan extends Mysql_DatabaseConnection{
     public void getAllSimpanan(boolean b) {
         connect();
         try{
-            String query = "select * from simpanan where status_acc";
+            String query = "select * from simpanan ";
             if(!b) query += "!";
             query += "='menunggu'";
             rs = stmt.executeQuery(query);
