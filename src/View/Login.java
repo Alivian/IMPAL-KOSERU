@@ -86,8 +86,13 @@ public class Login extends javax.swing.JFrame {
         L_labelDaftar.setText("DAFTAR SEKARANG");
 
         L_btnLogin.setBackground(new java.awt.Color(69, 179, 157));
-        L_btnLogin.setText("MASUK");
+        L_btnLogin.setText("asd");
         L_btnLogin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        L_btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                L_btnLoginActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(245, 238, 248));
 
@@ -193,6 +198,10 @@ public class Login extends javax.swing.JFrame {
     private void L_btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_L_btnExitActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_L_btnExitActionPerformed
+
+    private void L_btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_L_btnLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_L_btnLoginActionPerformed
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
