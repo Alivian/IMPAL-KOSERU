@@ -97,8 +97,6 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
                         rs.getString("tgl_pinjam"),
                         rs.getString("ket_pinjam"),
                         rs.getString("status_acc"),
-                        rs.getInt("kelas_cicil"),
-                        rs.getInt("jum_cicil"),
                         rs.getString("ket_lunas"),
                         rs.getString("tgl_lunas")
                 ));
@@ -124,8 +122,6 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
                         rs.getString("tgl_pinjam"),
                         rs.getString("ket_pinjam"),
                         rs.getString("status_acc"),
-                        rs.getInt("kelas_cicil"),
-                        rs.getInt("jum_cicil"),
                         rs.getString("ket_lunas"),
                         rs.getString("tgl_lunas")
                 ));
