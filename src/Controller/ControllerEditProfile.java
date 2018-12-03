@@ -83,6 +83,8 @@ public class ControllerEditProfile {
                         JOptionPane.showMessageDialog(vEdit, "Kesalahan, hubungi pegawai","GAGAL",JOptionPane.ERROR_MESSAGE);
                     }
                 }
+            }else if(source==vEdit.getBtnKembali()){
+                vEdit.dispose();
             }
         }
     }

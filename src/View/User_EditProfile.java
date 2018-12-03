@@ -71,9 +71,13 @@ public class User_EditProfile extends javax.swing.JFrame {
         return E_cbJK;
     }
 
+    public JButton getBtnKembali() {
+        return btnKembali;
+    }
+
     public void addListener(ActionListener e){
         E_btnConfirm.addActionListener(e);
-        
+        btnKembali.addActionListener(e);
     }
     
     /**
