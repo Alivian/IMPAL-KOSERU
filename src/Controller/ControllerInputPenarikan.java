@@ -75,22 +75,29 @@ public class ControllerInputPenarikan implements ActionListener {
         if(kode_ang.isEmpty()){
             JOptionPane.showMessageDialog(viewInputPenarikan, "Terdapat data yang kosong","GAGAL",JOptionPane.ERROR_MESSAGE);
         }else{
-            String kode_penarikan = kode_ang + "TRK" + dbPenarikan.getSum(kode_ang);
-            String tgl_penarikan = viewInputPenarikan.getTxtglTarik();
-            int saldo = Integer.valueOf(viewInputPenarikan.getTxSaldo());
-            int jum_penarikan = Integer.valueOf(viewInputPenarikan.getTxJumTarik());
-            if(jum_penarikan <= 0){
-                JOptionPane.showMessageDialog(viewInputPenarikan, "Jumlah penarikan tidak valid","GAGAL",JOptionPane.ERROR_MESSAGE);
-            }else{
-                if(jum_penarikan > saldo){
-                    JOptionPane.showMessageDialog(viewInputPenarikan, "Saldo tidak mencukupi","GAGAL",JOptionPane.ERROR_MESSAGE);
+            int jawab = JOptionPane.showConfirmDialog(null, 
+                    "Apakah data sudah sesuai?", 
+                    "Konfirmasi", 
+                    JOptionPane.YES_NO_OPTION, 
+                    JOptionPane.QUESTION_MESSAGE);
+            if(jawab == JOptionPane.YES_OPTION){
+                String kode_penarikan = kode_ang + "TRK" + dbPenarikan.getSum(kode_ang);
+                String tgl_penarikan = viewInputPenarikan.getTxtglTarik();
+                int saldo = Integer.valueOf(viewInputPenarikan.getTxSaldo());
+                int jum_penarikan = Integer.valueOf(viewInputPenarikan.getTxJumTarik());
+                if(jum_penarikan <= 0){
+                    JOptionPane.showMessageDialog(viewInputPenarikan, "Jumlah penarikan tidak valid","GAGAL",JOptionPane.ERROR_MESSAGE);
                 }else{
-                    dbPenarikan.PenarikanUang(new Penarikan(
-                            jum_penarikan, kode_ang, kode_penarikan, tgl_penarikan
-                    ));
-                    reset();
-                    JOptionPane.showMessageDialog(viewInputPenarikan, "Penarikan berhasil disimpan","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
-                    viewInputPenarikan.setBtnOK(false);
+                    if(jum_penarikan > saldo){
+                        JOptionPane.showMessageDialog(viewInputPenarikan, "Saldo tidak mencukupi","GAGAL",JOptionPane.ERROR_MESSAGE);
+                    }else{
+                        dbPenarikan.PenarikanUang(new Penarikan(
+                                jum_penarikan, kode_ang, kode_penarikan, tgl_penarikan
+                        ));
+                        reset();
+                        JOptionPane.showMessageDialog(viewInputPenarikan, "Penarikan berhasil disimpan","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
+                        viewInputPenarikan.setBtnOK(false);
+                    }
                 }
             }
         }

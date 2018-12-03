@@ -111,7 +111,6 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
         boolean value = false;
         connect();
         try{
-            System.out.println(P.getTgllahir().toString());
             String query ="update anggota set "
                     + "nama_ang='"+P.getNama()+"',"
                     + "pekerjaan='"+P.getProfesi()+"',"
@@ -139,7 +138,6 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
             rs = stmt.executeQuery(query);
             
             if(rs.next()){
-                System.out.println(rs.getString("kode_ang"));
                 dbPinjam.getAllPinjaman(rs.getString("kode_ang"));
                 dbSimpan.getAllSimpanan(rs.getString("kode_ang"));
                 dbTarik.getPenarikanUser(rs.getString("kode_ang"));

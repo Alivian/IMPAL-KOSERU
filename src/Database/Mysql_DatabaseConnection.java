@@ -46,11 +46,9 @@ public class Mysql_DatabaseConnection {
     
     public void disconnect(){
         try {
-            System.out.println("this");
             con.close();
             stmt.close();
         } catch (SQLException ex) {
-            System.out.println("this");
             Logger.getLogger(Mysql_DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

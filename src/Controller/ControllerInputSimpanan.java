@@ -19,13 +19,13 @@ import javax.swing.JOptionPane;
  *
  * @author Randi Salam
  */
-public class ControllerSimpanan implements ActionListener {
+public class ControllerInputSimpanan implements ActionListener {
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     ArrayList<Simpanan> simpanan = new ArrayList();
     private Admin_InputSimpanan viewInputSimpanan;
     private DatabaseSimpanan dbSimpanan;
 
-    public ControllerSimpanan() {
+    public ControllerInputSimpanan() {
         viewInputSimpanan = new Admin_InputSimpanan();
         dbSimpanan = new DatabaseSimpanan();
         viewInputSimpanan.addActionListener(this);
@@ -73,18 +73,25 @@ public class ControllerSimpanan implements ActionListener {
         if(kode_ang.isEmpty()){
             JOptionPane.showMessageDialog(viewInputSimpanan, "Terdapat data yang kosong","GAGAL",JOptionPane.ERROR_MESSAGE);
         }else{
-            String kode_simpanan = kode_ang + "TRK" + dbSimpanan.getSum(kode_ang);
-            String tgl_simpanan = viewInputSimpanan.getTglSimpan();
-            int jum_simpanan = Integer.valueOf(viewInputSimpanan.getTxJumSimpan()) ;
-            if(jum_simpanan <= 0){
-                JOptionPane.showMessageDialog(viewInputSimpanan, "Jumlah penarikan tidak valid","GAGAL",JOptionPane.ERROR_MESSAGE);
-            }else{
-                dbSimpanan.SimpananUang(new Simpanan(
-                jum_simpanan, kode_ang, kode_simpanan, tgl_simpanan
-                ));
-                reset();
-                JOptionPane.showMessageDialog(viewInputSimpanan, "Simpan uang berhasil disimpan","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
-                viewInputSimpanan.setBtnOK(false);
+            int jawab = JOptionPane.showConfirmDialog(null, 
+                    "Apakah data sudah sesuai?", 
+                    "Konfirmasi", 
+                    JOptionPane.YES_NO_OPTION, 
+                    JOptionPane.QUESTION_MESSAGE);
+            if(jawab == JOptionPane.YES_OPTION){
+                String kode_simpanan = kode_ang + "TRK" + dbSimpanan.getSum(kode_ang);
+                String tgl_simpanan = viewInputSimpanan.getTglSimpan();
+                int jum_simpanan = Integer.valueOf(viewInputSimpanan.getTxJumSimpan()) ;
+                if(jum_simpanan <= 0){
+                    JOptionPane.showMessageDialog(viewInputSimpanan, "Jumlah penarikan tidak valid","GAGAL",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    dbSimpanan.SimpananUang(new Simpanan(
+                    jum_simpanan, kode_ang, kode_simpanan, tgl_simpanan
+                    ));
+                    reset();
+                    JOptionPane.showMessageDialog(viewInputSimpanan, "Simpan uang berhasil disimpan","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
+                    viewInputSimpanan.setBtnOK(false);
+                }
             }
         }
     }

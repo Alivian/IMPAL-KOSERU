@@ -27,7 +27,6 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
         boolean value=false;
         connect();
         try{
-            System.out.println("masuk db");
             String query = "insert into pinjaman values (";
             query +="'" + pjm.getKode_pinjam()+ "',";
             query +="'" + pjm.getKode_ang()+ "',";
@@ -51,7 +50,6 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
         int sum=0;
         connect();
         try{
-            System.out.println("masuk db count");
             String query = "select count(kode_pinjam) from pinjaman";
             rs = stmt.executeQuery(query);
             rs.next();
@@ -160,7 +158,7 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
         connect();
         try{
             String query = "select * from pinjaman where kode_ang=";
-            query += "'" + kode_ang + "' and";
+            query += "'" + kode_ang + "' and ";
             query += "ket_lunas = 'belum lunas'";
             rs = stmt.executeQuery(query);
             while(rs.next()){

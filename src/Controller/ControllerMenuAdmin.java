@@ -27,7 +27,7 @@ public class ControllerMenuAdmin implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source.equals(viewMenuAdmin.getBtnInputSimpan())){
-            new ControllerSimpanan();
+            new ControllerInputSimpanan();
         }else if (source.equals(viewMenuAdmin.getBtnInputPenarikan())){
             new ControllerInputPenarikan();
         }else if (source.equals(viewMenuAdmin.getBtnInputBayar())){

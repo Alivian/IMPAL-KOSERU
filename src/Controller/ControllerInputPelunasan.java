@@ -59,7 +59,7 @@ public class ControllerInputPelunasan implements ActionListener {
             String nama = dbPinjaman.cekAnggota(kode_ang);
             if(!nama.equals("")){
                 Pinjaman p = dbPinjaman.cariPinjaman(kode_ang);
-                if(!p.equals(null)){
+                if(p != null){
                     viewInputPelunasan.setBtnOK(true);
                     viewInputPelunasan.setTxNama(nama);
                     viewInputPelunasan.setTxTglPinjam(p.getTgl_pinjam());
@@ -78,11 +78,18 @@ public class ControllerInputPelunasan implements ActionListener {
     }
     
     public void btnOKActionPerformed(){
-        String kode_ang = viewInputPelunasan.getTxKodeAnggota().toString();
-        if(dbPinjaman.setLunas(kode_ang))
-            JOptionPane.showMessageDialog(viewInputPelunasan, "Pelunasan berhasil disimpan","BERHASIL",JOptionPane.ERROR_MESSAGE);
-        else
-            JOptionPane.showMessageDialog(viewInputPelunasan, "Pelunasan gagal disimpan","GAGAL",JOptionPane.ERROR_MESSAGE);
+        int jawab = JOptionPane.showConfirmDialog(null, 
+                    "Apakah data sudah sesuai?", 
+                    "Konfirmasi", 
+                    JOptionPane.YES_NO_OPTION, 
+                    JOptionPane.QUESTION_MESSAGE);
+        if(jawab == JOptionPane.YES_OPTION){
+            String kode_ang = viewInputPelunasan.getTxKodeAnggota().toString();
+            if(dbPinjaman.setLunas(kode_ang))
+                JOptionPane.showMessageDialog(viewInputPelunasan, "Pelunasan berhasil disimpan","BERHASIL",JOptionPane.ERROR_MESSAGE);
+            else
+                JOptionPane.showMessageDialog(viewInputPelunasan, "Pelunasan gagal disimpan","GAGAL",JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     public void reset(){
