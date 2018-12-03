@@ -67,6 +67,7 @@ public class ControllerInputPelunasan implements ActionListener {
                     viewInputPelunasan.setTxJumPinjam(p.getJum_pinjam()+"");
                 }else{
                     JOptionPane.showMessageDialog(viewInputPelunasan, "Tidak ditemukan pinjaman yang belum lunas","INFORMASI",JOptionPane.ERROR_MESSAGE);
+                    reset();
                 }
             }else{
                 reset();
@@ -85,8 +86,10 @@ public class ControllerInputPelunasan implements ActionListener {
                     JOptionPane.QUESTION_MESSAGE);
         if(jawab == JOptionPane.YES_OPTION){
             String kode_ang = viewInputPelunasan.getTxKodeAnggota().toString();
-            if(dbPinjaman.setLunas(kode_ang))
-                JOptionPane.showMessageDialog(viewInputPelunasan, "Pelunasan berhasil disimpan","BERHASIL",JOptionPane.ERROR_MESSAGE);
+            if(dbPinjaman.setLunas(kode_ang)){
+                JOptionPane.showMessageDialog(viewInputPelunasan, "Pelunasan berhasil disimpan","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
+                viewInputPelunasan.dispose();
+            }
             else
                 JOptionPane.showMessageDialog(viewInputPelunasan, "Pelunasan gagal disimpan","GAGAL",JOptionPane.ERROR_MESSAGE);
         }
