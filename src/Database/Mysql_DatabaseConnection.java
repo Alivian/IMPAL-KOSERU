@@ -30,18 +30,15 @@ public class Mysql_DatabaseConnection {
     
     public void connect(){
         try {
-             this.url = "jdbc:mysql://us-cdbr-gcp-east-01.cleardb.net/gcp_eae35478d266dd67ae8b";
-            this.user = "b517774f39b450";
-            this.pass = "ff8c88ca";
-             con = DriverManager.getConnection(url, user, pass);
-             stmt = con.createStatement();
-             System.out.println("Database terhubung");
-         } catch (SQLException ex){
-             System.out.println(ex.getLocalizedMessage());
-             if(ex.getMessage().equals("Communications link failure")){
-                 System.out.println("Database gagal");
-             }
-         }
+            con = DriverManager.getConnection(url, user, pass);
+            stmt = con.createStatement();
+            System.out.println("Database terhubung");
+        } catch (SQLException ex){
+            System.out.println(ex.getLocalizedMessage());
+            if(ex.getMessage().equals("Communications link failure")){
+                System.out.println("Database gagal");
+            }
+        }
     }
     
     public void disconnect(){
