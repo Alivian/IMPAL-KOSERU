@@ -8,13 +8,13 @@ package Controller;
 import Database.DatabasePinjaman;
 import Model.Pinjaman;
 import View.Admin_TerimaPinjaman;
-import com.mysql.jdbc.PingTarget;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.ViewportUI;
 import javax.swing.table.DefaultTableModel;
 
@@ -73,7 +73,9 @@ public class ControllerTerimaPinjaman extends MouseAdapter implements ActionList
         try{
             int row = viewTerimaPinjaman.getSelectedPinjaman();
             String kode_pinjam = viewTerimaPinjaman.getTblReqPinjaman().getValueAt(row, 2).toString();
-            dbPinjaman.ubahStatusPinjaman(kode_pinjam, "diterima");
+            if(dbPinjaman.ubahStatusPinjaman(kode_pinjam, "diterima")){
+                JOptionPane.showMessageDialog(viewTerimaPinjaman, "Pinjaman diterima","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
+            }
             viewTerimaPinjaman.getModel().removeRow(row);
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -85,7 +87,9 @@ public class ControllerTerimaPinjaman extends MouseAdapter implements ActionList
         try{
             int row = viewTerimaPinjaman.getSelectedPinjaman();
             String kode_pinjam = viewTerimaPinjaman.getTblReqPinjaman().getValueAt(row, 2).toString();
-            dbPinjaman.ubahStatusPinjaman(kode_pinjam, "ditolak");
+            if(dbPinjaman.ubahStatusPinjaman(kode_pinjam, "ditolak")){
+                JOptionPane.showMessageDialog(viewTerimaPinjaman, "Pinjaman ditolak","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
+            }
             viewTerimaPinjaman.getModel().removeRow(row);
         }catch(Exception e){
             System.out.println(e.getMessage());

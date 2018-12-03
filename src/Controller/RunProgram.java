@@ -21,10 +21,9 @@ public class RunProgram {
     public static void main(String[]noobs){
         try{
             UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+            new Controller.ControllerLogin();
         } catch(ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e){
             System.out.println(e.getMessage());
         }         
-//            new Controller.ControllerLogin();
-            new ControllerMenuAdmin();
-        }   
+    }   
 }

@@ -10,13 +10,16 @@ import Model.Penarikan;
 import Model.Pinjaman;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
  * @author Kilam
  */
 public class DatabasePinjaman extends Mysql_DatabaseConnection{
+    private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     private ResultSet rs = null;
     private ArrayList<Pinjaman> pinjaman = new ArrayList();
 
@@ -133,7 +136,7 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
         }
     }
     
-    public void ubahStatusPinjaman(String kode_pinjam, String status){
+    public boolean ubahStatusPinjaman(String kode_pinjam, String status){
         connect();
         try{
             String query = "update pinjaman set status_acc=";
@@ -141,11 +144,60 @@ public class DatabasePinjaman extends Mysql_DatabaseConnection{
             if(status.equals("diterima")) query += ",ket_lunas = 'belum lunas'";
             query += "where kode_pinjam=";
             query += "'" + kode_pinjam + "'";
-            if(manipulate(query)) removePinjaman(kode_pinjam);
+            if(manipulate(query)) {
+                removePinjaman(kode_pinjam);
+                disconnect();
+                return true;
+            }
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
         disconnect();
+        return false;
+    }
+    
+    public Pinjaman cariPinjaman(String kode_ang){
+        connect();
+        try{
+            String query = "select * from pinjaman where kode_ang=";
+            query += "'" + kode_ang + "' and";
+            query += "ket_lunas = 'belum lunas'";
+            rs = stmt.executeQuery(query);
+            while(rs.next()){
+                Pinjaman p = new Pinjaman(
+                        rs.getString("kode_pinjam"),
+                        rs.getString("kode_ang"),
+                        Integer.valueOf(rs.getString("jum_pinjam")),
+                        rs.getString("tgl_pinjam"),
+                        rs.getString("ket_pinjam"),
+                        rs.getString("status_acc"),
+                        rs.getString("ket_lunas"),
+                        rs.getString("tgl_lunas"));
+                return p;
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    } 
+    
+    public boolean setLunas(String kode_ang){
+        connect();
+        try{
+            String query = "update pinjaman set ket_lunas = 'lunas',";
+            query += "tgl_lunas='" +  format.format(new Date()) + "'";
+            query += "where kode_ang=";
+            query += "'" + kode_ang + "'";
+            query += "and ket_lunas = 'belum lunas'";
+            if (manipulate(query)){
+                disconnect();
+                return true;
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        disconnect();
+        return false;
     }
     
     public void removePinjaman(String kode_ang){

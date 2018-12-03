@@ -3,9 +3,11 @@ package View;
 
 
 
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -20,10 +22,12 @@ import javax.swing.JTextField;
  * @author Malik
  */
 public class Admin_InputPelunasan extends javax.swing.JFrame {
+    SimpleDateFormat format = new SimpleDateFormat("dd MMMMM yyyy");
     /**
      * Creates new form Admin_InputPembayaranPinjam
      */
     public Admin_InputPelunasan() {
+        initComponents();
     }    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,26 +39,22 @@ public class Admin_InputPelunasan extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        A_txTglBayar = new javax.swing.JTextField();
+        txTglBayar = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        A_txJumPinjam = new javax.swing.JTextField();
-        A_btnOK = new javax.swing.JButton();
-        A_btnCancel = new javax.swing.JButton();
+        txJumPinjam = new javax.swing.JTextField();
+        btnOK = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        A_txNama = new javax.swing.JTextField();
+        txNama = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        A_txKet = new javax.swing.JTextField();
+        txKetPinjam = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        A_cbTglPinjam = new javax.swing.JComboBox<>();
-        A_txKodeAnggota = new javax.swing.JTextField();
-        A_btnCari = new javax.swing.JButton();
-        A_btnReset = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        A_txTagihan = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        A_txJumBayar = new javax.swing.JTextField();
+        txKodeAnggota = new javax.swing.JTextField();
+        btnCari = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
+        txTglPinjam = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -63,33 +63,33 @@ public class Admin_InputPelunasan extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INPUT PELUNASAN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
-        A_txTglBayar.setEditable(false);
-        A_txTglBayar.setText("dd/mm/yyyy");
+        txTglBayar.setEditable(false);
+        txTglBayar.setText("dd/mm/yyyy");
 
         jLabel2.setText("Tanggal Pembayaran");
 
         jLabel5.setText("Jumlah Pinjam");
 
-        A_txJumPinjam.setEditable(false);
-        A_txJumPinjam.addActionListener(new java.awt.event.ActionListener() {
+        txJumPinjam.setEditable(false);
+        txJumPinjam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_txJumPinjamActionPerformed(evt);
+                txJumPinjamActionPerformed(evt);
             }
         });
 
-        A_btnOK.setText("OK");
-        A_btnOK.setEnabled(false);
-        A_btnOK.addActionListener(new java.awt.event.ActionListener() {
+        btnOK.setText("OK");
+        btnOK.setEnabled(false);
+        btnOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnOKActionPerformed(evt);
+                btnOKActionPerformed(evt);
             }
         });
 
-        A_btnCancel.setBackground(new java.awt.Color(192, 57, 43));
-        A_btnCancel.setText("CANCEL");
-        A_btnCancel.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.setBackground(new java.awt.Color(192, 57, 43));
+        btnCancel.setText("CANCEL");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnCancelActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
@@ -97,56 +97,39 @@ public class Admin_InputPelunasan extends javax.swing.JFrame {
 
         jLabel4.setText("Nama");
 
-        A_txNama.setEditable(false);
-        A_txNama.addActionListener(new java.awt.event.ActionListener() {
+        txNama.setEditable(false);
+        txNama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_txNamaActionPerformed(evt);
+                txNamaActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Keterangan Pinjaman");
 
-        A_txKet.setEditable(false);
+        txKetPinjam.setEditable(false);
 
         jLabel7.setText("Tanggal Pinjam");
 
-        A_cbTglPinjam.addActionListener(new java.awt.event.ActionListener() {
+        btnCari.setBackground(new java.awt.Color(26, 188, 156));
+        btnCari.setText("CARI");
+        btnCari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_cbTglPinjamActionPerformed(evt);
+                btnCariActionPerformed(evt);
             }
         });
 
-        A_btnCari.setBackground(new java.awt.Color(26, 188, 156));
-        A_btnCari.setText("CARI");
-        A_btnCari.addActionListener(new java.awt.event.ActionListener() {
+        btnReset.setBackground(new java.awt.Color(244, 208, 63));
+        btnReset.setText("RESET");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnCariActionPerformed(evt);
+                btnResetActionPerformed(evt);
             }
         });
 
-        A_btnReset.setBackground(new java.awt.Color(244, 208, 63));
-        A_btnReset.setText("RESET");
-        A_btnReset.addActionListener(new java.awt.event.ActionListener() {
+        txTglPinjam.setEditable(false);
+        txTglPinjam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_btnResetActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Tagihan");
-
-        A_txTagihan.setEditable(false);
-        A_txTagihan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_txTagihanActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setText("Jumlah Pembayaran");
-
-        A_txJumBayar.setEditable(false);
-        A_txJumBayar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A_txJumBayarActionPerformed(evt);
+                txTglPinjamActionPerformed(evt);
             }
         });
 
@@ -158,27 +141,16 @@ public class Admin_InputPelunasan extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(53, 53, 53)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addGap(53, 53, 53)
-                                    .addComponent(A_txJumPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(A_txTagihan, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(A_txJumBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txJumPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(53, 53, 53)
-                                .addComponent(A_btnOK)
+                                .addComponent(btnOK)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(A_btnReset)
+                                .addComponent(btnReset)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(A_btnCancel))))
-                    .addComponent(jLabel8)
+                                .addComponent(btnCancel))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -188,14 +160,14 @@ public class Admin_InputPelunasan extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(A_txNama, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(A_cbTglPinjam, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(A_txTglBayar, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txNama, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txTglBayar, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(A_txKodeAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txKodeAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(A_btnCari))
-                            .addComponent(A_txKet))))
+                                .addComponent(btnCari))
+                            .addComponent(txKetPinjam)
+                            .addComponent(txTglPinjam))))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -204,42 +176,34 @@ public class Admin_InputPelunasan extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(A_txTglBayar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txTglBayar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(A_txKodeAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(A_btnCari))
+                    .addComponent(txKodeAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCari))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(A_cbTglPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txTglPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(A_txNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(A_txKet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txKetPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(A_txJumPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txJumPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(12, 12, 12)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(A_txTagihan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(A_txJumBayar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(A_btnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(A_btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(A_btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                    .addComponent(btnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/iNPUTpELUNASAN.png"))); // NOI18N
@@ -262,74 +226,146 @@ public class Admin_InputPelunasan extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void A_txJumPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_txJumPinjamActionPerformed
+    private void txJumPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txJumPinjamActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_A_txJumPinjamActionPerformed
+    }//GEN-LAST:event_txJumPinjamActionPerformed
 
-    private void A_txNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_txNamaActionPerformed
+    private void txNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txNamaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_A_txNamaActionPerformed
+    }//GEN-LAST:event_txNamaActionPerformed
 
-    private void A_btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnCariActionPerformed
+    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
 
-    }//GEN-LAST:event_A_btnCariActionPerformed
+    }//GEN-LAST:event_btnCariActionPerformed
 
-    private void A_btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnCancelActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
 
-    }//GEN-LAST:event_A_btnCancelActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
-    private void A_btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnOKActionPerformed
+    private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
 
-    }//GEN-LAST:event_A_btnOKActionPerformed
+    }//GEN-LAST:event_btnOKActionPerformed
 
-    private void A_cbTglPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_cbTglPinjamActionPerformed
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
 
-    }//GEN-LAST:event_A_cbTglPinjamActionPerformed
+    }//GEN-LAST:event_btnResetActionPerformed
 
-    private void A_btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_btnResetActionPerformed
-
-    }//GEN-LAST:event_A_btnResetActionPerformed
-
-    private void A_txTagihanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_txTagihanActionPerformed
+    private void txTglPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txTglPinjamActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_A_txTagihanActionPerformed
-
-    private void A_txJumBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_txJumBayarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_A_txJumBayarActionPerformed
+    }//GEN-LAST:event_txTglPinjamActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton A_btnCancel;
-    private javax.swing.JButton A_btnCari;
-    private javax.swing.JButton A_btnOK;
-    private javax.swing.JButton A_btnReset;
-    public javax.swing.JComboBox<String> A_cbTglPinjam;
-    public javax.swing.JTextField A_txJumBayar;
-    public javax.swing.JTextField A_txJumPinjam;
-    public javax.swing.JTextField A_txKet;
-    private javax.swing.JTextField A_txKodeAnggota;
-    public javax.swing.JTextField A_txNama;
-    public javax.swing.JTextField A_txTagihan;
-    private javax.swing.JTextField A_txTglBayar;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnCari;
+    private javax.swing.JButton btnOK;
+    private javax.swing.JButton btnReset;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JTextField txJumPinjam;
+    public javax.swing.JTextField txKetPinjam;
+    private javax.swing.JTextField txKodeAnggota;
+    public javax.swing.JTextField txNama;
+    private javax.swing.JTextField txTglBayar;
+    public javax.swing.JTextField txTglPinjam;
     // End of variables declaration//GEN-END:variables
+
+        
+    public String getTxNama() {
+        return txNama.getText();
+    }
+
+    public void setTxNama(String nama) {
+        txNama.setText(nama);
+    }
+
+    public String getTxJumPinjam() {
+        return txJumPinjam.getText();
+    }
+
+    public void setTxJumPinjam(String jumPinjam) {
+        txJumPinjam.setText(jumPinjam);
+    }
+
+    public String getTxKet() {
+        return txKetPinjam.getText();
+    }
+
+    public void setTxKet(String keterangan) {
+        txKetPinjam.setText(keterangan);
+    }
+
+    public String getTxKodeAnggota() {
+        return txKodeAnggota.getText();
+    }
+
+    public void setTxKodeAnggota(String kode_ang) {
+        txKodeAnggota.setText(kode_ang);
+    }
+
+    public String getTxTglBayar() {
+        return txTglBayar.getText();
+    }
+
+    public void setFormat(SimpleDateFormat format) {
+        txTglBayar.setText(format.format(new Date())+"");
+    }
+
+    public String getTxTglPinjam() {
+        return txTglPinjam.getText();
+    }
+
+    public void setTxTglPinjam(String tglPinjam) {
+        txTglPinjam.setText(tglPinjam);
+    }
+    
+    public void addActionListener(ActionListener x){
+        btnCari.addActionListener(x);
+        btnOK.addActionListener(x);
+        btnCancel.addActionListener(x);
+        btnReset.addActionListener(x);
+    }
+    
+    public void setBtnCari(JButton A_btnCari) {
+        this.btnCari = A_btnCari;
+    }
+
+    public void setBtnOK(boolean cek) {
+        btnOK.setEnabled(cek);
+    }
+
+    public void setBtnReset(JButton A_btnReset) {
+        this.btnReset = A_btnReset;
+    }
+
+    public JButton getBtnCancel() {
+        return btnCancel;
+    }
+
+    public JButton getBtnCari() {
+        return btnCari;
+    }
+
+    public JButton getBtnOK() {
+        return btnOK;
+    }
+
+    public JButton getBtnReset() {
+        return btnReset;
+    }
 }
