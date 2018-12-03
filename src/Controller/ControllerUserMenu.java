@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ASUS
  */
-public class ControllerUserMenu {
+public class ControllerUserMenu implements ActionListener{
     private User_MenuUser vUser;
     private Person newP;
     private int totSaldo=0;
@@ -32,12 +32,17 @@ public class ControllerUserMenu {
         this.newP=p;
         this.vUser=new User_MenuUser();
         this.ablePinjam = true;
-        this.vUser.addListenerMUser(new UserMenuListener());
+        this.vUser.addListenerMUser(this);
         this.vUser.getU_txEmail().setText(p.getEmail());
         this.vUser.getU_txKd_Anggota().setText(p.getKode_angg());
         this.vUser.getU_txNama().setText(p.getNama());
-        this.vUser.getU_txNoTelp().setText(p.getNo_telp());
+        this.vUser.getU_txAlamat().setText(p.getAlamat());
         this.vUser.getU_txProfesi().setText(p.getProfesi());
+        if(p.getJk()=='L'){
+            this.vUser.getU_txJk().setText("Laki-laki");
+        }else{
+            this.vUser.getU_txJk().setText("Perempuan");
+        }
         this.vUser.getU_txTTL().setText(p.getTmplahir()+", "+p.getTgllahir());
         this.tabPinjam = (DefaultTableModel) vUser.getU_tblPinjam().getModel();
         this.tabPelunasan = (DefaultTableModel) vUser.getU_tbPelunasan().getModel();
@@ -47,7 +52,7 @@ public class ControllerUserMenu {
             tabPinjam.addRow(new Object[]{pjm.getTgl_pinjam(),pjm.getKet_pinjam(),pjm.getJum_pinjam(), pjm.getStatus_acc(),pjm.getKet_lunas()});
             if(pjm.getKet_lunas().equals("lunas")){
                 tabPelunasan.addRow(new Object[]{pjm.getTgl_lunas(),pjm.getJum_pinjam()});
-            }else if(pjm.getKet_pinjam().equals("Menunggu")||pjm.getKet_lunas().equals("belum lunas")){
+            }else if(pjm.getStatus_acc().equals("Menunggu")||pjm.getKet_lunas().equals("belum lunas")){
                 this.ablePinjam=false;
             }
         }
@@ -62,14 +67,14 @@ public class ControllerUserMenu {
         this.vUser.setVisible(true);
     }
 
-    class UserMenuListener implements ActionListener {
+
 
         @Override
         public void actionPerformed(ActionEvent e) {
             Object x=e.getSource();
             if(x.equals(vUser.getU_btnReqPinjam())){
                 if(ablePinjam==true){
-                    new ControllerReqPinjaman(newP,tabPinjam);
+                   new ControllerReqPinjaman(newP,this,ablePinjam);
                 }
                 else{
                     JOptionPane.showMessageDialog(vUser,"Tidak bisa melakukan request","GAGAL",JOptionPane.ERROR_MESSAGE);
@@ -86,6 +91,14 @@ public class ControllerUserMenu {
                 new ControllerLogin();
             }
         }
+
+
+    public void setAblePinjam(boolean ablePinjam) {
+        this.ablePinjam = ablePinjam;
+    }
+
+    public DefaultTableModel getTabPinjam() {
+        return tabPinjam;
     }
     
 }

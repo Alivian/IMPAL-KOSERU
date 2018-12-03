@@ -66,8 +66,12 @@ public class User_MenuUser extends javax.swing.JFrame {
         return U_txNama;
     }
 
-    public JTextField getU_txNoTelp() {
-        return U_txNoTelp;
+    public JTextField getU_txAlamat() {
+        return U_txAlamat;
+    }
+
+    public JTextField getU_txJk() {
+        return U_txJk;
     }
 
     public JTextField getU_txProfesi() {
@@ -120,8 +124,10 @@ public class User_MenuUser extends javax.swing.JFrame {
         U_btnLogout = new javax.swing.JButton();
         U_btnReqPinjam = new javax.swing.JButton();
         U_btnCekSaldo = new javax.swing.JButton();
-        U_txNoTelp = new javax.swing.JTextField();
+        U_txAlamat = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        U_txJk = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         U_tblPinjam = new javax.swing.JTable();
@@ -207,9 +213,13 @@ public class User_MenuUser extends javax.swing.JFrame {
             }
         });
 
-        U_txNoTelp.setEditable(false);
+        U_txAlamat.setEditable(false);
 
-        jLabel7.setText("No Telp");
+        jLabel7.setText("Alamat");
+
+        U_txJk.setEditable(false);
+
+        jLabel8.setText("Jenis Kelamin");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -245,7 +255,11 @@ public class User_MenuUser extends javax.swing.JFrame {
                                     .addComponent(U_txTTL)
                                     .addComponent(U_txEmail)
                                     .addComponent(U_txProfesi, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                                    .addComponent(U_txNoTelp))))
+                                    .addComponent(U_txAlamat)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(U_txJk, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -273,9 +287,13 @@ public class User_MenuUser extends javax.swing.JFrame {
                     .addComponent(U_txProfesi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(U_txNoTelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(U_txAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(U_txJk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(U_btnEdit)
                     .addComponent(U_btnReqPinjam)
@@ -513,10 +531,11 @@ public class User_MenuUser extends javax.swing.JFrame {
     private javax.swing.JTable U_tbPenarikan;
     private javax.swing.JTable U_tbSimpan;
     private javax.swing.JTable U_tblPinjam;
+    private javax.swing.JTextField U_txAlamat;
     private javax.swing.JTextField U_txEmail;
+    private javax.swing.JTextField U_txJk;
     private javax.swing.JTextField U_txKd_Anggota;
     private javax.swing.JTextField U_txNama;
-    private javax.swing.JTextField U_txNoTelp;
     private javax.swing.JTextField U_txProfesi;
     private javax.swing.JTextField U_txTTL;
     private javax.swing.JLabel jLabel1;
@@ -526,6 +545,7 @@ public class User_MenuUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

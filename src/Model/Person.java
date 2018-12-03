@@ -20,15 +20,16 @@ public class Person extends User {
     private String tmplahir;
     private Date tgllahir;
     private String kode_angg;
-    private String no_telp;
+    private String alamat;
     private String profesi;
     private String email;
+    private char jk;
     private List<Pinjaman> pinjam= new ArrayList();
     private List<Simpanan> simpan= new ArrayList();
     private List<Penarikan> tarik= new ArrayList();
     
     public Person(String kode_anggota, 
-            String nama, String profesi, String ttl, Date tgll, String email, String status, String notlp,
+            String nama, String profesi, String ttl, Date tgll, String email, String status, String alamat, char jk,
             String username, String pass, 
             List<Pinjaman> pinjam, List<Simpanan> simpan, List<Penarikan> tarik){
         super(username, pass);
@@ -39,7 +40,8 @@ public class Person extends User {
         this.email = email;
         this.kode_angg =kode_anggota;
         this.status=status;
-        this.no_telp=notlp;
+        this.alamat=alamat;
+        this.jk=jk;
         this.pinjam = pinjam;
         this.simpan = simpan;
         this.tarik = tarik;
@@ -68,9 +70,21 @@ public class Person extends User {
     public void setTarik(List<Penarikan> tarik) {
         this.tarik = tarik;
     }
-    
-    public void setNo_telp(String no_telp) {
-        this.no_telp = no_telp;
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public char getJk() {
+        return jk;
+    }
+
+    public void setJk(char jk) {
+        this.jk = jk;
     }
     
     public String getNama() {
@@ -127,11 +141,6 @@ public class Person extends User {
     public Date getTgllahir() {
         return tgllahir;
     }
-
-    public String getNo_telp() {
-        return no_telp;
-    }
-
     
     @Override
     public String getPassword() {

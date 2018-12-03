@@ -8,6 +8,7 @@ package Controller;
 import Database.DatabasePinjaman;
 import Model.Person;
 import Model.Pinjaman;
+import View.User_MenuUser;
 import View.User_ReqPinjam;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,17 +22,19 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ASUS
  */
-public class ControllerReqPinjaman {
+public class ControllerReqPinjaman implements ActionListener{
     private User_ReqPinjam vReqPinjam;
     private final DatabasePinjaman dbPinjam= new DatabasePinjaman();
     private Pinjaman pinjam;
     private Person p;
-    DefaultTableModel tabPinjam;
-    public ControllerReqPinjaman(Person p, DefaultTableModel tabPinjam) {
+    private ControllerUserMenu cUser;
+    private boolean ablePinjam;
+    public ControllerReqPinjaman(Person p, ControllerUserMenu cUser,boolean ablePinjam) {
         this.p=p;
-        this.tabPinjam=tabPinjam;
+        this.cUser=cUser;
+        this.ablePinjam=ablePinjam;
         this.vReqPinjam=new User_ReqPinjam();
-        this.vReqPinjam.addListener(new RegPinjamListener());
+        this.vReqPinjam.addListener(this);
         this.vReqPinjam.setVisible(true);
     }
     
@@ -48,7 +51,8 @@ public class ControllerReqPinjaman {
                 vReqPinjam.getU_txDatePinjam().getText(), vReqPinjam.getU_txKetPinjam().getText());
         if(dbPinjam.reqPinjam(pd)==true){
             JOptionPane.showMessageDialog(vReqPinjam, "Reqeust berhasil dikirim","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
-            tabPinjam.addRow(new Object[]{pd.getTgl_pinjam(),pd.getKet_pinjam(),pd.getJum_pinjam(), pd.getStatus_acc(),pd.getKet_lunas()});
+            cUser.setAblePinjam(false);
+            cUser.getTabPinjam().addRow(new Object[]{pd.getTgl_pinjam(),pd.getKet_pinjam(),pd.getJum_pinjam(), pd.getStatus_acc(),pd.getKet_lunas()});
             vReqPinjam.dispose();
         }else{
             JOptionPane.showMessageDialog(vReqPinjam, "Gagal","GAGAL",JOptionPane.ERROR_MESSAGE);
@@ -56,7 +60,7 @@ public class ControllerReqPinjaman {
     }  
 }
 
-    class RegPinjamListener implements ActionListener {
+
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -72,14 +76,15 @@ public class ControllerReqPinjaman {
                 }else{
                     try{
                         int jumlah = Integer.parseInt(vReqPinjam.getU_txJumPinjam().getText());
+                        
+                        btnOptionDialogActionPerformed(e);
                     }catch(Exception ex){
                         JOptionPane.showMessageDialog(vReqPinjam, "Jumlah Pinjaman harus dalam angka","GAGAL",JOptionPane.ERROR_MESSAGE);
                     }
-                    btnOptionDialogActionPerformed(e);
                 }
             }
         }
-    }
+
 
 
 }

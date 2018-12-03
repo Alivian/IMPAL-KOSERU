@@ -79,7 +79,8 @@ public class ControllerLogin {
                 String pass = vRegis.getPass();
                 String id = vRegis.getId();
                 String nama = vRegis.getNama();
-                String no_telp = vRegis.getTlp();
+                String alamat = vRegis.getAlamat();
+                int idxjk = vRegis.getR_dbJk().getSelectedIndex();
                 String lhr_tgl = vRegis.getKalender();
                 String lhr_tmp = vRegis.getTmp();
                 String status = "ang";
@@ -88,27 +89,31 @@ public class ControllerLogin {
                 String pass1 = Arrays.toString(vRegis.getPass1().getPassword());
                 String pass2 = Arrays.toString(vRegis.getPass2().getPassword());
                 
-                if(username.length()==0||pass.length()==0||id.length()==0||no_telp.length()==0||lhr_tgl.length()==0||lhr_tmp.length()==0||email.length()==0||kerja.length()==0){
+                if(username.length()==0||pass.length()==0||
+                        nama.length()==0||id.length()==0||alamat.length()==0||
+                        lhr_tgl.length()==0||lhr_tmp.length()==0||
+                        email.length()==0||kerja.length()==0||
+                        idxjk==0){
                     JOptionPane.showMessageDialog(vRegis, "Data tidak boleh kosong","GAGAL",JOptionPane.ERROR_MESSAGE);
                 }  else if (pass1.compareTo(pass2)!=0){
                     JOptionPane.showMessageDialog(vRegis, "Password tidak sama","GAGAL",JOptionPane.ERROR_MESSAGE);
                 }else {
-                    try{
-                        int cekInteger = Integer.parseInt(vRegis.getTlp());
-                        
-                        int hasil =akun.regis(new Person(id,nama,kerja,lhr_tmp,Date.valueOf(lhr_tgl),email,status,no_telp,username,pass,null,null,null));
-                        if(hasil==1){
-                            JOptionPane.showMessageDialog(vRegis, "Akun baru telah terdaftar","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
-                            vRegis.dispose();
-                        }else if(hasil==2){
-
-                            JOptionPane.showMessageDialog(vRegis, "Username sudah ada","GAGAL",JOptionPane.ERROR_MESSAGE);
-                        }
-                        else {
-                            JOptionPane.showMessageDialog(vRegis, "Data gagal diinput","GAGAL",JOptionPane.ERROR_MESSAGE);
-                        }
-                    }catch(Exception ex){
-                        JOptionPane.showMessageDialog(vRegis, "Nomor telpon harus dalam angka  ","GAGAL",JOptionPane.ERROR_MESSAGE);
+                    char jk;
+                    if(idxjk==1){
+                        jk='L';
+                    }else{
+                        jk='P';
+                    }
+                    int hasil =akun.regis(new Person(id,nama,kerja,lhr_tmp,Date.valueOf(lhr_tgl),email,status,alamat,jk,username,pass,null,null,null));
+                    if(hasil==1){
+                        JOptionPane.showMessageDialog(vRegis, "Akun baru telah terdaftar","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
+                        vRegis.dispose();
+                        vLogin.setVisible(true);
+                    }else if(hasil==2){
+                        JOptionPane.showMessageDialog(vRegis, "Username sudah ada","GAGAL",JOptionPane.ERROR_MESSAGE);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(vRegis, "Data gagal diinput","GAGAL",JOptionPane.ERROR_MESSAGE);
                     }
                 }
             }
@@ -135,7 +140,7 @@ public class ControllerLogin {
             } else if (x.equals(vLogin.getbtnExit())){
                 vLogin.dispose();
             }else if (x.equals(vLogin.getlabelDaftar())){
-                vLogin.dispose();
+                vLogin.setVisible(false);
                 vRegis =new View.User_Register();
                 vRegis.addListener(new RegisListener());
                 vRegis.setVisible(true);

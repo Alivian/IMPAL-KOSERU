@@ -75,10 +75,13 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
         boolean value=false;
         connect();
         try{
-            String query = "select * from anggota where kode_ang";
+            String query = "select * from anggota where username";
             query +="='"+prsn.getUsername()+"'";
             ResultSet rs = stmt.executeQuery(query);
-            if(rs.wasNull()){
+            if(!rs.isBeforeFirst()){
+                disconnect();
+                return 2;
+            }else{
                 query = "insert into anggota values (";
                 query +="'" + prsn.getKode_angg()+ "',";
                 query +="'" + prsn.getNama() + "',";
@@ -87,7 +90,8 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
                 query +="'" + prsn.getTmplahir()+ "',";
                 query +="STR_TO_DATE('"+prsn.getTgllahir().toString()+"', '%Y-%m-%d ')"+",";
                 query +="'" + prsn.getEmail()+ "',";
-                query +="'" + prsn.getNo_telp()+ "',";
+                query +="'" + prsn.getAlamat()+ "',";
+                query +="'" + prsn.getJk()+ "',";
                 query +="'" + prsn.getUsername()+ "',";
                 query +="'" + prsn.getPassword()+ "')";
                 value=manipulate(query);
@@ -95,9 +99,6 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
                     disconnect();
                     return 1;
                 }
-            }else{
-                disconnect();
-                return 2;
             }
         } catch (Exception e){
             System.out.println(e);
@@ -114,7 +115,8 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
             String query ="update anggota set "
                     + "nama_ang='"+P.getNama()+"',"
                     + "pekerjaan='"+P.getProfesi()+"',"
-                    + "no_telp='"+P.getNo_telp()+"',"
+                    + "alamat='"+P.getAlamat()+"',"
+                    + "jk='"+P.getJk()+"',"
                     + "tanggal_lahir=STR_TO_DATE('"+P.getTgllahir().toString()+"', '%Y-%m-%d ')"+","
                     + "tempat_lahir='"+P.getTmplahir()+"',"
                     + "email='"+P.getEmail()+"'"
@@ -142,7 +144,7 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
                 dbSimpan.getAllSimpanan(rs.getString("kode_ang"));
                 dbTarik.getPenarikanUser(rs.getString("kode_ang"));
                 prsn = new Person(rs.getString("kode_ang"),rs.getString("nama_ang"),rs.getString("pekerjaan"),rs.getString("tempat_lahir"),
-                        rs.getDate("tanggal_lahir"),rs.getString("email"),rs.getString("status"),rs.getString("no_telp"),
+                        rs.getDate("tanggal_lahir"),rs.getString("email"),rs.getString("status"),rs.getString("alamat"), rs.getString("alamat").charAt(0),
                         rs.getString("username"),rs.getString("password"),dbPinjam.getPinjaman(),dbSimpan.getSimpanan(),dbTarik.getPenarikan());
             }
             

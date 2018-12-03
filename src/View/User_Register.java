@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -67,8 +68,12 @@ public class User_Register extends javax.swing.JFrame {
     public void setKodeAng(String kd){
        R_txKode_ang.setText(kd);
     }
-    public String getTlp() {
-        return R_txTlp.getText();
+    public String getAlamat() {
+        return R_txAlamat.getText();
+    }
+
+    public JComboBox<String> getR_dbJk() {
+        return R_dbJk;
     }
 
     public JTextField getR_txKode_ang() {
@@ -105,9 +110,9 @@ public class User_Register extends javax.swing.JFrame {
         R_txEmail = new javax.swing.JTextField();
         R_Kalen = new datechooser.beans.DateChooserCombo();
         R_btnRegis = new javax.swing.JButton();
-        R_txTlp = new javax.swing.JTextField();
+        R_txAlamat = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        R_dbJk = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -133,16 +138,16 @@ public class User_Register extends javax.swing.JFrame {
 
         jLabel5.setText("Profesi");
 
-        jLabel6.setText("No Telephone/Hp");
+        jLabel6.setText("Alamat");
 
         R_btnRegis.setBackground(new java.awt.Color(26, 188, 156));
         R_btnRegis.setText("REGISTRASI");
 
         jLabel9.setText("Email");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-Laki", "Perempuan" }));
+        R_dbJk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Pilih Jenis Kelamin --", "Laki-Laki", "Perempuan" }));
 
-        jLabel11.setText("Profesi");
+        jLabel11.setText("Jenis Kelamin");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -164,7 +169,7 @@ public class User_Register extends javax.swing.JFrame {
                                 .addGap(35, 35, 35)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(R_txProf, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(R_dbJk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +184,7 @@ public class User_Register extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -191,8 +196,8 @@ public class User_Register extends javax.swing.JFrame {
                                         .addComponent(R_txEmail))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
-                                .addGap(59, 59, 59)
-                                .addComponent(R_txTlp)))
+                                .addGap(109, 109, 109)
+                                .addComponent(R_txAlamat)))
                         .addGap(14, 14, 14))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -218,12 +223,12 @@ public class User_Register extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(R_dbJk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(R_txTlp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(R_txAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -358,6 +363,8 @@ public class User_Register extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private datechooser.beans.DateChooserCombo R_Kalen;
     private javax.swing.JButton R_btnRegis;
+    private javax.swing.JComboBox<String> R_dbJk;
+    private javax.swing.JTextField R_txAlamat;
     private javax.swing.JTextField R_txEmail;
     private javax.swing.JTextField R_txKode_ang;
     private javax.swing.JTextField R_txNama;
@@ -365,9 +372,7 @@ public class User_Register extends javax.swing.JFrame {
     private javax.swing.JPasswordField R_txPass2;
     private javax.swing.JTextField R_txProf;
     private javax.swing.JTextField R_txTempat;
-    private javax.swing.JTextField R_txTlp;
     private javax.swing.JTextField R_txUser_id;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
