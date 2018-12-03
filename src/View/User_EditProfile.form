@@ -66,13 +66,13 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace pref="245" max="32767" attributes="0"/>
-                                  <Component id="R_Kalen" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="E_Kalen" min="-2" pref="110" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="R_txProf" min="-2" pref="292" max="-2" attributes="0"/>
-                                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="E_txProf" min="-2" pref="292" max="-2" attributes="0"/>
+                                      <Component id="E_cbJK" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -85,10 +85,10 @@
                           </Group>
                           <EmptySpace min="74" pref="74" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="R_txTempat" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
+                              <Component id="E_txTempat" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="R_txNama" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="R_txKode_ang" min="-2" pref="293" max="-2" attributes="0"/>
+                                  <Component id="E_txNama" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="E_txKode_ang" min="-2" pref="293" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -100,19 +100,19 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
-                                          <Component id="R_btnRegis" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="207" max="32767" attributes="0"/>
+                                          <Component id="E_btnConfirm" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace pref="229" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
-                                          <Component id="R_txEmail" max="32767" attributes="0"/>
+                                          <Component id="E_txEmail" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                                  <Component id="R_txTlp" max="32767" attributes="0"/>
+                                  <Component id="E_txTlp" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
@@ -126,44 +126,44 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="R_txKode_ang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="E_txKode_ang" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="R_txNama" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="E_txNama" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="R_txTempat" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="E_txTempat" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="R_Kalen" min="-2" max="-2" attributes="0"/>
+                      <Component id="E_Kalen" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="R_txProf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="E_txProf" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="E_cbJK" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="R_txTlp" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="E_txTlp" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="R_txEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="E_txEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="R_btnRegis" min="-2" max="-2" attributes="0"/>
+                  <Component id="E_btnConfirm" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -175,7 +175,7 @@
             <Property name="text" type="java.lang.String" value="Kode Anggota"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="R_txKode_ang">
+        <Component class="javax.swing.JTextField" name="E_txKode_ang">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
@@ -185,49 +185,50 @@
             <Property name="text" type="java.lang.String" value="Nama"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="R_txNama">
+        <Component class="javax.swing.JTextField" name="E_txNama">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tempat, Tanggal Lahir"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="R_txTempat">
+        <Component class="javax.swing.JTextField" name="E_txTempat">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="text" type="java.lang.String" value="Profesi"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="R_txProf">
+        <Component class="javax.swing.JTextField" name="E_txProf">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="text" type="java.lang.String" value="No Telephone/Hp"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="R_txEmail">
+        <Component class="javax.swing.JTextField" name="E_txEmail">
         </Component>
-        <Component class="datechooser.beans.DateChooserCombo" name="R_Kalen">
+        <Component class="datechooser.beans.DateChooserCombo" name="E_Kalen">
         </Component>
-        <Component class="javax.swing.JButton" name="R_btnRegis">
+        <Component class="javax.swing.JButton" name="E_btnConfirm">
           <Properties>
-            <Property name="text" type="java.lang.String" value="REGISTRASI"/>
+            <Property name="text" type="java.lang.String" value="CONFIRM"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="R_txTlp">
+        <Component class="javax.swing.JTextField" name="E_txTlp">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="text" type="java.lang.String" value="Email"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="E_cbJK">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="Laki-Laki"/>
-                <StringItem index="1" value="Perempuan"/>
+              <StringArray count="3">
+                <StringItem index="0" value="-- Pilih Jenis Kelamin --"/>
+                <StringItem index="1" value="Laki-Laki"/>
+                <StringItem index="2" value="Perempuan"/>
               </StringArray>
             </Property>
           </Properties>

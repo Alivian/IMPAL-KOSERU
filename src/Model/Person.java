@@ -18,7 +18,7 @@ public class Person extends User {
     private String nama;
     private String status;
     private String tmplahir;
-    private String tgllahir;
+    private Date tgllahir;
     private String kode_angg;
     private String no_telp;
     private String profesi;
@@ -28,7 +28,7 @@ public class Person extends User {
     private List<Penarikan> tarik= new ArrayList();
     
     public Person(String kode_anggota, 
-            String nama, String profesi, String ttl, String tgll, String email, String status, String notlp,
+            String nama, String profesi, String ttl, Date tgll, String email, String status, String notlp,
             String username, String pass, 
             List<Pinjaman> pinjam, List<Simpanan> simpan, List<Penarikan> tarik){
         super(username, pass);
@@ -88,7 +88,7 @@ public class Person extends User {
     }
     
     
-    public void setTglL(String tgl){
+    public void setTglL(Date tgl){
         this.tgllahir=tgl;
     }
     
@@ -124,7 +124,7 @@ public class Person extends User {
         return tmplahir;
     }
 
-    public String getTgllahir() {
+    public Date getTgllahir() {
         return tgllahir;
     }
 

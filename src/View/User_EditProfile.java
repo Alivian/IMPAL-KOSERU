@@ -3,12 +3,14 @@ package View;
 
 
 
+import datechooser.beans.DateChooserCombo;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -30,57 +32,47 @@ public class User_EditProfile extends javax.swing.JFrame {
      */
     public User_EditProfile() {
         initComponents();
-        R_Kalen.setDateFormat(format);
-    }
-    
-    public String getUser(){
-        return R_txUser_id.getText();
-    }
-    public String getPass(){
-        return R_txPass1.getText();
-    }
-    
-    public JPasswordField getPass1(){
-        return R_txPass2;
-    }
-    public JPasswordField getPass2(){
-        return R_txPass1;
-    }
-    public String getId(){
-        return R_txKode_ang.getText();
-    }
-    public String getNama(){
-        return R_txNama.getText();
-    }
-    public String getTmp(){
-        return R_txTempat.getText();
-    }
-    public String getProfesi(){
-        return R_txProf.getText();
-    }
-    public String getEmail(){
-        return R_txEmail.getText();
-    }
-    public String getKalender(){
-        return R_Kalen.getText();
-    }
-    public void setKodeAng(String kd){
-       R_txKode_ang.setText(kd);
-    }
-    public String getTlp() {
-        return R_txTlp.getText();
+        E_Kalen.setDateFormat(format);
     }
 
-    public JTextField getR_txKode_ang() {
-        return R_txKode_ang;
+    public DateChooserCombo getE_Kalen() {
+        return E_Kalen;
     }
 
-    public JButton getBtnRegis(){
-        return R_btnRegis;
+    public JButton getE_btnConfirm() {
+        return E_btnConfirm;
     }
-    
+
+    public JTextField getE_txEmail() {
+        return E_txEmail;
+    }
+
+    public JTextField getE_txKode_ang() {
+        return E_txKode_ang;
+    }
+
+    public JTextField getE_txNama() {
+        return E_txNama;
+    }
+
+    public JTextField getE_txProf() {
+        return E_txProf;
+    }
+
+    public JTextField getE_txTempat() {
+        return E_txTempat;
+    }
+
+    public JTextField getE_txTlp() {
+        return E_txTlp;
+    }
+
+    public JComboBox<String> getE_cbJK() {
+        return E_cbJK;
+    }
+
     public void addListener(ActionListener e){
-        R_btnRegis.addActionListener(e);
+        E_btnConfirm.addActionListener(e);
     }
     
     /**
@@ -94,20 +86,20 @@ public class User_EditProfile extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        R_txKode_ang = new javax.swing.JTextField();
+        E_txKode_ang = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        R_txNama = new javax.swing.JTextField();
+        E_txNama = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        R_txTempat = new javax.swing.JTextField();
+        E_txTempat = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        R_txProf = new javax.swing.JTextField();
+        E_txProf = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        R_txEmail = new javax.swing.JTextField();
-        R_Kalen = new datechooser.beans.DateChooserCombo();
-        R_btnRegis = new javax.swing.JButton();
-        R_txTlp = new javax.swing.JTextField();
+        E_txEmail = new javax.swing.JTextField();
+        E_Kalen = new datechooser.beans.DateChooserCombo();
+        E_btnConfirm = new javax.swing.JButton();
+        E_txTlp = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        E_cbJK = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -117,7 +109,7 @@ public class User_EditProfile extends javax.swing.JFrame {
 
         jLabel1.setText("Kode Anggota");
 
-        R_txKode_ang.setEditable(false);
+        E_txKode_ang.setEditable(false);
 
         jLabel3.setText("Nama");
 
@@ -127,11 +119,11 @@ public class User_EditProfile extends javax.swing.JFrame {
 
         jLabel6.setText("No Telephone/Hp");
 
-        R_btnRegis.setText("REGISTRASI");
+        E_btnConfirm.setText("CONFIRM");
 
         jLabel9.setText("Email");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-Laki", "Perempuan" }));
+        E_cbJK.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Pilih Jenis Kelamin --", "Laki-Laki", "Perempuan" }));
 
         jLabel11.setText("Profesi");
 
@@ -150,12 +142,12 @@ public class User_EditProfile extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
-                                .addComponent(R_Kalen, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(E_Kalen, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(R_txProf, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(E_txProf, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(E_cbJK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,10 +155,10 @@ public class User_EditProfile extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addGap(74, 74, 74)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(R_txTempat, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(E_txTempat, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(R_txNama)
-                                .addComponent(R_txKode_ang, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(E_txNama)
+                                .addComponent(E_txKode_ang, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -175,15 +167,15 @@ public class User_EditProfile extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(124, 124, 124)
-                                        .addComponent(R_btnRegis)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE))
+                                        .addComponent(E_btnConfirm)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 229, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(118, 118, 118)
-                                        .addComponent(R_txEmail))))
+                                        .addComponent(E_txEmail))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(59, 59, 59)
-                                .addComponent(R_txTlp)))
+                                .addComponent(E_txTlp)))
                         .addGap(14, 14, 14))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -191,36 +183,36 @@ public class User_EditProfile extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(R_txKode_ang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(E_txKode_ang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(R_txNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(E_txNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(R_txTempat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(E_txTempat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel4))
-                    .addComponent(R_Kalen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(E_Kalen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(R_txProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(E_txProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(E_cbJK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(R_txTlp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(E_txTlp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(R_txEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(E_txEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(R_btnRegis)
+                .addComponent(E_btnConfirm)
                 .addContainerGap())
         );
 
@@ -282,15 +274,15 @@ public class User_EditProfile extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private datechooser.beans.DateChooserCombo R_Kalen;
-    private javax.swing.JButton R_btnRegis;
-    private javax.swing.JTextField R_txEmail;
-    private javax.swing.JTextField R_txKode_ang;
-    private javax.swing.JTextField R_txNama;
-    private javax.swing.JTextField R_txProf;
-    private javax.swing.JTextField R_txTempat;
-    private javax.swing.JTextField R_txTlp;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private datechooser.beans.DateChooserCombo E_Kalen;
+    private javax.swing.JButton E_btnConfirm;
+    private javax.swing.JComboBox<String> E_cbJK;
+    private javax.swing.JTextField E_txEmail;
+    private javax.swing.JTextField E_txKode_ang;
+    private javax.swing.JTextField E_txNama;
+    private javax.swing.JTextField E_txProf;
+    private javax.swing.JTextField E_txTempat;
+    private javax.swing.JTextField E_txTlp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;

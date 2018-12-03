@@ -17,27 +17,33 @@ public class Pinjaman {
     private String tgl_pinjam;
     private String ket_pinjam;
     private String status_acc;
+    private int kelas_cicil;
+    private int jum_cicil;
     private String ket_lunas;
     private String tgl_lunas;
 
-    public Pinjaman(String kode_pinjam, String kode_ang, int jum_pinjam, String tgl_pinjam, String ket_pinjam) {
+    public Pinjaman(String kode_pinjam, String kode_ang, int jum_pinjam, String tgl_pinjam, String ket_pinjam, int kelas_cicil, int jum_cicil) {
         this.kode_pinjam = kode_pinjam;
         this.kode_ang = kode_ang;
         this.jum_pinjam = jum_pinjam;
         this.tgl_pinjam = tgl_pinjam;
         this.ket_pinjam = ket_pinjam;
         this.status_acc = "Menunggu";
+        this.kelas_cicil = kelas_cicil;
+        this.jum_cicil = jum_cicil;
         this.ket_lunas = "";
         this.tgl_lunas = null;
     }
 
-    public Pinjaman(String kode_pinjam, String kode_ang, int jum_pinjam, String tgl_pinjam, String ket_pinjam, String status_acc, String ket_lunas, String tgl_lunas) {
+    public Pinjaman(String kode_pinjam, String kode_ang, int jum_pinjam, String tgl_pinjam, String ket_pinjam, String status_acc, int kelas_cicil, int jum_cicil, String ket_lunas, String tgl_lunas) {
         this.kode_pinjam = kode_pinjam;
         this.kode_ang = kode_ang;
         this.jum_pinjam = jum_pinjam;
         this.tgl_pinjam = tgl_pinjam;
         this.ket_pinjam = ket_pinjam;
         this.status_acc = status_acc;
+        this.kelas_cicil = kelas_cicil;
+        this.jum_cicil = jum_cicil;
         this.ket_lunas = ket_lunas;
         this.tgl_lunas = tgl_lunas;
     }

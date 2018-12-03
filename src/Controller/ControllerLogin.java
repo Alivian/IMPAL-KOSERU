@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Date;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
@@ -92,10 +93,15 @@ public class ControllerLogin {
                 }  else if (pass1.compareTo(pass2)!=0){
                     JOptionPane.showMessageDialog(vRegis, "Password tidak sama");
                 }else {
-                    if(akun.regis(new Person(id,nama,kerja,lhr_tmp,lhr_tgl,email,status,no_telp,username,pass,null,null,null))!=false){
+                    int hasil =akun.regis(new Person(id,nama,kerja,lhr_tmp,Date.valueOf(lhr_tgl),email,status,no_telp,username,pass,null,null,null));
+                    if(hasil==1){
                         JOptionPane.showMessageDialog(vRegis, "Akun baru telah terdaftar","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
                         vRegis.dispose();
-                    } else {
+                    }else if(hasil==2){
+                        
+                        JOptionPane.showMessageDialog(vRegis, "Username sudah ada","GAGAL",JOptionPane.ERROR_MESSAGE);
+                    }
+                    else {
                         JOptionPane.showMessageDialog(vRegis, "Data gagal diinput","GAGAL",JOptionPane.ERROR_MESSAGE);
                     }
                 }

@@ -45,7 +45,7 @@ public class ControllerReqPinjaman {
                     JOptionPane.QUESTION_MESSAGE);
     
     if(jawab == JOptionPane.YES_OPTION){
-        Pinjaman pd=new Pinjaman("PJM"+String.valueOf(dbPinjam.getSumAll()), p.getKode_angg(), Integer.parseInt(vReqPinjam.getU_txJumPinjam().getText()), vReqPinjam.getU_txDatePinjam().getText(), vReqPinjam.getU_txKetPinjam().getText());
+        Pinjaman pd=new Pinjaman("PJM"+String.valueOf(dbPinjam.getSumAll()), p.getKode_angg(), Integer.parseInt(vReqPinjam.getU_txJumPinjam().getText()), vReqPinjam.getU_txDatePinjam().getText(), vReqPinjam.getU_txKetPinjam().getText(), Integer.parseInt(vReqPinjam.getBanyakCicilan().getSelectedItem().toString()), Integer.parseInt(vReqPinjam.getU_txTagihan().getText()));
         if(dbPinjam.reqPinjam(pd)==true){
             JOptionPane.showMessageDialog(vReqPinjam, "Reqeust berhasil dikirim","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
             tabPinjam.addRow(new Object[]{pd.getTgl_pinjam(),pd.getKet_pinjam(),pd.getJum_pinjam(), pd.getStatus_acc(),pd.getKet_lunas()});

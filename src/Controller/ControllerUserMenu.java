@@ -69,6 +69,9 @@ public class ControllerUserMenu {
             else if(x.equals(vUser.getU_btnCekSaldo())){
                 JOptionPane.showMessageDialog(vUser,"Jumlah saldo saat ini : Rp"+totSaldo,"SALDO",JOptionPane.INFORMATION_MESSAGE);
             }
+            else if(x.equals(vUser.getU_btnEdit())){
+                new ControllerEditProfile(newP);
+            }
             else if(x.equals(vUser.getU_btnLogout())){
                 vUser.dispose();
                 new ControllerLogin();

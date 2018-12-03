@@ -67,46 +67,65 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
         return sum;
     }
     
-    public boolean regis(Person prsn){
+    public int regis(Person prsn){
         boolean value=false;
         connect();
         try{
-            String query = "insert into anggota values (";
-            query +="'" + prsn.getKode_angg()+ "',";
-            query +="'" + prsn.getNama() + "',";
-            query +="'" + prsn.getStatus()+ "',";
-            query +="'" + prsn.getProfesi()+ "',";
-            query +="'" + prsn.getTmplahir()+ "',";
-            query +="STR_TO_DATE('"+prsn.getTgllahir()+"', '%Y-%m-%d ')"+",";
-            query +="'" + prsn.getEmail()+ "',";
-            query +="'" + prsn.getNo_telp()+ "',";
-            query +="'" + prsn.getUsername()+ "',";
-            query +="'" + prsn.getPassword()+ "')";
+            String query = "select * from anggota where kode_ang";
+            query +="='"+prsn.getUsername()+"'";
+            ResultSet rs = stmt.executeQuery(query);
+            if(rs.wasNull()){
+                query = "insert into anggota values (";
+                query +="'" + prsn.getKode_angg()+ "',";
+                query +="'" + prsn.getNama() + "',";
+                query +="'" + prsn.getStatus()+ "',";
+                query +="'" + prsn.getProfesi()+ "',";
+                query +="'" + prsn.getTmplahir()+ "',";
+                query +="STR_TO_DATE('"+prsn.getTgllahir().toString()+"', '%Y-%m-%d ')"+",";
+                query +="'" + prsn.getEmail()+ "',";
+                query +="'" + prsn.getNo_telp()+ "',";
+                query +="'" + prsn.getUsername()+ "',";
+                query +="'" + prsn.getPassword()+ "')";
+                value=manipulate(query);
+                if (value==true){
+                    disconnect();
+                    return 1;
+                }
+            }else{
+                disconnect();
+                return 2;
+            }
+        } catch (Exception e){
+            System.out.println(e);
+            return 0;
+        }
+        disconnect();
+        return 0;
+    }
+    
+    public boolean update(Person P){
+        boolean value = false;
+        connect();
+        try{
+            System.out.println(P.getTgllahir().toString());
+            String query ="update anggota set "
+                    + "nama_ang='"+P.getNama()+"',"
+                    + "pekerjaan='"+P.getProfesi()+"',"
+                    + "no_telp='"+P.getNo_telp()+"',"
+                    + "tanggal_lahir=STR_TO_DATE('"+P.getTgllahir().toString()+"', '%Y-%m-%d ')"+","
+                    + "tempat_lahir='"+P.getTmplahir()+"',"
+                    + "email='"+P.getEmail()+"'"
+                    + "where kode_ang='"+P.getKode_angg()+"'";
             value=manipulate(query);
             disconnect();
             return value;
-        } catch (Exception e){
-            System.out.println(e);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
         disconnect();
         return value;
     }
-//    public int update(String kode_ang,String nama, String prof,String email){
-//        int value = 0;
-//        try{
-//            PreparedStatement pst = connect.prepareStatement("update anggota set nama=?,profesi=?,email=? where kode_ang=?");
-//            pst.setString(1, nama);
-//            pst.setString(2, prof);
-//            pst.setString(3, email);
-//            pst.setString(4, kode_ang);
-//            value = pst.executeUpdate();
-//            return value;
-//        }catch (Exception e){
-//            System.out.println(e.getMessage());
-//        }
-//        return value;
-//    }
-//    
+    
     public Person getData(String user){
         Person prsn=null;
         
@@ -120,8 +139,9 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
                 dbPinjam.getAllPinjaman(rs.getString("kode_ang"));
                 dbSimpan.getAllSimpanan(rs.getString("kode_ang"));
                 dbTarik.getPenarikanUser(rs.getString("kode_ang"));
+                System.out.println("ni?");
                 prsn = new Person(rs.getString("kode_ang"),rs.getString("nama_ang"),rs.getString("pekerjaan"),rs.getString("tempat_lahir"),
-                        rs.getString("tanggal_lahir"),rs.getString("email"),rs.getString("status"),rs.getString("no_telp"),
+                        rs.getDate("tanggal_lahir"),rs.getString("email"),rs.getString("status"),rs.getString("no_telp"),
                         rs.getString("username"),rs.getString("password"),dbPinjam.getPinjaman(),dbSimpan.getSimpanan(),dbTarik.getPenarikan());
             }
             

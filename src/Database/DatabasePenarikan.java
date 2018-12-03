@@ -97,7 +97,7 @@ public class DatabasePenarikan extends Mysql_DatabaseConnection{
     public void getPenarikanUser(String kode_ang){
         connect();
         try{
-            String query = "select tgl_penarikan, jum_penarikan from penarikan where kode_ang=";
+            String query = "select * from penarikan where kode_ang=";
             query += "'"+kode_ang+"'";
             rs = stmt.executeQuery(query);
             while(rs.next()){
