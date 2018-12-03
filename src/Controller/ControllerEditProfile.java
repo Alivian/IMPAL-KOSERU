@@ -58,7 +58,7 @@ public class ControllerEditProfile {
                         vEdit.getE_txProf().getText().length()==0||vEdit.getE_txAlamat().getText().length()==0||
                         vEdit.getE_Kalen().getText().length()==0||vEdit.getE_txTempat().getText().length()==0||
                         vEdit.getE_cbJK().getSelectedIndex()==0||vEdit.getE_cbJK().getSelectedIndex()==0){
-                    JOptionPane.showMessageDialog(vEdit, "Semua Data Harus Terisi","PERHATIAN",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(vEdit, "Semua Data Harus Terisi","GAGAL",JOptionPane.ERROR_MESSAGE);
                 }else {
                     updateP.setNama(vEdit.getE_txNama().getText());
                     updateP.setEmail(vEdit.getE_txEmail().getText());
