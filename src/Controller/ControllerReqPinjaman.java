@@ -52,7 +52,6 @@ public class ControllerReqPinjaman implements ActionListener{
         if(dbPinjam.reqPinjam(pd)==true){
             JOptionPane.showMessageDialog(vReqPinjam, "Reqeust berhasil dikirim","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
             cUser.setAblePinjam(false);
-            cUser.getTabPinjam().addRow(new Object[]{pd.getTgl_pinjam(),pd.getKet_pinjam(),pd.getJum_pinjam(), pd.getStatus_acc(),pd.getKet_lunas()});
             vReqPinjam.dispose();
         }else{
             JOptionPane.showMessageDialog(vReqPinjam, "Gagal","GAGAL",JOptionPane.ERROR_MESSAGE);

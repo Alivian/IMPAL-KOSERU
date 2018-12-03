@@ -74,6 +74,7 @@ public class Admin_InputSimpanan extends javax.swing.JFrame {
 
         jLabel5.setText("Jumlah Simpan");
 
+        txJumSimpan.setEditable(false);
         txJumSimpan.setText("0");
         txJumSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -340,6 +341,10 @@ public class Admin_InputSimpanan extends javax.swing.JFrame {
 
     public void setTxkdAnggota(String kode_ang) {
         txkdAnggota.setText(kode_ang);
+    }
+    
+    public void setEditTxJumSimpan(boolean cek){
+        txJumSimpan.setEditable(cek);
     }
 
     public void addActionListener(ActionListener x){

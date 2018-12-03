@@ -61,6 +61,7 @@ public class Admin_LihatSimpanan extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbLihatSimpanan.setEnabled(false);
         jScrollPane1.setViewportView(tbLihatSimpanan);
 
         A_RiwSimpan_btnSelesai.setBackground(new java.awt.Color(26, 188, 156));

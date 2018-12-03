@@ -7,10 +7,11 @@ package Controller;
 
 import Database.DatabasePinjaman;
 import Database.DatabaseSimpanan;
-import Model.Pinjaman;
 import Model.Simpanan;
-import View.Admin_LihatPinjaman;
 import View.Admin_LihatSimpanan;
+import View.User_LihatSimpanan;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -19,34 +20,36 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Oliver
  */
-public class ControllerUserLihatSimpanan {
+public class ControllerUserLihatSimpanan implements ActionListener{
     private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-    private Admin_LihatSimpanan viewLihatSimpanan;
+    private User_LihatSimpanan viewLihatSimpanan;
     private DatabaseSimpanan dbSimpanan;
     
-    public ControllerUserLihatSimpanan() {
-        viewLihatSimpanan = new Admin_LihatSimpanan();
+    public ControllerUserLihatSimpanan(String kode_ang) {
+        viewLihatSimpanan = new User_LihatSimpanan();
         viewLihatSimpanan.setLocationRelativeTo(null);
         viewLihatSimpanan.setVisible(true);
         dbSimpanan = new DatabaseSimpanan();
-        dbSimpanan.getAllSimpanan();
+        dbSimpanan.getAllSimpanan(kode_ang);
         loadTable();
     }
     
     public void loadTable(){
         DefaultTableModel model = new DefaultTableModel(new String[]{
-            "Kode Anggota", "Nama", "Tanggal Simpan","Jumlah Simpanan"}, 0);
+            "Tanggal Simpan","Jumlah Uang"}, 0);
         ArrayList<Simpanan> simpanan = dbSimpanan.getSimpanan();
         for (Simpanan p : simpanan) {
             model.addRow(new Object[]{
-                p.getKode_ang(),
-                dbSimpanan.cekAnggota(p.getKode_ang()),
                 p.getTgl_simpan(),
-                p.getJum_simpanan(),
-                p.getKode_simpan()
+                p.getJum_simpanan()
             });
         }
-        viewLihatSimpanan.setA_tbLihatSimpanan(model);
+        viewLihatSimpanan.setU_tbSimpan(model);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        viewLihatSimpanan.dispose();
     }
     
 }

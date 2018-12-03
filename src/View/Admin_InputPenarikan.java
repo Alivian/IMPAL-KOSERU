@@ -71,6 +71,7 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
 
         jLabel5.setText("Jumlah Penarikan");
 
+        txJumTarik.setEditable(false);
         txJumTarik.setText("0");
         txJumTarik.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -363,6 +364,10 @@ public class Admin_InputPenarikan extends javax.swing.JFrame {
 
     public void setTxkdAnggota(String kode_ang) {
         txkdAnggota.setText(kode_ang);
+    }
+    
+    public void setEditTxJumTarik(boolean cek){
+        txJumTarik.setEditable(cek);
     }
     
     public void addActionListener(ActionListener x){

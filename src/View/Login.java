@@ -46,7 +46,6 @@ public class Login extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         L_txPass = new javax.swing.JPasswordField();
         L_txUser = new javax.swing.JTextField();
-        L_btnExit = new javax.swing.JButton();
         L_labelDaftar = new javax.swing.JLabel();
         L_btnLogin = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -71,15 +70,6 @@ public class Login extends javax.swing.JFrame {
         L_txPass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         L_txUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        L_btnExit.setBackground(new java.awt.Color(192, 57, 43));
-        L_btnExit.setText("KELUAR");
-        L_btnExit.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        L_btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                L_btnExitActionPerformed(evt);
-            }
-        });
 
         L_labelDaftar.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 13)); // NOI18N
         L_labelDaftar.setForeground(new java.awt.Color(0, 102, 102));
@@ -131,23 +121,18 @@ public class Login extends javax.swing.JFrame {
                 .addGap(68, 68, 68)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(L_txUser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(L_btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(L_btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(L_txPass, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addGap(17, 17, 17))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addGap(18, 18, 18)
-                            .addComponent(L_labelDaftar))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(L_labelDaftar))
+                            .addComponent(L_txUser, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(L_txPass, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(L_btnLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(17, 17, 17)))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -167,9 +152,7 @@ public class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(L_txPass, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(L_btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(L_btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(L_btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(L_labelDaftar)
@@ -195,17 +178,12 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void L_btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_L_btnExitActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_L_btnExitActionPerformed
-
     private void L_btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_L_btnLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_L_btnLoginActionPerformed
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton L_btnExit;
     private javax.swing.JButton L_btnLogin;
     private javax.swing.JLabel L_labelDaftar;
     private javax.swing.JPasswordField L_txPass;
@@ -231,9 +209,6 @@ public class Login extends javax.swing.JFrame {
     public JButton getbtnLogin() {
         return L_btnLogin;
     }
-    public JButton getbtnExit() {
-        return L_btnExit;
-    }
     public JLabel getlabelDaftar() {
         return L_labelDaftar;
     }
@@ -243,6 +218,5 @@ public class Login extends javax.swing.JFrame {
     }
     public void addListenerMLogin(ActionListener e){
         L_btnLogin.addActionListener(e);
-        L_btnExit.addActionListener(e);
     }
 }

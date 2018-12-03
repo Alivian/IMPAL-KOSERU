@@ -88,7 +88,6 @@ public class ControllerInputPelunasan implements ActionListener {
             String kode_ang = viewInputPelunasan.getTxKodeAnggota().toString();
             if(dbPinjaman.setLunas(kode_ang)){
                 JOptionPane.showMessageDialog(viewInputPelunasan, "Pelunasan berhasil disimpan","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
-                viewInputPelunasan.dispose();
             }
             else
                 JOptionPane.showMessageDialog(viewInputPelunasan, "Pelunasan gagal disimpan","GAGAL",JOptionPane.ERROR_MESSAGE);

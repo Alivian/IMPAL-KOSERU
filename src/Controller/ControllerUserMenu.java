@@ -5,13 +5,13 @@
  */
 package Controller;
 
-import Model.Penarikan;
+import Database.DatabasePinjaman;
 import Model.Person;
 import Model.Pinjaman;
-import Model.Simpanan;
 import View.User_MenuUser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,10 +24,7 @@ public class ControllerUserMenu implements ActionListener{
     private Person newP;
     private int totSaldo=0;
     private boolean ablePinjam;
-    private DefaultTableModel tabPinjam;
-    private DefaultTableModel tabPelunasan;
-    private DefaultTableModel tabSimpan;
-    private DefaultTableModel tabPenarikan;
+    private DatabasePinjaman dbPinjaman;
     public ControllerUserMenu(Person p) {
         this.newP=p;
         this.vUser=new User_MenuUser();
@@ -43,27 +40,15 @@ public class ControllerUserMenu implements ActionListener{
         }else{
             this.vUser.getU_txJk().setText("Perempuan");
         }
-        this.vUser.getU_txTTL().setText(p.getTmplahir()+", "+p.getTgllahir());
-        this.tabPinjam = (DefaultTableModel) vUser.getU_tblPinjam().getModel();
-        this.tabPelunasan = (DefaultTableModel) vUser.getU_tbPelunasan().getModel();
-        this.tabSimpan = (DefaultTableModel) vUser.getU_tbSimpan().getModel();
-        this.tabPenarikan = (DefaultTableModel) vUser.getU_tbPenarikan().getModel();
-        for (Pinjaman pjm: this.newP.getPinjam()){
-            tabPinjam.addRow(new Object[]{pjm.getTgl_pinjam(),pjm.getKet_pinjam(),pjm.getJum_pinjam(), pjm.getStatus_acc(),pjm.getKet_lunas()});
-            if(pjm.getKet_lunas().equals("lunas")){
-                tabPelunasan.addRow(new Object[]{pjm.getTgl_lunas(),pjm.getJum_pinjam()});
-            }else if(pjm.getStatus_acc().equals("Menunggu")||pjm.getKet_lunas().equals("belum lunas")){
-                this.ablePinjam=false;
+        dbPinjaman = new DatabasePinjaman();
+        dbPinjaman.getAllPinjaman(p.getKode_angg());
+        ArrayList<Pinjaman> pinjaman = dbPinjaman.getPinjaman();
+        for (Pinjaman pj : pinjaman) {
+            if(pj.getStatus_acc().equals("Menunggu")||pj.getKet_lunas().equals("belum lunas")){
+                this.ablePinjam = false;
             }
         }
-        for (Simpanan s : this.newP.getSimpan()){
-            this.totSaldo+=s.getJum_simpanan();
-            tabSimpan.addRow(new Object[]{s.getTgl_simpan(),s.getJum_simpanan()});
-        }
-        for (Penarikan pn : this.newP.getTarik()){
-            this.totSaldo-=pn.getJum_penarikan();
-            tabPenarikan.addRow(new Object[]{pn.getTgl_penarikan(),pn.getJum_penarikan()});
-        }
+        this.vUser.getU_txTTL().setText(p.getTmplahir()+", "+p.getTgllahir());
         this.vUser.setVisible(true);
     }
 
@@ -90,15 +75,23 @@ public class ControllerUserMenu implements ActionListener{
                 vUser.dispose();
                 new ControllerLogin();
             }
+            else if(x.equals(vUser.getBtnTerimaPenarikan())){
+                
+                new ControllerUserLihatPenarikan(newP.getKode_angg());
+            }
+            else if(x.equals(vUser.getBtnTerimaPinjaman())){
+                
+                new ControllerUserLihatPinjaman(newP.getKode_angg(),this);
+            }
+            else if(x.equals(vUser.getBtnTerimaSimpanan())){
+                
+                new ControllerUserLihatSimpanan(newP.getKode_angg());
+            }
         }
 
 
     public void setAblePinjam(boolean ablePinjam) {
         this.ablePinjam = ablePinjam;
-    }
-
-    public DefaultTableModel getTabPinjam() {
-        return tabPinjam;
     }
     
 }

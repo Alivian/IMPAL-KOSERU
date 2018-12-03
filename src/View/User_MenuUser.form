@@ -63,8 +63,8 @@
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="btnTerimaPinjaman" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnTerimaPinjaman3" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnTerimaPinjaman2" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
+                                  <Component id="btnTerimaSimpanan" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnTerimaPenarikan" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -88,9 +88,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnTerimaPinjaman2" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="btnTerimaPenarikan" min="-2" pref="41" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnTerimaPinjaman3" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="btnTerimaSimpanan" min="-2" pref="41" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnTerimaPinjaman" min="-2" pref="41" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
@@ -362,7 +362,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTerimaPinjamanActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnTerimaPinjaman2">
+    <Component class="javax.swing.JButton" name="btnTerimaPenarikan">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="a0" red="54" type="rgb"/>
@@ -373,10 +373,10 @@
         <Property name="text" type="java.lang.String" value="LIHAT PENARIKAN"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTerimaPinjaman2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTerimaPenarikanActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnTerimaPinjaman3">
+    <Component class="javax.swing.JButton" name="btnTerimaSimpanan">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="a0" red="54" type="rgb"/>
@@ -387,7 +387,7 @@
         <Property name="text" type="java.lang.String" value="LIHAT SIMPANAN"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTerimaPinjaman3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTerimaSimpananActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">

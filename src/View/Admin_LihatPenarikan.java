@@ -62,6 +62,8 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbSimpanan.setDragEnabled(true);
+        tbSimpanan.setEnabled(false);
         jScrollPane1.setViewportView(tbSimpanan);
 
         btnSelesai.setBackground(new java.awt.Color(26, 188, 156));

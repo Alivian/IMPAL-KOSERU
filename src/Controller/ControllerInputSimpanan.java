@@ -58,6 +58,7 @@ public class ControllerInputSimpanan implements ActionListener {
             String nama = dbSimpanan.cekAnggota(kode_ang);
             if(!nama.equals("")){
                 viewInputSimpanan.setTxNama(nama);
+                viewInputSimpanan.setEditTxJumSimpan(true);
                 viewInputSimpanan.setBtnOK(true);
             }else{
                 reset();
@@ -69,29 +70,37 @@ public class ControllerInputSimpanan implements ActionListener {
     }
     
     public void btnOKAnctionPerformed(){
+        int jum_simpan = 0;
         String kode_ang = viewInputSimpanan.getTxkdAnggota().toString();
         if(kode_ang.isEmpty()){
             JOptionPane.showMessageDialog(viewInputSimpanan, "Terdapat data yang kosong","GAGAL",JOptionPane.ERROR_MESSAGE);
         }else{
-            int jawab = JOptionPane.showConfirmDialog(null, 
-                    "Apakah data sudah sesuai?", 
-                    "Konfirmasi", 
-                    JOptionPane.YES_NO_OPTION, 
-                    JOptionPane.QUESTION_MESSAGE);
-            if(jawab == JOptionPane.YES_OPTION){
-                String kode_simpanan = kode_ang + "TRK" + dbSimpanan.getSum(kode_ang);
-                String tgl_simpanan = viewInputSimpanan.getTglSimpan();
-                int jum_simpanan = Integer.valueOf(viewInputSimpanan.getTxJumSimpan()) ;
-                if(jum_simpanan <= 0){
-                    JOptionPane.showMessageDialog(viewInputSimpanan, "Jumlah penarikan tidak valid","GAGAL",JOptionPane.ERROR_MESSAGE);
+            try {
+                jum_simpan = Integer.parseInt(viewInputSimpanan.getTxJumSimpan());
+                if (jum_simpan <= 0) {
+                    viewInputSimpanan.setTxJumSimpan(0);
+                    JOptionPane.showMessageDialog(viewInputSimpanan, "Jumlah simpanan tidak valid", "GAGAL", JOptionPane.ERROR_MESSAGE);
                 }else{
-                    dbSimpanan.SimpananUang(new Simpanan(
-                    jum_simpanan, kode_ang, kode_simpanan, tgl_simpanan
-                    ));
-                    reset();
-                    JOptionPane.showMessageDialog(viewInputSimpanan, "Simpan uang berhasil disimpan","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
-                    viewInputSimpanan.setBtnOK(false);
+                    int jawab = JOptionPane.showConfirmDialog(null, 
+                            "Apakah data sudah sesuai?", 
+                            "Konfirmasi", 
+                            JOptionPane.YES_NO_OPTION, 
+                            JOptionPane.QUESTION_MESSAGE);
+                    if(jawab == JOptionPane.YES_OPTION){
+                        String kode_simpanan = kode_ang + "TRK" + dbSimpanan.getSum(kode_ang);
+                        String tgl_simpanan = viewInputSimpanan.getTglSimpan();
+                        int jum_simpanan = Integer.valueOf(viewInputSimpanan.getTxJumSimpan()) ;
+                        dbSimpanan.SimpananUang(new Simpanan(
+                        jum_simpanan, kode_ang, kode_simpanan, tgl_simpanan
+                        ));
+                        reset();
+                        JOptionPane.showMessageDialog(viewInputSimpanan, "Simpan uang berhasil disimpan","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
+                        viewInputSimpanan.setBtnOK(false);
+                    }
                 }
+            }catch (NumberFormatException e) {
+                viewInputSimpanan.setTxJumSimpan(0);
+                JOptionPane.showMessageDialog(viewInputSimpanan, "Jumlah simpanan tidak valid", "GAGAL", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -100,6 +109,7 @@ public class ControllerInputSimpanan implements ActionListener {
         viewInputSimpanan.setTxkdAnggota("");
         viewInputSimpanan.setTxNama("");
         viewInputSimpanan.setTxJumSimpan(0);
+        viewInputSimpanan.setEditTxJumSimpan(false);
         viewInputSimpanan.setBtnOK(false);
     }    
     

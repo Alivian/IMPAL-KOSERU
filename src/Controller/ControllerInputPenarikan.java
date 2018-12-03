@@ -22,11 +22,12 @@ import javax.swing.table.DefaultTableModel;
  * @author Kilam
  */
 public class ControllerInputPenarikan implements ActionListener {
+
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     ArrayList<Penarikan> penarikan = new ArrayList();
     private Admin_InputPenarikan viewInputPenarikan;
     private DatabasePenarikan dbPenarikan;
-    
+
     public ControllerInputPenarikan() {
         viewInputPenarikan = new Admin_InputPenarikan();
         dbPenarikan = new DatabasePenarikan();
@@ -40,73 +41,81 @@ public class ControllerInputPenarikan implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        if (source.equals(viewInputPenarikan.getBtnCari())){
+        if (source.equals(viewInputPenarikan.getBtnCari())) {
             btnCariAnggotaActionPerformed();
-        }else if (source.equals(viewInputPenarikan.getBtnOK())){
+        } else if (source.equals(viewInputPenarikan.getBtnOK())) {
             btnOKAnctionPerformed();
-        }else if (source.equals(viewInputPenarikan.getBtnReset())){
+        } else if (source.equals(viewInputPenarikan.getBtnReset())) {
             reset();
-        }else if (source.equals(viewInputPenarikan.getBtnCancel())){
+        } else if (source.equals(viewInputPenarikan.getBtnCancel())) {
             reset();
             viewInputPenarikan.dispose();
         }
     }
-    
-    public void btnCariAnggotaActionPerformed(){
+
+    public void btnCariAnggotaActionPerformed() {
         String kode_ang = viewInputPenarikan.getTxkdAnggota().toString();
-        if(!kode_ang.equals("")){
+        if (!kode_ang.equals("")) {
             String nama = dbPenarikan.cekAnggota(kode_ang);
-            if(!nama.equals("")){
+            if (!nama.equals("")) {
                 int Saldo = dbPenarikan.cekSaldo(kode_ang);
                 viewInputPenarikan.setTxNama(nama);
                 viewInputPenarikan.setTxSaldo(Saldo);
+                viewInputPenarikan.setEditTxJumTarik(true);
                 viewInputPenarikan.setBtnOK(true);
-            }else{
+            } else {
                 reset();
-                JOptionPane.showMessageDialog(viewInputPenarikan, "Kode anggota tidak ditemukan","GAGAL",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(viewInputPenarikan, "Kode anggota tidak ditemukan", "GAGAL", JOptionPane.ERROR_MESSAGE);
             }
-        }else{
-            JOptionPane.showMessageDialog(viewInputPenarikan, "Kode anggota tidak boleh kosong","GAGAL",JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(viewInputPenarikan, "Kode anggota tidak boleh kosong", "GAGAL", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    public void btnOKAnctionPerformed(){
+
+    public void btnOKAnctionPerformed() {
+        int jum_penarikan = 0;
         String kode_ang = viewInputPenarikan.getTxkdAnggota().toString();
-        if(kode_ang.isEmpty()){
-            JOptionPane.showMessageDialog(viewInputPenarikan, "Terdapat data yang kosong","GAGAL",JOptionPane.ERROR_MESSAGE);
-        }else{
-            int jawab = JOptionPane.showConfirmDialog(null, 
-                    "Apakah data sudah sesuai?", 
-                    "Konfirmasi", 
-                    JOptionPane.YES_NO_OPTION, 
-                    JOptionPane.QUESTION_MESSAGE);
-            if(jawab == JOptionPane.YES_OPTION){
-                String kode_penarikan = kode_ang + "TRK" + dbPenarikan.getSum(kode_ang);
-                String tgl_penarikan = viewInputPenarikan.getTxtglTarik();
-                int saldo = Integer.valueOf(viewInputPenarikan.getTxSaldo());
-                int jum_penarikan = Integer.valueOf(viewInputPenarikan.getTxJumTarik());
-                if(jum_penarikan <= 0){
-                    JOptionPane.showMessageDialog(viewInputPenarikan, "Jumlah penarikan tidak valid","GAGAL",JOptionPane.ERROR_MESSAGE);
-                }else{
-                    if(jum_penarikan > saldo){
-                        JOptionPane.showMessageDialog(viewInputPenarikan, "Saldo tidak mencukupi","GAGAL",JOptionPane.ERROR_MESSAGE);
-                    }else{
+        if (kode_ang.isEmpty()) {
+            JOptionPane.showMessageDialog(viewInputPenarikan, "Terdapat data yang kosong", "GAGAL", JOptionPane.ERROR_MESSAGE);
+        } else {
+            try {
+                jum_penarikan = Integer.parseInt(viewInputPenarikan.getTxJumTarik());
+                if (jum_penarikan <= 0) {
+                    viewInputPenarikan.setTxJumTarik(0);
+                    JOptionPane.showMessageDialog(viewInputPenarikan, "Jumlah penarikan tidak valid", "GAGAL", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    int saldo = Integer.valueOf(viewInputPenarikan.getTxSaldo());
+                    if (jum_penarikan > saldo) {
+                        JOptionPane.showMessageDialog(viewInputPenarikan, "Saldo tidak mencukupi", "GAGAL", JOptionPane.ERROR_MESSAGE);
+                    }
+                    int jawab = JOptionPane.showConfirmDialog(null,
+                            "Apakah data sudah sesuai?",
+                            "Konfirmasi",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE);
+                    if (jawab == JOptionPane.YES_OPTION) {
+                        String kode_penarikan = kode_ang + "TRK" + dbPenarikan.getSum(kode_ang);
+                        String tgl_penarikan = viewInputPenarikan.getTxtglTarik();
                         dbPenarikan.PenarikanUang(new Penarikan(
                                 jum_penarikan, kode_ang, kode_penarikan, tgl_penarikan
                         ));
                         reset();
-                        JOptionPane.showMessageDialog(viewInputPenarikan, "Penarikan berhasil disimpan","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(viewInputPenarikan, "Penarikan berhasil disimpan", "BERHASIL", JOptionPane.INFORMATION_MESSAGE);
                         viewInputPenarikan.setBtnOK(false);
                     }
                 }
+            } catch (NumberFormatException e) {
+                viewInputPenarikan.setTxJumTarik(0);
+                JOptionPane.showMessageDialog(viewInputPenarikan, "Jumlah penarikan tidak valid", "GAGAL", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
-    
-    public void reset(){
+
+    public void reset() {
         viewInputPenarikan.setTxkdAnggota("");
         viewInputPenarikan.setTxNama("");
         viewInputPenarikan.setTxSaldo(0);
+        viewInputPenarikan.setEditTxJumTarik(false);
         viewInputPenarikan.setTxJumTarik(0);
         viewInputPenarikan.setBtnOK(false);
     }

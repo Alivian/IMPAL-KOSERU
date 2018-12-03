@@ -61,6 +61,7 @@ public class Admin_LihatPinjaman extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbLihatPinjaman.setEnabled(false);
         jScrollPane1.setViewportView(tbLihatPinjaman);
 
         btnSelesai.setBackground(new java.awt.Color(26, 188, 156));

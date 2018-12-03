@@ -36,6 +36,9 @@ public class User_MenuUser extends javax.swing.JFrame {
         U_btnEdit.addActionListener(e);
         U_btnLogout.addActionListener(e);
         U_btnReqPinjam.addActionListener(e);
+        btnTerimaPenarikan.addActionListener(e);
+        btnTerimaPinjaman.addActionListener(e);
+        btnTerimaSimpanan.addActionListener(e);
     }
 
     public JButton getU_btnCekSaldo() {
@@ -82,20 +85,16 @@ public class User_MenuUser extends javax.swing.JFrame {
         return U_txTTL;
     }
 
-    public JTable getU_tbPelunasan() {
-        return U_tbPelunasan;
+    public JButton getBtnTerimaPenarikan() {
+        return btnTerimaPenarikan;
     }
 
-    public JTable getU_tbPenarikan() {
-        return U_tbPenarikan;
+    public JButton getBtnTerimaPinjaman() {
+        return btnTerimaPinjaman;
     }
 
-    public JTable getU_tbSimpan() {
-        return U_tbSimpan;
-    }
-
-    public JTable getU_tblPinjam() {
-        return U_tblPinjam;
+    public JButton getBtnTerimaSimpanan() {
+        return btnTerimaSimpanan;
     }
     
     /**
@@ -130,8 +129,8 @@ public class User_MenuUser extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btnTerimaPinjaman = new javax.swing.JButton();
-        btnTerimaPinjaman2 = new javax.swing.JButton();
-        btnTerimaPinjaman3 = new javax.swing.JButton();
+        btnTerimaPenarikan = new javax.swing.JButton();
+        btnTerimaSimpanan = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
@@ -310,21 +309,21 @@ public class User_MenuUser extends javax.swing.JFrame {
             }
         });
 
-        btnTerimaPinjaman2.setBackground(new java.awt.Color(84, 160, 255));
-        btnTerimaPinjaman2.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
-        btnTerimaPinjaman2.setText("LIHAT PENARIKAN");
-        btnTerimaPinjaman2.addActionListener(new java.awt.event.ActionListener() {
+        btnTerimaPenarikan.setBackground(new java.awt.Color(84, 160, 255));
+        btnTerimaPenarikan.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
+        btnTerimaPenarikan.setText("LIHAT PENARIKAN");
+        btnTerimaPenarikan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTerimaPinjaman2ActionPerformed(evt);
+                btnTerimaPenarikanActionPerformed(evt);
             }
         });
 
-        btnTerimaPinjaman3.setBackground(new java.awt.Color(84, 160, 255));
-        btnTerimaPinjaman3.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
-        btnTerimaPinjaman3.setText("LIHAT SIMPANAN");
-        btnTerimaPinjaman3.addActionListener(new java.awt.event.ActionListener() {
+        btnTerimaSimpanan.setBackground(new java.awt.Color(84, 160, 255));
+        btnTerimaSimpanan.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
+        btnTerimaSimpanan.setText("LIHAT SIMPANAN");
+        btnTerimaSimpanan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTerimaPinjaman3ActionPerformed(evt);
+                btnTerimaSimpananActionPerformed(evt);
             }
         });
 
@@ -355,8 +354,8 @@ public class User_MenuUser extends javax.swing.JFrame {
                                 .addGap(17, 17, 17)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(btnTerimaPinjaman, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnTerimaPinjaman3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnTerimaPinjaman2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnTerimaSimpanan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnTerimaPenarikan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap())))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -372,9 +371,9 @@ public class User_MenuUser extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnTerimaPinjaman2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnTerimaPenarikan, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnTerimaPinjaman3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnTerimaSimpanan, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnTerimaPinjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(67, 67, 67)
@@ -411,13 +410,13 @@ public class User_MenuUser extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTerimaPinjamanActionPerformed
 
-    private void btnTerimaPinjaman2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerimaPinjaman2ActionPerformed
+    private void btnTerimaPenarikanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerimaPenarikanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnTerimaPinjaman2ActionPerformed
+    }//GEN-LAST:event_btnTerimaPenarikanActionPerformed
 
-    private void btnTerimaPinjaman3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerimaPinjaman3ActionPerformed
+    private void btnTerimaSimpananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerimaSimpananActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnTerimaPinjaman3ActionPerformed
+    }//GEN-LAST:event_btnTerimaSimpananActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton U_btnCekSaldo;
@@ -431,9 +430,9 @@ public class User_MenuUser extends javax.swing.JFrame {
     private javax.swing.JTextField U_txNama;
     private javax.swing.JTextField U_txProfesi;
     private javax.swing.JTextField U_txTTL;
+    private javax.swing.JButton btnTerimaPenarikan;
     private javax.swing.JButton btnTerimaPinjaman;
-    private javax.swing.JButton btnTerimaPinjaman2;
-    private javax.swing.JButton btnTerimaPinjaman3;
+    private javax.swing.JButton btnTerimaSimpanan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

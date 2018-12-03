@@ -81,6 +81,7 @@ public class ControllerTerimaPinjaman extends MouseAdapter implements ActionList
             System.out.println(e.getMessage());
         }
         viewTerimaPinjaman.setBtnTerima(false);
+        viewTerimaPinjaman.setBtnTolak(false);
     }
     
     public void btnTolakAnctionPerformed(){
@@ -94,6 +95,7 @@ public class ControllerTerimaPinjaman extends MouseAdapter implements ActionList
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
+        viewTerimaPinjaman.setBtnTerima(false);
         viewTerimaPinjaman.setBtnTolak(false);
     }
     

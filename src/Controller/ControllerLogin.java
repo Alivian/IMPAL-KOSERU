@@ -134,8 +134,6 @@ public class ControllerLogin {
                 else{
                     JOptionPane.showMessageDialog(vLogin, "Username atau password salah","GAGAL",JOptionPane.ERROR_MESSAGE);
                 }
-            } else if (x.equals(vLogin.getbtnExit())){
-                vLogin.dispose();
             }
         }
     }
