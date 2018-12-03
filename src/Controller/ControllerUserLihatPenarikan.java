@@ -44,7 +44,10 @@ public class ControllerUserLihatPenarikan implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        viewLihatPenarikan.dispose();
+        Object x=e.getSource();
+        if(x==viewLihatPenarikan.getBtnKembali()){
+            viewLihatPenarikan.dispose();
+        }
     }
     
 }

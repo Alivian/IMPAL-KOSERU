@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Database.DatabasePenarikan;
 import Database.DatabasePinjaman;
 import Database.DatabaseSimpanan;
 import Model.Simpanan;
@@ -24,7 +25,7 @@ public class ControllerUserLihatSimpanan implements ActionListener{
     private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     private User_LihatSimpanan viewLihatSimpanan;
     private DatabaseSimpanan dbSimpanan;
-    
+    private DatabasePenarikan dbPenarikan;
     public ControllerUserLihatSimpanan(String kode_ang) {
         viewLihatSimpanan = new User_LihatSimpanan();
         viewLihatSimpanan.setLocationRelativeTo(null);
@@ -49,7 +50,10 @@ public class ControllerUserLihatSimpanan implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        viewLihatSimpanan.dispose();
+        Object x=e.getSource();
+        if(x==viewLihatSimpanan.getBtnKembali()){
+            viewLihatSimpanan.dispose();
+        }
     }
     
 }

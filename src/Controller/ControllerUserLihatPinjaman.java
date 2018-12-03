@@ -60,6 +60,9 @@ public class ControllerUserLihatPinjaman implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        viewLihatPinjaman.dispose();
+        Object x=e.getSource();
+        if(x==viewLihatPinjaman.getBtnKembali()){
+            viewLihatPinjaman.dispose();
+        }
     }
 }

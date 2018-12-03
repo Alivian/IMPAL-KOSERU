@@ -4,6 +4,7 @@ package View;
 
 
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -205,5 +206,8 @@ public class User_LihatPinjaman extends javax.swing.JFrame {
     
     public void addListener(ActionListener e){
         btnKembali.addActionListener(e);
+    }
+    public JButton getBtnKembali() {
+        return btnKembali;
     }
 }
