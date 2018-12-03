@@ -63,6 +63,7 @@ public class Admin_LihatSimpanan extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbLihatSimpanan);
 
+        A_RiwSimpan_btnSelesai.setBackground(new java.awt.Color(26, 188, 156));
         A_RiwSimpan_btnSelesai.setText("Selesai");
         A_RiwSimpan_btnSelesai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,8 +90,7 @@ public class Admin_LihatSimpanan extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(A_RiwSimpan_btnSelesai)
-                .addContainerGap())
+                .addComponent(A_RiwSimpan_btnSelesai, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/KoserDaftarSimpanan.png"))); // NOI18N

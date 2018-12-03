@@ -64,6 +64,7 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbSimpanan);
 
+        btnSelesai.setBackground(new java.awt.Color(26, 188, 156));
         btnSelesai.setText("Selesai");
         btnSelesai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,8 +91,7 @@ public class Admin_LihatPenarikan extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSelesai)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addComponent(btnSelesai, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
         );
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/KoserDaftarPenarikan.png"))); // NOI18N

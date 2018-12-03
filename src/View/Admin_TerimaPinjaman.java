@@ -66,6 +66,7 @@ public class Admin_TerimaPinjaman extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblReqPinjaman);
 
+        btnTerima.setBackground(new java.awt.Color(26, 188, 156));
         btnTerima.setText("Terima");
         btnTerima.setEnabled(false);
         btnTerima.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -79,6 +80,7 @@ public class Admin_TerimaPinjaman extends javax.swing.JFrame {
             }
         });
 
+        btnTolak.setBackground(new java.awt.Color(192, 57, 43));
         btnTolak.setText("Tolak");
         btnTolak.setEnabled(false);
         btnTolak.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -88,7 +90,6 @@ public class Admin_TerimaPinjaman extends javax.swing.JFrame {
         });
 
         btnSelesai.setText("Selesai");
-        btnSelesai.setActionCommand("Selesai");
         btnSelesai.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSelesaiMouseClicked(evt);
@@ -117,12 +118,10 @@ public class Admin_TerimaPinjaman extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnTolak)
-                        .addComponent(btnSelesai))
-                    .addComponent(btnTerima))
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSelesai, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(btnTerima, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTolak, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/KOSERMENUDADMIN.png"))); // NOI18N
@@ -174,8 +173,6 @@ public class Admin_TerimaPinjaman extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton A_RiwSimpan_btnSelesai;
-    private javax.swing.JButton A_RiwSimpan_btnSelesai1;
     private javax.swing.JButton btnSelesai;
     private javax.swing.JButton btnTerima;
     private javax.swing.JButton btnTolak;

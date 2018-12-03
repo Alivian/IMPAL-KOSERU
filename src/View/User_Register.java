@@ -135,6 +135,7 @@ public class User_Register extends javax.swing.JFrame {
 
         jLabel6.setText("No Telephone/Hp");
 
+        R_btnRegis.setBackground(new java.awt.Color(26, 188, 156));
         R_btnRegis.setText("REGISTRASI");
 
         jLabel9.setText("Email");
@@ -227,8 +228,8 @@ public class User_Register extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(R_txEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(R_btnRegis)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(R_btnRegis, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 

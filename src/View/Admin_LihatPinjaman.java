@@ -63,6 +63,7 @@ public class Admin_LihatPinjaman extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbLihatPinjaman);
 
+        btnSelesai.setBackground(new java.awt.Color(26, 188, 156));
         btnSelesai.setText("Selesai");
         btnSelesai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,8 +90,7 @@ public class Admin_LihatPinjaman extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSelesai)
-                .addContainerGap())
+                .addComponent(btnSelesai, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/KoserDaftarPinjaman.png"))); // NOI18N
