@@ -46,10 +46,6 @@ public class User_ReqPinjam extends javax.swing.JFrame {
         return U_txKetPinjam;
     }
 
-    public JComboBox<String> getBanyakCicilan() {
-        return BanyakCicilan;
-    }
-
     public JButton getU_ReqbtnCancel() {
         return U_ReqbtnCancel;
     }
@@ -62,10 +58,6 @@ public class User_ReqPinjam extends javax.swing.JFrame {
         return U_ReqbtnReset;
     }
 
-    public JTextField getU_txTagihan() {
-        return U_txTagihan;
-    }
-
     public JTextField getU_txJumPinjam() {
         return U_txJumPinjam;
     }
@@ -74,14 +66,8 @@ public class User_ReqPinjam extends javax.swing.JFrame {
         U_ReqbtnCancel.addActionListener(e);
         U_ReqbtnOK.addActionListener(e);
         U_ReqbtnReset.addActionListener(e);
-        U_txTagihan.addActionListener(e);
-        BanyakCicilan.addActionListener(e);
     }
     
-    @Override
-    public void addFocusListener(FocusListener e){
-        U_txJumPinjam.addFocusListener(e);
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -102,10 +88,6 @@ public class User_ReqPinjam extends javax.swing.JFrame {
         U_ReqbtnOK = new javax.swing.JButton();
         U_ReqbtnReset = new javax.swing.JButton();
         U_ReqbtnCancel = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        U_txTagihan = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        BanyakCicilan = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
 
         jLabel4.setText("jLabel4");
@@ -166,24 +148,6 @@ public class User_ReqPinjam extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Jumlah Tagihan per bulan");
-
-        U_txTagihan.setEditable(false);
-        U_txTagihan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                U_txTagihanActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setText("Banyaknya cicilan");
-
-        BanyakCicilan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Pilih Banyaknya Cicilan --", "3", "6", "9", "12" }));
-        BanyakCicilan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BanyakCicilanActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -194,21 +158,17 @@ public class User_ReqPinjam extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
                     .addComponent(U_ReqbtnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGap(62, 62, 62)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(U_ReqbtnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                         .addComponent(U_ReqbtnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(U_txTagihan)
                     .addComponent(U_txDatePinjam)
                     .addComponent(U_txKetPinjam)
-                    .addComponent(U_txJumPinjam)
-                    .addComponent(BanyakCicilan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(U_txJumPinjam))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -226,15 +186,7 @@ public class User_ReqPinjam extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(U_txJumPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BanyakCicilan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(U_txTagihan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(120, 120, 120)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -299,30 +251,18 @@ public class User_ReqPinjam extends javax.swing.JFrame {
 
     }//GEN-LAST:event_U_ReqbtnCancelActionPerformed
 
-    private void U_txTagihanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_U_txTagihanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_U_txTagihanActionPerformed
-
-    private void BanyakCicilanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BanyakCicilanActionPerformed
-
-    }//GEN-LAST:event_BanyakCicilanActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> BanyakCicilan;
     private javax.swing.JButton U_ReqbtnCancel;
     private javax.swing.JButton U_ReqbtnOK;
     private javax.swing.JButton U_ReqbtnReset;
     private javax.swing.JTextField U_txDatePinjam;
     private javax.swing.JTextField U_txJumPinjam;
     private javax.swing.JTextField U_txKetPinjam;
-    private javax.swing.JTextField U_txTagihan;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

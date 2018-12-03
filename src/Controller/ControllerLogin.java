@@ -89,20 +89,26 @@ public class ControllerLogin {
                 String pass2 = Arrays.toString(vRegis.getPass2().getPassword());
                 
                 if(username.length()==0||pass.length()==0||id.length()==0||no_telp.length()==0||lhr_tgl.length()==0||lhr_tmp.length()==0||email.length()==0||kerja.length()==0){
-                    JOptionPane.showMessageDialog(vRegis, "Data tidak boleh kosong");
+                    JOptionPane.showMessageDialog(vRegis, "Data tidak boleh kosong","GAGAL",JOptionPane.ERROR_MESSAGE);
                 }  else if (pass1.compareTo(pass2)!=0){
-                    JOptionPane.showMessageDialog(vRegis, "Password tidak sama");
+                    JOptionPane.showMessageDialog(vRegis, "Password tidak sama","GAGAL",JOptionPane.ERROR_MESSAGE);
                 }else {
-                    int hasil =akun.regis(new Person(id,nama,kerja,lhr_tmp,Date.valueOf(lhr_tgl),email,status,no_telp,username,pass,null,null,null));
-                    if(hasil==1){
-                        JOptionPane.showMessageDialog(vRegis, "Akun baru telah terdaftar","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
-                        vRegis.dispose();
-                    }else if(hasil==2){
+                    try{
+                        int cekInteger = Integer.parseInt(vRegis.getTlp());
                         
-                        JOptionPane.showMessageDialog(vRegis, "Username sudah ada","GAGAL",JOptionPane.ERROR_MESSAGE);
-                    }
-                    else {
-                        JOptionPane.showMessageDialog(vRegis, "Data gagal diinput","GAGAL",JOptionPane.ERROR_MESSAGE);
+                        int hasil =akun.regis(new Person(id,nama,kerja,lhr_tmp,Date.valueOf(lhr_tgl),email,status,no_telp,username,pass,null,null,null));
+                        if(hasil==1){
+                            JOptionPane.showMessageDialog(vRegis, "Akun baru telah terdaftar","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
+                            vRegis.dispose();
+                        }else if(hasil==2){
+
+                            JOptionPane.showMessageDialog(vRegis, "Username sudah ada","GAGAL",JOptionPane.ERROR_MESSAGE);
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(vRegis, "Data gagal diinput","GAGAL",JOptionPane.ERROR_MESSAGE);
+                        }
+                    }catch(Exception ex){
+                        JOptionPane.showMessageDialog(vRegis, "Nomor telpon harus dalam angka  ","GAGAL",JOptionPane.ERROR_MESSAGE);
                     }
                 }
             }

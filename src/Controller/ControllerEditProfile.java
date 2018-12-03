@@ -8,6 +8,7 @@ package Controller;
 import Database.DatabaseUser;
 import Model.Person;
 import View.User_EditProfile;
+import View.User_MenuUser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
@@ -22,7 +23,9 @@ public class ControllerEditProfile {
     private User_EditProfile vEdit;
     private DatabaseUser dbUser= new DatabaseUser();
     private Person updateP;
-    public ControllerEditProfile(Person p) {
+    private User_MenuUser vUser;
+    public ControllerEditProfile(Person p, User_MenuUser vUser) {
+        this.vUser=vUser;
         this.vEdit= new User_EditProfile();
         this.vEdit.addListener(new EditProfileListener());
         this.vEdit.getE_txNama().setText(p.getNama());
@@ -54,18 +57,28 @@ public class ControllerEditProfile {
                         vEdit.getE_cbJK().getSelectedIndex()==0){
                     JOptionPane.showMessageDialog(vEdit, "Semua Data Harus Terisi","PERHATIAN",JOptionPane.INFORMATION_MESSAGE);
                 }else {
-                    updateP.setNama(vEdit.getE_txNama().getText());
-                    updateP.setEmail(vEdit.getE_txEmail().getText());
-                    updateP.setNo_telp(vEdit.getE_txTlp().getText());
-                    updateP.setProfesi(vEdit.getE_txProf().getText());
-                    System.out.println(Date.valueOf(vEdit.getE_Kalen().getText()));
-                    updateP.setTglL(Date.valueOf(vEdit.getE_Kalen().getText()));
-                    System.out.println(updateP.getTgllahir().toString());
-                    updateP.setTmpL(vEdit.getE_txTempat().getText());
-                    if(dbUser.update(updateP)==true){
-                        JOptionPane.showMessageDialog(vEdit, "Data anggota telah terupdate","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
-                    }else{
-                        JOptionPane.showMessageDialog(vEdit, "Kesalahan, hubungi pegawai","GAGAL",JOptionPane.ERROR_MESSAGE);
+                    try{
+                        int cekinteger = Integer.parseInt(vEdit.getE_txTlp().getText());
+                        
+                        updateP.setNama(vEdit.getE_txNama().getText());
+                        updateP.setEmail(vEdit.getE_txEmail().getText());
+                        updateP.setNo_telp(vEdit.getE_txTlp().getText());
+                        updateP.setProfesi(vEdit.getE_txProf().getText());
+                        updateP.setTglL(Date.valueOf(vEdit.getE_Kalen().getText()));
+                        updateP.setTmpL(vEdit.getE_txTempat().getText());
+                        if(dbUser.update(updateP)==true){
+                            vUser.getU_txNama().setText(updateP.getNama());
+                            vUser.getU_txEmail().setText(updateP.getEmail());
+                            vUser.getU_txNoTelp().setText(updateP.getNo_telp());
+                            vUser.getU_txProfesi().setText(updateP.getProfesi());
+                            vUser.getU_txTTL().setText(updateP.getTmplahir()+", "+updateP.getTgllahir());
+                            JOptionPane.showMessageDialog(vEdit, "Data anggota telah terupdate","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
+                            vEdit.dispose();
+                        }else{
+                            JOptionPane.showMessageDialog(vEdit, "Kesalahan, hubungi pegawai","GAGAL",JOptionPane.ERROR_MESSAGE);
+                        }
+                    }catch(Exception ex){
+                        JOptionPane.showMessageDialog(vEdit, "Nomor Telpon harus dalam angka","GAGAL",JOptionPane.ERROR_MESSAGE);
                     }
                 }
             }

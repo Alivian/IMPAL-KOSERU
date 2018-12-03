@@ -23,6 +23,7 @@ public class ControllerUserMenu {
     private User_MenuUser vUser;
     private Person newP;
     private int totSaldo=0;
+    private boolean ablePinjam;
     private DefaultTableModel tabPinjam;
     private DefaultTableModel tabPelunasan;
     private DefaultTableModel tabSimpan;
@@ -30,6 +31,7 @@ public class ControllerUserMenu {
     public ControllerUserMenu(Person p) {
         this.newP=p;
         this.vUser=new User_MenuUser();
+        this.ablePinjam = true;
         this.vUser.addListenerMUser(new UserMenuListener());
         this.vUser.getU_txEmail().setText(p.getEmail());
         this.vUser.getU_txKd_Anggota().setText(p.getKode_angg());
@@ -45,6 +47,8 @@ public class ControllerUserMenu {
             tabPinjam.addRow(new Object[]{pjm.getTgl_pinjam(),pjm.getKet_pinjam(),pjm.getJum_pinjam(), pjm.getStatus_acc(),pjm.getKet_lunas()});
             if(pjm.getKet_lunas().equals("lunas")){
                 tabPelunasan.addRow(new Object[]{pjm.getTgl_lunas(),pjm.getJum_pinjam()});
+            }else if(pjm.getKet_pinjam().equals("Menunggu")||pjm.getKet_lunas().equals("belum lunas")){
+                this.ablePinjam=false;
             }
         }
         for (Simpanan s : this.newP.getSimpan()){
@@ -64,13 +68,18 @@ public class ControllerUserMenu {
         public void actionPerformed(ActionEvent e) {
             Object x=e.getSource();
             if(x.equals(vUser.getU_btnReqPinjam())){
-                new ControllerReqPinjaman(newP,tabPinjam);
+                if(ablePinjam==true){
+                    new ControllerReqPinjaman(newP,tabPinjam);
+                }
+                else{
+                    JOptionPane.showMessageDialog(vUser,"Tidak bisa melakukan request","GAGAL",JOptionPane.ERROR_MESSAGE);
+                }
             }
             else if(x.equals(vUser.getU_btnCekSaldo())){
                 JOptionPane.showMessageDialog(vUser,"Jumlah saldo saat ini : Rp"+totSaldo,"SALDO",JOptionPane.INFORMATION_MESSAGE);
             }
             else if(x.equals(vUser.getU_btnEdit())){
-                new ControllerEditProfile(newP);
+                new ControllerEditProfile(newP,vUser);
             }
             else if(x.equals(vUser.getU_btnLogout())){
                 vUser.dispose();

@@ -50,6 +50,7 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
             System.out.println(e.getMessage());
             
         }
+        disconnect();
         return value;
     }
     
@@ -61,10 +62,12 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
             ResultSet rs = stmt.executeQuery(query);
             rs.next();
             sum=rs.getInt(1)+1;
+            disconnect();
             return sum;
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
+        disconnect();
         return sum;
     }
     
