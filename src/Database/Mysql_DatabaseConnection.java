@@ -36,17 +36,21 @@ public class Mysql_DatabaseConnection {
              con = DriverManager.getConnection(url, user, pass);
              stmt = con.createStatement();
              System.out.println("Database terhubung");
-         } catch (Exception ex){
-             System.out.println(ex.getMessage());
-             System.out.println("Database gagal");
+         } catch (SQLException ex){
+             System.out.println(ex.getLocalizedMessage());
+             if(ex.getMessage().equals("Communications link failure")){
+                 System.out.println("Database gagal");
+             }
          }
     }
     
     public void disconnect(){
         try {
+            System.out.println("this");
             con.close();
             stmt.close();
         } catch (SQLException ex) {
+            System.out.println("this");
             Logger.getLogger(Mysql_DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

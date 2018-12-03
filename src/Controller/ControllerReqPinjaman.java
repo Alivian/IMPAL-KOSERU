@@ -57,10 +57,6 @@ public class ControllerReqPinjaman {
 }
 
     class RegPinjamFListener implements FocusListener {
-
-        public RegPinjamFListener() {
-        }
-
         @Override
         public void focusGained(FocusEvent e) {
             

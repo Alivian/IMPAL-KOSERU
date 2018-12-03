@@ -27,9 +27,9 @@ public class ControllerEditProfile {
         this.vEdit.addListener(new EditProfileListener());
         this.vEdit.getE_txNama().setText(p.getNama());
         this.vEdit.getE_txKode_ang().setText(p.getKode_angg());
-        Calendar c= Calendar.getInstance();
-        c.setTime(p.getTgllahir());
-        this.vEdit.getE_Kalen().setSelectedDate(c);
+        Calendar d= Calendar.getInstance();
+        d.setTime(p.getTgllahir());
+        this.vEdit.getE_Kalen().setSelectedDate(d);
         this.vEdit.getE_txTempat().setText(p.getTmplahir());
         this.vEdit.getE_txEmail().setText(p.getEmail());
         this.vEdit.getE_txProf().setText(p.getProfesi());

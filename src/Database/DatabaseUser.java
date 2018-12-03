@@ -48,6 +48,7 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
             }
         } catch(Exception e){
             System.out.println(e.getMessage());
+            
         }
         return value;
     }
@@ -139,7 +140,6 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
                 dbPinjam.getAllPinjaman(rs.getString("kode_ang"));
                 dbSimpan.getAllSimpanan(rs.getString("kode_ang"));
                 dbTarik.getPenarikanUser(rs.getString("kode_ang"));
-                System.out.println("ni?");
                 prsn = new Person(rs.getString("kode_ang"),rs.getString("nama_ang"),rs.getString("pekerjaan"),rs.getString("tempat_lahir"),
                         rs.getDate("tanggal_lahir"),rs.getString("email"),rs.getString("status"),rs.getString("no_telp"),
                         rs.getString("username"),rs.getString("password"),dbPinjam.getPinjaman(),dbSimpan.getSimpanan(),dbTarik.getPenarikan());
