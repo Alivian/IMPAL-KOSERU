@@ -87,21 +87,22 @@ public class ControllerInputPenarikan implements ActionListener {
                     int saldo = Integer.valueOf(viewInputPenarikan.getTxSaldo());
                     if (jum_penarikan > saldo) {
                         JOptionPane.showMessageDialog(viewInputPenarikan, "Saldo tidak mencukupi", "GAGAL", JOptionPane.ERROR_MESSAGE);
-                    }
-                    int jawab = JOptionPane.showConfirmDialog(null,
-                            "Apakah data sudah sesuai?",
-                            "Konfirmasi",
-                            JOptionPane.YES_NO_OPTION,
-                            JOptionPane.QUESTION_MESSAGE);
-                    if (jawab == JOptionPane.YES_OPTION) {
-                        String kode_penarikan = kode_ang + "TRK" + dbPenarikan.getSum(kode_ang);
-                        String tgl_penarikan = viewInputPenarikan.getTxtglTarik();
-                        dbPenarikan.PenarikanUang(new Penarikan(
-                                jum_penarikan, kode_ang, kode_penarikan, tgl_penarikan
-                        ));
-                        reset();
-                        JOptionPane.showMessageDialog(viewInputPenarikan, "Penarikan berhasil disimpan", "BERHASIL", JOptionPane.INFORMATION_MESSAGE);
-                        viewInputPenarikan.setBtnOK(false);
+                    }else{
+                        int jawab = JOptionPane.showConfirmDialog(null,
+                                "Apakah data sudah sesuai?",
+                                "Konfirmasi",
+                                JOptionPane.YES_NO_OPTION,
+                                JOptionPane.QUESTION_MESSAGE);
+                        if (jawab == JOptionPane.YES_OPTION) {
+                            String kode_penarikan = kode_ang + "TRK" + dbPenarikan.getSum(kode_ang);
+                            String tgl_penarikan = viewInputPenarikan.getTxtglTarik();
+                            dbPenarikan.PenarikanUang(new Penarikan(
+                                    jum_penarikan, kode_ang, kode_penarikan, tgl_penarikan
+                            ));
+                            reset();
+                            JOptionPane.showMessageDialog(viewInputPenarikan, "Penarikan berhasil disimpan", "BERHASIL", JOptionPane.INFORMATION_MESSAGE);
+                            viewInputPenarikan.setBtnOK(false);
+                        }
                     }
                 }
             } catch (NumberFormatException e) {
