@@ -64,7 +64,7 @@ public class Admin_LihatSimpanan extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbLihatSimpanan);
 
         A_RiwSimpan_btnSelesai.setBackground(new java.awt.Color(26, 188, 156));
-        A_RiwSimpan_btnSelesai.setText("Selesai");
+        A_RiwSimpan_btnSelesai.setText("SELESAI");
         A_RiwSimpan_btnSelesai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 A_RiwSimpan_btnSelesaiActionPerformed(evt);

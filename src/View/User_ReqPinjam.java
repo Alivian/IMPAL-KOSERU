@@ -143,7 +143,7 @@ public class User_ReqPinjam extends javax.swing.JFrame {
         });
 
         U_ReqbtnCancel.setBackground(new java.awt.Color(192, 57, 43));
-        U_ReqbtnCancel.setText("CANCEL");
+        U_ReqbtnCancel.setText("BATAL");
         U_ReqbtnCancel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         U_ReqbtnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -98,7 +98,7 @@ public class Admin_InputSimpanan extends javax.swing.JFrame {
         });
 
         btnCancel.setBackground(new java.awt.Color(192, 57, 43));
-        btnCancel.setText("CANCEL");
+        btnCancel.setText("BATAL");
         btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCancelMouseClicked(evt);

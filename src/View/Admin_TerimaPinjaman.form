@@ -166,7 +166,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="9c" green="bc" red="1a" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Terima"/>
+            <Property name="text" type="java.lang.String" value="TERIMA"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -179,7 +179,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="2b" green="39" red="c0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Tolak"/>
+            <Property name="text" type="java.lang.String" value="TOLAK"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -188,7 +188,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnSelesai">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Selesai"/>
+            <Property name="text" type="java.lang.String" value="SELESAI"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSelesaiMouseClicked"/>

@@ -204,7 +204,7 @@ public class Admin_MenuAdmin extends javax.swing.JFrame {
 
         btnLogout.setBackground(new java.awt.Color(192, 57, 43));
         btnLogout.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
-        btnLogout.setText("LOGOUT");
+        btnLogout.setText("KELUAR");
         btnLogout.setToolTipText("");
         btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

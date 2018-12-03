@@ -73,6 +73,8 @@ public class ControllerReqPinjaman implements ActionListener{
             }else if(x.equals(vReqPinjam.getU_ReqbtnOK())){
                 if(vReqPinjam.getU_txJumPinjam().getText().length()==0||vReqPinjam.getU_txKetPinjam().getText().length()==0){
                     JOptionPane.showMessageDialog(vReqPinjam, "Isi semua data dengan benar","GAGAL",JOptionPane.ERROR_MESSAGE);
+                }else if(Integer.parseInt(vReqPinjam.getU_txJumPinjam().getText())<=0){
+                    JOptionPane.showMessageDialog(vReqPinjam, "Jumlah pinjaman harus lebih besar dari 0","GAGAL",JOptionPane.ERROR_MESSAGE);
                 }else{
                     try{
                         int jumlah = Integer.parseInt(vReqPinjam.getU_txJumPinjam().getText());

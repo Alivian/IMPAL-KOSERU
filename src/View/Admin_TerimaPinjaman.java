@@ -67,7 +67,7 @@ public class Admin_TerimaPinjaman extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblReqPinjaman);
 
         btnTerima.setBackground(new java.awt.Color(26, 188, 156));
-        btnTerima.setText("Terima");
+        btnTerima.setText("TERIMA");
         btnTerima.setEnabled(false);
         btnTerima.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -81,7 +81,7 @@ public class Admin_TerimaPinjaman extends javax.swing.JFrame {
         });
 
         btnTolak.setBackground(new java.awt.Color(192, 57, 43));
-        btnTolak.setText("Tolak");
+        btnTolak.setText("TOLAK");
         btnTolak.setEnabled(false);
         btnTolak.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -89,7 +89,7 @@ public class Admin_TerimaPinjaman extends javax.swing.JFrame {
             }
         });
 
-        btnSelesai.setText("Selesai");
+        btnSelesai.setText("SELESAI");
         btnSelesai.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSelesaiMouseClicked(evt);
