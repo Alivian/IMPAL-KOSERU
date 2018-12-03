@@ -124,6 +124,7 @@ public class User_ReqPinjam extends javax.swing.JFrame {
             }
         });
 
+        U_ReqbtnOK.setBackground(new java.awt.Color(26, 188, 156));
         U_ReqbtnOK.setText("OK");
         U_ReqbtnOK.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         U_ReqbtnOK.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +133,7 @@ public class User_ReqPinjam extends javax.swing.JFrame {
             }
         });
 
+        U_ReqbtnReset.setBackground(new java.awt.Color(244, 208, 63));
         U_ReqbtnReset.setText("RESET");
         U_ReqbtnReset.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         U_ReqbtnReset.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +142,7 @@ public class User_ReqPinjam extends javax.swing.JFrame {
             }
         });
 
+        U_ReqbtnCancel.setBackground(new java.awt.Color(192, 57, 43));
         U_ReqbtnCancel.setText("CANCEL");
         U_ReqbtnCancel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         U_ReqbtnCancel.addActionListener(new java.awt.event.ActionListener() {
