@@ -58,7 +58,8 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
         int sum=0;
         connect();
         try{
-            String query = "select count(kode_ang) from anggota";
+            String query = "select count(kode_ang) from anggota where status="
+                    + "'ang'";
             ResultSet rs = stmt.executeQuery(query);
             rs.next();
             sum=rs.getInt(1)+1;
@@ -79,9 +80,6 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
             query +="='"+prsn.getUsername()+"'";
             ResultSet rs = stmt.executeQuery(query);
             if(!rs.isBeforeFirst()){
-                disconnect();
-                return 2;
-            }else{
                 query = "insert into anggota values (";
                 query +="'" + prsn.getKode_angg()+ "',";
                 query +="'" + prsn.getNama() + "',";
@@ -99,6 +97,9 @@ public class DatabaseUser extends Mysql_DatabaseConnection{
                     disconnect();
                     return 1;
                 }
+            }else{
+                disconnect();
+                return 2;
             }
         } catch (Exception e){
             System.out.println(e);

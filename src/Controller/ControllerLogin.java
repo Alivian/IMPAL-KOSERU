@@ -40,13 +40,11 @@ public class ControllerLogin {
         public void mouseClicked(MouseEvent e) {
             Object x = e.getSource();
             if (x.equals(vLogin.getlabelDaftar())){
-                vLogin.dispose();
                 vRegis =new View.User_Register();
                 vRegis.addListener(new RegisListener());
                 vRegis.setKodeAng("AN"+Integer.toString(akun.getSum()));
                 vRegis.setVisible(true);
-                System.out.println("DAFTAR");
-            }//To change body of generated methods, choose Tools | Templates.
+            }
         }
 
         @Override
@@ -108,7 +106,6 @@ public class ControllerLogin {
                     if(hasil==1){
                         JOptionPane.showMessageDialog(vRegis, "Akun baru telah terdaftar","BERHASIL",JOptionPane.INFORMATION_MESSAGE);
                         vRegis.dispose();
-                        vLogin.setVisible(true);
                     }else if(hasil==2){
                         JOptionPane.showMessageDialog(vRegis, "Username sudah ada","GAGAL",JOptionPane.ERROR_MESSAGE);
                     }
@@ -139,11 +136,6 @@ public class ControllerLogin {
                 }
             } else if (x.equals(vLogin.getbtnExit())){
                 vLogin.dispose();
-            }else if (x.equals(vLogin.getlabelDaftar())){
-                vLogin.setVisible(false);
-                vRegis =new View.User_Register();
-                vRegis.addListener(new RegisListener());
-                vRegis.setVisible(true);
             }
         }
     }
